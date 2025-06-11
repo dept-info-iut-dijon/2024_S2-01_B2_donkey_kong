@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Donkey_Kong_VM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+204fd3b54dd6f78d4af9b210181ff3122dec40e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72b567d7a8ecd177dcf73491e1f19a461e231c37")]
 [assembly: System.Reflection.AssemblyProductAttribute("Donkey_Kong_VM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Donkey_Kong_VM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

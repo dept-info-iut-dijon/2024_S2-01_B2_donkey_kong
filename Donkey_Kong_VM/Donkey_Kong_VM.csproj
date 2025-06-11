@@ -6,18 +6,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Ressources\Images\**" />
+    <EmbeddedResource Remove="Ressources\Images\**" />
+    <None Remove="Ressources\Images\**" />
+  </ItemGroup>
 	<ItemGroup>
 		<Reference Include="IUTGame">
 			<HintPath>..\IUTGame.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Ressources\Images\FondNiveau\" />
-	  <Folder Include="Ressources\Images\EcranAcceuil\" />
-	  <Folder Include="Ressources\Images\ObjetsJeu\" />
-	  <Folder Include="Ressources\Images\Personnages\Mario\" />
-	  <Folder Include="Ressources\Images\Personnages\DonkeyKong\" />
-	  <Folder Include="Ressources\Images\Personnages\Peach\" />
+	  <Folder Include="Ressources\son\" />
 	  <Folder Include="VueModeles\" />
 	</ItemGroup>
 
