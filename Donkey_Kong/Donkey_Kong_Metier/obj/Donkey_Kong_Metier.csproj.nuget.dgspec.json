@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj": {}
+    "C:\\Users\\rs141678\\Desktop\\sae2.1\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj": {}
   },
   "projects": {
-    "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj": {
+    "C:\\Users\\rs141678\\Desktop\\sae2.1\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj",
+        "projectUniqueName": "C:\\Users\\rs141678\\Desktop\\sae2.1\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj",
         "projectName": "Donkey_Kong_Metier",
-        "projectPath": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj",
-        "packagesPath": "C:\\Users\\romai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\obj\\",
+        "projectPath": "C:\\Users\\rs141678\\Desktop\\sae2.1\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj",
+        "packagesPath": "C:\\Users\\rs141678\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rs141678\\Desktop\\sae2.1\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\romai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rs141678\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,8 +44,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -66,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

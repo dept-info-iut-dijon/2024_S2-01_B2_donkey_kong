@@ -6,16 +6,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="IUTGame">
-      <HintPath>..\IUTGame.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Carte\" />
-    <Folder Include="Personnages\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="IUTGame">
+			<HintPath>..\IUTGame.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Ressources\Images\FondNiveau\" />
+	  <Folder Include="Ressources\Images\EcranAcceuil\" />
+	  <Folder Include="Ressources\Images\ObjetsJeu\" />
+	  <Folder Include="Ressources\Images\Personnages\Mario\" />
+	  <Folder Include="Ressources\Images\Personnages\DonkeyKong\" />
+	  <Folder Include="Ressources\Images\Personnages\Peach\" />
+	  <Folder Include="VueModeles\" />
+	</ItemGroup>
 
 </Project>
