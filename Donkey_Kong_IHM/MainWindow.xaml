@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Donkey_Kong_IHM"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+    <Grid Background="black">
+        <Canvas x:Name="canvas" Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Button Content="Play" TextBlock.Foreground="White" TextBlock.FontSize="40" Margin="300,236,300,134" Background="DeepSkyBlue" Click="Jouer"/>
+        <Image Width="400" Source="C:\Users\ruddy\OneDrive\Desktop\S2.01\2024_S2-01_B2_donkey_kong\Donkey_Kong_VM\Ressources\Image\acceuil\ddddddd-Photoroom.png" Margin="200,318,200,-30"/>
+        <Image Width="400" x:Name="titre" Source="C:\Users\ruddy\OneDrive\Desktop\S2.01\2024_S2-01_B2_donkey_kong\Donkey_Kong_VM\Ressources\Image\acceuil\NES - Donkey Kong - Title Screen-Photoroom.png" Margin="200,-16,200,230" RenderTransformOrigin="1.209,0.863"/>
     </Grid>
 </Window>

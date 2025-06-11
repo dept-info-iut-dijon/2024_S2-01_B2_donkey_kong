@@ -7,6 +7,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Donkey_Kong_Metier\Donkey_Kong_Metier.csproj" />
+  </ItemGroup>
 	<ItemGroup>
 		<Reference Include="IUTGame">
 			<HintPath>..\IUTGame.dll</HintPath>

@@ -8,6 +8,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Donkey_Kong_Metier;
+using IUTGame.WPF;
 
 namespace Donkey_Kong_IHM
 {
@@ -20,5 +22,13 @@ namespace Donkey_Kong_IHM
         {
             InitializeComponent();
         }
+
+        void Jouer(object sender, RoutedEventArgs e)
+        {
+            WPFScreen screen = new WPFScreen(canvas);
+            LeJeu jeu = new LeJeu(screen, "C:\\Users\\ruddy\\OneDrive\\Desktop\\S2.01\\2024_S2-01_B2_donkey_kong\\Donkey_Kong_VM\\Ressources\\Image", "C:\\Users\\ruddy\\OneDrive\\Desktop\\S2.01\\2024_S2-01_B2_donkey_kong\\Donkey_Kong_VM\\Ressources\\Son"); ;
+            jeu.Run();
+        }
+
     }
 }

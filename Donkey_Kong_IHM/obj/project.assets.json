@@ -1,30 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {}
+    "net8.0-windows7.0": {
+      "Donkey_Kong_Metier/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Donkey_Kong_Metier.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Donkey_Kong_Metier.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Donkey_Kong_Metier/1.0.0": {
+      "type": "project",
+      "path": "../Donkey_Kong_Metier/Donkey_Kong_Metier.csproj",
+      "msbuildProject": "../Donkey_Kong_Metier/Donkey_Kong_Metier.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": []
+    "net8.0-windows7.0": [
+      "Donkey_Kong_Metier >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\mehdi\\.nuget\\packages\\": {},
+    "C:\\Users\\ruddy\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mehdi\\OneDrive\\Bureau\\SAE1\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_IHM\\Donkey_Kong_IHM.csproj",
+      "projectUniqueName": "C:\\Users\\ruddy\\OneDrive\\Desktop\\S2.01\\2024_S2-01_B2_donkey_kong\\Donkey_Kong_IHM\\Donkey_Kong_IHM.csproj",
       "projectName": "Donkey_Kong_IHM",
-      "projectPath": "C:\\Users\\mehdi\\OneDrive\\Bureau\\SAE1\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_IHM\\Donkey_Kong_IHM.csproj",
-      "packagesPath": "C:\\Users\\mehdi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mehdi\\OneDrive\\Bureau\\SAE1\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_IHM\\obj\\",
+      "projectPath": "C:\\Users\\ruddy\\OneDrive\\Desktop\\S2.01\\2024_S2-01_B2_donkey_kong\\Donkey_Kong_IHM\\Donkey_Kong_IHM.csproj",
+      "packagesPath": "C:\\Users\\ruddy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ruddy\\OneDrive\\Desktop\\S2.01\\2024_S2-01_B2_donkey_kong\\Donkey_Kong_IHM\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mehdi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ruddy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -38,7 +57,11 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\ruddy\\OneDrive\\Desktop\\S2.01\\2024_S2-01_B2_donkey_kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj": {
+              "projectPath": "C:\\Users\\ruddy\\OneDrive\\Desktop\\S2.01\\2024_S2-01_B2_donkey_kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -51,7 +74,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -75,7 +98,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

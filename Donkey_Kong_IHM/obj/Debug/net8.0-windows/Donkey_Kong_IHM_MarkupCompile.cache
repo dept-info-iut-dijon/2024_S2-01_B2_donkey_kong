@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\mehdi\OneDrive\Bureau\SAE1\2024_S2-01_B2_donkey_kong\Donkey_Kong\Donkey_Kong_IHM\obj\Debug\net8.0-windows\
+C:\Users\ruddy\OneDrive\Desktop\S2.01\2024_S2-01_B2_donkey_kong\Donkey_Kong_IHM\obj\Debug\net8.0-windows\
 Donkey_Kong_IHM
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\mehdi\OneDrive\Bureau\SAE1\2024_S2-01_B2_donkey_kong\Donkey_Kong\Donkey_Kong_IHM\App.xaml
-11407045341
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+C:\Users\ruddy\OneDrive\Desktop\S2.01\2024_S2-01_B2_donkey_kong\Donkey_Kong_IHM\App.xaml
+2-936413274
 
-41027659669
-1991561470494
-MainWindow.xaml;
+5564973680
+200-2063300602
+FenetreJeu.xaml;MainWindow.xaml;
 
-True
+False
 
