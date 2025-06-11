@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4FAB82FC-7176-4801-8E6E-4631397CDDED}|Donkey_Kong_VM\\Donkey_Kong_VM.csproj|c:\\users\\romai\\desktop\\v2\\2024_s2-01_b2_donkey_kong\\donkey_kong\\donkey_kong_vm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4FAB82FC-7176-4801-8E6E-4631397CDDED}|Donkey_Kong_VM\\Donkey_Kong_VM.csproj|solutionrelative:donkey_kong_vm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CDEBA8E2-26D1-45C0-B442-C3DE88F8EC2B}|Donkey_Kong_IHM\\Donkey_Kong_IHM.csproj|c:\\users\\romai\\desktop\\v2\\2024_s2-01_b2_donkey_kong\\donkey_kong\\donkey_kong_ihm\\donkey_kong_ihm.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{CDEBA8E2-26D1-45C0-B442-C3DE88F8EC2B}|Donkey_Kong_IHM\\Donkey_Kong_IHM.csproj|solutionrelative:donkey_kong_ihm\\donkey_kong_ihm.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -43,19 +39,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_VM\\Program.cs",
-              "RelativeDocumentMoniker": "Donkey_Kong_VM\\Program.cs",
-              "ToolTip": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_VM\\Program.cs",
-              "RelativeToolTip": "Donkey_Kong_VM\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-11T16:02:56.603Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Donkey_Kong_IHM.csproj",
               "DocumentMoniker": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_IHM\\Donkey_Kong_IHM.csproj",
               "RelativeDocumentMoniker": "Donkey_Kong_IHM\\Donkey_Kong_IHM.csproj",
@@ -68,7 +51,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Donkey_Kong_Metier.csproj",
               "DocumentMoniker": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj",
               "RelativeDocumentMoniker": "Donkey_Kong_Metier\\Donkey_Kong_Metier.csproj",
@@ -80,7 +63,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_Metier\\Program.cs",
               "RelativeDocumentMoniker": "Donkey_Kong_Metier\\Program.cs",
@@ -92,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_IHM\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Donkey_Kong_IHM\\MainWindow.xaml",
@@ -103,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\romai\\Desktop\\V2\\2024_S2-01_B2_donkey_kong\\Donkey_Kong\\Donkey_Kong_IHM\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Donkey_Kong_IHM\\MainWindow.xaml.cs",
