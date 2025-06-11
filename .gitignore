@@ -1,1 +1,5 @@
+# Fichiers temporaires de build .NET
+**/bin/
+**/obj/
 .vs/
+
