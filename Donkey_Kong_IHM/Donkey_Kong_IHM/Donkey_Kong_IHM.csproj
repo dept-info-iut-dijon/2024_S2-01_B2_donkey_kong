@@ -7,5 +7,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+	<ItemGroup>
+		<Reference Include="IUTGame">
+			<HintPath>..\IUTGame.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 
 </Project>

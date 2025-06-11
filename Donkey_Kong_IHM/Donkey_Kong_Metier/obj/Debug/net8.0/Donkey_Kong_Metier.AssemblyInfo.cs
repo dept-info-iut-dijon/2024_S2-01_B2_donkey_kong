@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Donkey_Kong_Metier")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5154e435e5d433f8d46b2364565c4cbe424695d0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bedfb68deeedcfbba44d6adce6f4af81aaca7550")]
 [assembly: System.Reflection.AssemblyProductAttribute("Donkey_Kong_Metier")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Donkey_Kong_Metier")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
