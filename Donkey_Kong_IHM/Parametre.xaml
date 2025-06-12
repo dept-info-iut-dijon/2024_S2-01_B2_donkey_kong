@@ -1,0 +1,17 @@
+﻿<Window x:Class="Donkey_Kong_IHM.Parametre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Donkey_Kong_IHM"
+        mc:Ignorable="d"
+        Title="Parametre" Height="400" Width="550">
+    <Grid Background="Gray">
+        <Slider x:Name="volumeSlider" Maximum="1" Minimum="0" TickFrequency="1" Margin="215,93,44,189" Value="0.5" />
+        <Label Content="Volume :" Margin="88,89,394,176"/>
+        <Label Content="Langue :" Margin="88,132,394,137" />
+        <RadioButton Content="anglais" Margin="176,136,281,146" Checked="MettreEnAnglais"/>
+        <RadioButton Content="français" Margin="275,136,178,189" IsChecked="True" Checked="MettreEnFrançais"/>
+        <Button  Content="Quitter" Click="SortirParametre" Margin="164,207,164,125" Background="Blue" FontSize="20" Foreground="White"/>
+    </Grid>
+</Window>

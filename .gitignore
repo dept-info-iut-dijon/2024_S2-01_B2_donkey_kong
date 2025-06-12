@@ -1,5 +1,6 @@
 # Fichiers temporaires de build .NET
-**/bin/
-**/obj/
 .vs/
-
+obj/
+bin/
+*.cache
+**/obj/

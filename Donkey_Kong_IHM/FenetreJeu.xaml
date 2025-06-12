@@ -1,0 +1,13 @@
+﻿<Window x:Class="Donkey_Kong_IHM.FenetreJeu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Donkey_Kong_IHM"
+        mc:Ignorable="d"
+        Title="FenetreJeu" Height="600" Width="900">
+    <Grid>
+        <Canvas x:Name="canvas" Background="black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Button Margin="10,10,650,521" Content="Paramètre" FontSize="20" Click="OuvrirParametre"/>
+    </Grid>
+</Window>
