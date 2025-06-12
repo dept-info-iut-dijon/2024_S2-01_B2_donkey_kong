@@ -9,12 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< Updated upstream
     <None Remove="Ressources\Image\acceuil\Donkey_kong.png" />
     <None Remove="Ressources\Image\acceuil\Made_in.png" />
     <None Remove="Ressources\Image\baril.png" />
     <None Remove="Ressources\Image\plateforme.png" />
     <None Remove="Ressources\Son\bacmusic.wav" />
     <None Remove="Ressources\Son\death.wav" />
+=======
+    <None Remove="Ressources\Image\acceuil\ddddddd-Photoroom.png" />
+    <None Remove="Ressources\Image\acceuil\NES - Donkey Kong - Title Screen-Photoroom.png" />
+>>>>>>> Stashed changes
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +31,7 @@
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
+<<<<<<< Updated upstream
 	  <Resource Include="Ressources\Image\acceuil\Donkey_kong.png" />
 	  <Resource Include="Ressources\Image\acceuil\Made_in.png" />
 	  <Resource Include="Ressources\Image\baril.png" />
@@ -36,6 +42,10 @@
 	  <Content Include="Ressources\Son\death.wav">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
+=======
+	  <Resource Include="Ressources\Image\acceuil\ddddddd-Photoroom.png" />
+	  <Resource Include="Ressources\Image\acceuil\NES - Donkey Kong - Title Screen-Photoroom.png" />
+>>>>>>> Stashed changes
 	</ItemGroup>
 
 </Project>
