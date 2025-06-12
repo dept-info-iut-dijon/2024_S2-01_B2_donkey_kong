@@ -10,18 +10,24 @@ namespace Donkey_Kong_Metier.Items
     /// <summary>
     /// Donkey Kong personnage principal ennemi.
     /// </summary>
-    public class DonkeyKong : GameItem
+    public class DonkeyKong : GameItem, IAnimable
     {
-        public DonkeyKong(double x, double y, Game game) : base(x, y, game, "singe_debout.png", 1)
+        public DonkeyKong(double x, double y, Game game) : base(x, y, game, "donkey_kong.png", 1)
         {
             Collidable = true;
+        }
+
+        public void Animate(TimeSpan dt)
+        {
+            // Animation de DK 
+            // implémenter  logique de lancement de barils
         }
 
         public override string TypeName
         {
             get
             {
-                return "singe_debout";
+                return "donkey_kong";
             }
         }
 
@@ -31,3 +37,4 @@ namespace Donkey_Kong_Metier.Items
         }
     }
 }
+

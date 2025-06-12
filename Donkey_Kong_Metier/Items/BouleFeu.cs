@@ -11,24 +11,31 @@ namespace Donkey_Kong_Metier.Items
     /// <summary>
     /// Boule de feu présente dans le jeu.
     /// </summary>
-    public class BouleFeu : GameItem
-    {
-        public BouleFeu(double x, double y, Game game) : base(x, y, game, "feu_droite.png", 2)
+   
+        public class BouleFeu : GameItem, IAnimable
         {
-            Collidable = true;
-        }
-
-        public override string TypeName
-        {
-            get
+            public BouleFeu(double x, double y, Game game) : base(x, y, game, "boule_feu.png", 2)
             {
-                return "feu_droite";
+                Collidable = true;
+            }
+
+            public void Animate(TimeSpan dt)
+            {
+                // La boule de feu se déplace 
+                // implémenter mouvement aléatoire
+            }
+
+            public override string TypeName
+            {
+                get
+                {
+                    return "boule_feu";
+                }
+            }
+
+            public override void CollideEffect(GameItem other)
+            {
+                // Implémentation 3.1
             }
         }
-
-        public override void CollideEffect(GameItem other)
-        {
-            // Implémentation 3.1
-        }
     }
-}
