@@ -7,11 +7,22 @@
         mc:Ignorable="d"
         Title="Parametre" Height="400" Width="550">
     <Grid Background="Gray">
-        <Slider x:Name="volumeSlider" Maximum="1" Minimum="0" TickFrequency="1" Margin="215,93,44,189" Value="0.5" />
-        <Label Content="Volume :" Margin="88,89,394,176"/>
-        <Label Content="Langue :" Margin="88,132,394,137" />
-        <RadioButton Content="anglais" Margin="176,136,281,146" Checked="MettreEnAnglais"/>
-        <RadioButton Content="français" Margin="275,136,178,189" IsChecked="True" Checked="MettreEnFrançais"/>
-        <Button  Content="Quitter" Click="SortirParametre" Margin="164,207,164,125" Background="Blue" FontSize="20" Foreground="White"/>
+        <Rectangle HorizontalAlignment="Center" Height="355" Margin="0,19,0,0" Stroke="Black" VerticalAlignment="Top" Width="530" RadiusY="20" RadiusX="20" StrokeThickness="3"/>
+        <Canvas Background="Gray" Margin="455,296,0,0"/>
+        <Slider x:Name="volumeSlider" Maximum="1" Minimum="0" TickFrequency="1" Margin="66,131,359,233" Value="0.5" />
+        <Label Content="Volume :" Margin="77,79,343,268" FontSize="17" FontWeight="Bold" />
+        <Label Content="Langue :" Margin="387,79,85,271" FontSize="17" FontWeight="Bold" RenderTransformOrigin="0.264,0.571" />
+        <Label Content="numéro son" Margin="72,167,348,157" FontSize="20" RenderTransformOrigin="0.264,0.571" />
+        <RadioButton Content="anglais" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Center" Checked="MettreEnAnglais" Margin="379,0,77,0"/>
+        <RadioButton Content="français" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" IsChecked="True" Checked="MettreEnFrançais" Margin="379,135,77,0"/>
+        <Button  Content="Quitter" Click="SortirParametre" Margin="294,311,128,35" Background="#ecc484" FontSize="22"  FontWeight="Bold"/>
+        <Image Source="C:\Users\ruddy\Downloads\carte (1).png"  Margin="27,51,316,119" Panel.ZIndex="-1" />
+        <Image Source="C:\Users\ruddy\Downloads\carte (4).png"  Margin="329,51,27,119" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5" />
+        <Image Source="C:\Users\ruddy\Downloads\barril_parametre2.png" Margin="-13,265,417,-10" RenderTransformOrigin="-1.895,2.202" />
+        <Image Source="C:\Users\ruddy\Downloads\donkey_kong_parametre.png" Margin="422,269,0,-1" RenderTransformOrigin="2.735,2.647" />
+        <Image Source="C:\Users\ruddy\Downloads\donkey_kong_parametre.png" Margin="422,269,0,-1" RenderTransformOrigin="2.735,2.647" />
+        <Button  Content="Touches" Click="SortirParametre" Margin="130,311,300,35" Background="#ecc484" FontSize="22"   FontWeight="Bold"/>
+        <Canvas Background="Gray" Margin="170,0,170,346"/>
+        <Label Content="Paramètres" Margin="192,-6,188,340" FontSize="30" FontWeight="Bold" Panel.ZIndex="2"  />
     </Grid>
 </Window>

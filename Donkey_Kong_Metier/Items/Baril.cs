@@ -75,6 +75,11 @@ namespace Donkey_Kong_Metier.Items
             }
         }
 
+        /// <summary>
+        /// Méthode qui vérifie s'il y a eu une collision avec une platforme, qu'importe laquelle
+        /// </summary> 
+        /// <param name="plateforme"></param>
+        /// <returns></returns>
         public bool VerificationCollision(List<Plateforme> plateforme)
         {
             bool res = false;

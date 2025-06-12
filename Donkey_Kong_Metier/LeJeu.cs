@@ -31,11 +31,23 @@ namespace Donkey_Kong_Metier
             set { langue = value; }
         }
 
+        /// <summary>
+        /// Propriété pour obtenir le jeu
+        /// </summary>
         public LeJeu Jeu => this;
 
         #endregion
 
         #region Constructeur
+
+        /// <summary>
+        /// Constructeur du jeu qui prend un écran, le fichier des images, fichier des sons, et la langue si autre que française et fps si modification
+        /// </summary>
+        /// <param name="screen"></param>
+        /// <param name="spritesFolder"></param>
+        /// <param name="soundsFolder"></param>
+        /// <param name="langue"></param>
+        /// <param name="fps"></param>
         public LeJeu(IScreen screen, string spritesFolder, string soundsFolder, Langues langue = Langues.Français, int fps = 50) : base(screen, spritesFolder, soundsFolder, fps)
         {
         }

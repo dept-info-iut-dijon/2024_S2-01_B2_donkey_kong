@@ -9,7 +9,7 @@
     <Grid Background="black">
         <Canvas x:Name="canvas" Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         <Button Content="Play" TextBlock.Foreground="White" TextBlock.FontSize="40" Margin="300,292,300,210" Background="DeepSkyBlue" Click="Jouer"/>
-        <Image Source="Ressources/Image/acceuil/ddddddd-Photoroom.png" Margin="162,421,162,19"/>
-        <Image x:Name="titre" Source="Ressources/Image/acceuil/NES - Donkey Kong - Title Screen-Photoroom.png" Margin="188,9,200,341" RenderTransformOrigin="1.209,0.863"/>
+        <Image Source="Ressources/Image/acceuil/Made_in.png" Margin="162,421,162,19"/>
+        <Image x:Name="titre" Source="Ressources/Image/acceuil/Donkey_kong.png" Margin="188,9,200,341" RenderTransformOrigin="1.209,0.863"/>
     </Grid>
 </Window>

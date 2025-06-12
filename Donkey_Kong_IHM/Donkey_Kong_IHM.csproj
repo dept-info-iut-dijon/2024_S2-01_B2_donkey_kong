@@ -9,9 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Ressources\Image\acceuil\ddddddd-Photoroom.png" />
-    <None Remove="Ressources\Image\acceuil\NES - Donkey Kong - Title Screen-Photoroom.png" />
-    <None Remove="Ressources\Image\baril\baril.png" />
+    <None Remove="Ressources\Image\acceuil\Donkey_kong.png" />
+    <None Remove="Ressources\Image\acceuil\Made_in.png" />
+    <None Remove="Ressources\Image\baril.png" />
+    <None Remove="Ressources\Image\plateforme.png" />
     <None Remove="Ressources\Son\bacmusic.wav" />
     <None Remove="Ressources\Son\death.wav" />
   </ItemGroup>
@@ -25,19 +26,16 @@
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
-	  <Resource Include="Ressources\Image\acceuil\ddddddd-Photoroom.png" />
-	  <Resource Include="Ressources\Image\acceuil\NES - Donkey Kong - Title Screen-Photoroom.png" />
-	  <Resource Include="Ressources\Image\baril.png">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Resource>
-	  <Resource Include="Ressources\Image\baril\baril.png" />
+	  <Resource Include="Ressources\Image\acceuil\Donkey_kong.png" />
+	  <Resource Include="Ressources\Image\acceuil\Made_in.png" />
+	  <Resource Include="Ressources\Image\baril.png" />
+	  <Resource Include="Ressources\Image\plateforme.png" />
 	  <Content Include="Ressources\Son\bacmusic.wav">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-	  <Resource Include="Ressources\Image\plateforme.png">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Resource>
-	  <Resource Include="Ressources\Son\death.wav" />
+	  </Content>
+	  <Content Include="Ressources\Son\death.wav">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 </Project>
