@@ -30,7 +30,7 @@ namespace Donkey_Kong_IHM
             InitializeComponent();
             WPFScreen screen = new WPFScreen(canvas);
             jeu = new LeJeu(screen, "Ressources/Image", "Ressources/Son");
-            //jeu.Run();
+            jeu.Run();
         }
 
 
@@ -42,7 +42,7 @@ namespace Donkey_Kong_IHM
         public void OuvrirParametre(object sender, RoutedEventArgs e)
         {
             Parametre parametre = new Parametre(jeu);
-            //jeu.Pause();
+            jeu.Pause();
             parametre.Show();
         }
     }

@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Donkey_Kong_IHM"
         mc:Ignorable="d"
-        Title="FenetreJeu" Height="600" Width="900">
+        Title="FenetreJeu" Height="600" Width="800">
     <Grid>
-        <Canvas x:Name="canvas" Background="black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Canvas x:Name="canvas" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Panel.ZIndex="0" />
         <Button Margin="10,10,650,521" Content="Paramètre" FontSize="20" Click="OuvrirParametre"/>
     </Grid>
 </Window>

@@ -13,7 +13,7 @@ namespace Donkey_Kong_Metier.Items
     /// </summary>
     public class Plateforme : GameItem
     {
-        public Plateforme(double x, double y, Game game) : base(x, y, game, "plateforme.png", -1)
+        public Plateforme(double x, double y, Game game) : base(x, y, game, "plateforme.png")
         {
             Collidable = true;
         }
@@ -28,6 +28,7 @@ namespace Donkey_Kong_Metier.Items
 
         public override void CollideEffect(GameItem other)
         {
+            throw new NotImplementedException();
             // comme echelle
         }
     }

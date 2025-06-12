@@ -11,6 +11,9 @@
   <ItemGroup>
     <None Remove="Ressources\Image\acceuil\ddddddd-Photoroom.png" />
     <None Remove="Ressources\Image\acceuil\NES - Donkey Kong - Title Screen-Photoroom.png" />
+    <None Remove="Ressources\Image\baril\baril.png" />
+    <None Remove="Ressources\Son\bacmusic.wav" />
+    <None Remove="Ressources\Son\death.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +27,17 @@
 	<ItemGroup>
 	  <Resource Include="Ressources\Image\acceuil\ddddddd-Photoroom.png" />
 	  <Resource Include="Ressources\Image\acceuil\NES - Donkey Kong - Title Screen-Photoroom.png" />
+	  <Resource Include="Ressources\Image\baril.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressources\Image\baril\baril.png" />
+	  <Content Include="Ressources\Son\bacmusic.wav">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Resource Include="Ressources\Image\plateforme.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Ressources\Son\death.wav" />
 	</ItemGroup>
 
 </Project>

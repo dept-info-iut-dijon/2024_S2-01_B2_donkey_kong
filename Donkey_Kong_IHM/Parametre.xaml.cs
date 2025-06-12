@@ -74,7 +74,7 @@ namespace Donkey_Kong_IHM
         /// <param name="e"></param>
         void SortirParametre(object sender, RoutedEventArgs e)
         {
-            //jeu.Run();
+            jeu.Run();
             this.Close();
         }
     }

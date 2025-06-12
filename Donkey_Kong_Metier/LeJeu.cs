@@ -1,4 +1,5 @@
-﻿using IUTGame;
+﻿using Donkey_Kong_Metier.Items;
+using IUTGame;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,8 @@ namespace Donkey_Kong_Metier
             set { langue = value; }
         }
 
+        public LeJeu Jeu => this;
+
         #endregion
 
         #region Constructeur
@@ -37,9 +40,27 @@ namespace Donkey_Kong_Metier
         {
         }
 
+        /// <summary>
+        /// Initiation des items du jeu
+        /// </summary>
         protected override void InitItems()
         {
-            
+            List<Plateforme> plateformes = new List<Plateforme>();
+            double y = this.Screen.Height + 360;
+            double x = this.Screen.Width + 520;
+
+
+            Plateforme p1 = new Plateforme(x, y, this);
+            plateformes.Add(p1);
+
+
+            y -= 100;
+            x += 50;
+            Baril j = new Baril(plateformes, x, y, this);
+            AddItem(j);
+            PlayBackgroundMusic("bacmusic.wav");
+
+            //AddItem(new DonkeyKong(this));
         }
 
         protected override void RunWhenWin()
