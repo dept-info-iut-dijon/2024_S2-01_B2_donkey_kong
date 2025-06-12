@@ -1,23 +1,43 @@
-﻿<ItemGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
     <None Remove="Ressources\Image\acceuil\Donkey_kong.png" />
     <None Remove="Ressources\Image\acceuil\Made_in.png" />
     <None Remove="Ressources\Image\baril.png" />
     <None Remove="Ressources\Image\plateforme.png" />
     <None Remove="Ressources\Son\bacmusic.wav" />
     <None Remove="Ressources\Son\death.wav" />
-</ItemGroup>
+  </ItemGroup>
 
-<!-- et pareil pour la section Resource / Content -->
-
-<ItemGroup>
+  <ItemGroup>
     <Resource Include="Ressources\Image\acceuil\Donkey_kong.png" />
     <Resource Include="Ressources\Image\acceuil\Made_in.png" />
     <Resource Include="Ressources\Image\baril.png" />
     <Resource Include="Ressources\Image\plateforme.png" />
     <Content Include="Ressources\Son\bacmusic.wav">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ressources\Son\death.wav">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-</ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Donkey_Kong_Metier\Donkey_Kong_Metier.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="IUTGame">
+      <HintPath>..\IUTGame.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
