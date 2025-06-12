@@ -9,12 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Ressources\Image\acceuil\ddddddd-Photoroom.png" />
+    <None Remove="Ressources\Image\acceuil\NES - Donkey Kong - Title Screen-Photoroom.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Donkey_Kong_Metier\Donkey_Kong_Metier.csproj" />
   </ItemGroup>
 	<ItemGroup>
 		<Reference Include="IUTGame">
 			<HintPath>..\IUTGame.dll</HintPath>
 		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+	  <Resource Include="Ressources\Image\acceuil\ddddddd-Photoroom.png" />
+	  <Resource Include="Ressources\Image\acceuil\NES - Donkey Kong - Title Screen-Photoroom.png" />
 	</ItemGroup>
 
 </Project>

@@ -21,7 +21,16 @@ namespace Donkey_Kong_IHM
     /// </summary>
     public partial class Parametre : Window
     {
+
+        /// <summary>
+        /// Contient le jeu
+        /// </summary>
         private LeJeu jeu;
+
+        /// <summary>
+        /// Constructeur de la fenetre de parametre
+        /// </summary>
+        /// <param name="jeu"></param>
         public Parametre(LeJeu jeu)
         {
             this.jeu = jeu;

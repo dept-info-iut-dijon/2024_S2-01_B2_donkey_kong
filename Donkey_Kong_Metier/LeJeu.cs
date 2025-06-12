@@ -39,7 +39,7 @@ namespace Donkey_Kong_Metier
 
         protected override void InitItems()
         {
-            throw new NotImplementedException();
+            
         }
 
         protected override void RunWhenWin()
