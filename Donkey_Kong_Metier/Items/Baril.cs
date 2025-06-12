@@ -33,7 +33,23 @@ namespace Donkey_Kong_Metier.Items
 
         public override void CollideEffect(GameItem other)
         {
-            // Implémentation 3.1
+            if (other.TypeName == "tonneau_huile")
+            {
+                // baril en boule de feu
+                BouleFeu feu = new BouleFeu(Left, Top, TheGame);
+                TheGame.AddItem(feu);
+                TheGame.RemoveItem(this);
+            }
+            else if (other.TypeName == "mario")
+            {
+                // Vérifier si Mario a le marteau actif
+                
+                if (other is Mario mario && mario.AMarteau)
+                {
+                    TheGame.RemoveItem(this);
+                    // il faut aussi que l'on oublie d'Ajouter des points au score
+                }
+            }
         }
     }
 }

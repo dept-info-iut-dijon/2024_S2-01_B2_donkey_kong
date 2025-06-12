@@ -33,9 +33,17 @@ namespace Donkey_Kong_Metier.Items
                 }
             }
 
-            public override void CollideEffect(GameItem other)
+        public override void CollideEffect(GameItem other)
+        {
+            if (other.TypeName == "mario")
             {
-                // Implémentation 3.1
+                // Vérifier si Mario a le marteau actif
+                if (other is Mario mario && mario.AMarteau)
+                {
+                    TheGame.RemoveItem(this);
+                    // il faut aussi que l'on oublie d'Ajouter des points au score
+                }
             }
         }
+    }
     }

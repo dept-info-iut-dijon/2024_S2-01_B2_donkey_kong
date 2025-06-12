@@ -28,7 +28,7 @@ namespace Donkey_Kong_Metier.Items
 
         public override void CollideEffect(GameItem other)
         {
-            // Implémentation 3.1
+            // comme echelle
         }
     }
 }

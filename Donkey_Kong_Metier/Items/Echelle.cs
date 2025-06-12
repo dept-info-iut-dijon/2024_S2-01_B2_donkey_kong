@@ -27,7 +27,7 @@ namespace Donkey_Kong_Metier.Items
 
         public override void CollideEffect(GameItem other)
         {
-            // Implémentation  3.1
+            // bah en vrai y'en a pas c'est les items qui les ont
         }
     }
 

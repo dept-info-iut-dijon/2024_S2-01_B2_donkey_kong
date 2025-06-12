@@ -27,7 +27,10 @@ namespace Donkey_Kong_Metier.Items
 
         public override void CollideEffect(GameItem other)
         {
-            // Implémentation tâche 3.1
+            if (other.TypeName == "mario")
+            {
+                TheGame.RemoveItem(this);
+            }
         }
     }
 }

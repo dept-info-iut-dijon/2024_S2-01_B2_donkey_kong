@@ -8,36 +8,45 @@ using IUTGame;
 namespace Donkey_Kong_Metier.Items
 {
     /// <summary>
-    /// Donkey Kong personnage principal ennemi.
+    /// Mario pour l'instant il est ps dutout finis .
     /// </summary>
-    public class DonkeyKong : GameItem, IAnimable
+    public class Mario : GameItem,  IAnimable
     {
-        public DonkeyKong(double x, double y, Game game) : base(x, y, game, "donkey_kong.png", 1)
+
+        private bool peutGrimper = false;
+        private bool surEchelle = false;
+        private bool aMarteau = false;
+        private double tempsMarteau = 0;
+        public bool AMarteau
+        {
+            get { return aMarteau; }
+        }
+
+
+        public Mario(double x, double y, Game game) : base(x, y, game, "mario.png", 1)
         {
             Collidable = true;
         }
 
+       
         public void Animate(TimeSpan dt)
         {
-            // Animation de DK 
-            // implémenter  logique de lancement de barils
+          
         }
+
+        
 
         public override string TypeName
         {
             get
             {
-                return "donkey_kong";
+                return "mario";
             }
         }
 
         public override void CollideEffect(GameItem other)
         {
-            if (other.TypeName == "mario")
-            {
-                TheGame.Loose();
-            }
+           
         }
     }
 }
-
