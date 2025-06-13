@@ -9,18 +9,58 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Ressources\Image\acceuil\arbre2.png" />
+    <None Remove="Ressources\Image\acceuil\Diddy-Kong.png" />
+    <None Remove="Ressources\Image\acceuil\Donkey-kong.png" />
     <None Remove="Ressources\Image\acceuil\Donkey_kong.png" />
+    <None Remove="Ressources\Image\acceuil\grand-pere2png.png" />
+    <None Remove="Ressources\Image\acceuil\Logo2.png" />
     <None Remove="Ressources\Image\acceuil\Made_in.png" />
     <None Remove="Ressources\Image\baril.png" />
+    <None Remove="Ressources\Image\parametre\Barril_parametre.png" />
+    <None Remove="Ressources\Image\parametre\carte1.png" />
+    <None Remove="Ressources\Image\parametre\carte2.png" />
+    <None Remove="Ressources\Image\parametre\donkey_kong_parametre.png" />
     <None Remove="Ressources\Image\plateforme.png" />
     <None Remove="Ressources\Son\bacmusic.wav" />
     <None Remove="Ressources\Son\death.wav" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Ressources\Image\acceuil\Donkey_kong.png" />
-    <Resource Include="Ressources\Image\acceuil\Made_in.png" />
+    <Content Include="Ressources\Image\acceuil\arbre2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\Diddy-Kong.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\Donkey-kong.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\Donkey_kong.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\grand-pere2png.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\Logo2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\Made_in.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\parametre\carte1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\parametre\carte2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Ressources\Image\baril.png" />
+    <Content Include="Ressources\Image\parametre\Barril_parametre.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\parametre\donkey_kong_parametre.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Ressources\Image\plateforme.png" />
     <Content Include="Ressources\Son\bacmusic.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

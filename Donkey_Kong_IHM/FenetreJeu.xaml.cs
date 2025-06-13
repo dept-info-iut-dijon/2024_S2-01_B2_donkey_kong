@@ -22,6 +22,8 @@ namespace Donkey_Kong_IHM
     public partial class FenetreJeu : Window 
     {
         private LeJeu jeu;
+
+
         /// <summary>
         /// Contient le code c# de la fenetre dans lequel va se passer le jeu
         /// </summary>

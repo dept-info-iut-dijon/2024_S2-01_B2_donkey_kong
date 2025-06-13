@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Drawing;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -31,12 +32,32 @@ namespace Donkey_Kong_IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Jouer(object sender, RoutedEventArgs e)
+        private void Jouer(object sender, RoutedEventArgs e)
         {
             FenetreJeu fenetrejeu = new FenetreJeu();
             fenetrejeu.Show();
             this.Close();
+            Mouse.OverrideCursor = Cursors.Arrow;
         }
 
+        /// <summary>
+        /// Méthode permettant de changer le curseur en main lorsqu'on survole le boutton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Survoler(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Hand;
+        }
+
+        /// <summary>
+        /// Méthode permettant d'annuler le changement de curseur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NoSurvoler(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Hand;
+        }
     }
 }
