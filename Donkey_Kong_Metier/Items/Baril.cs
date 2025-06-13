@@ -7,18 +7,49 @@ using IUTGame;
 
 namespace Donkey_Kong_Metier.Items
 {
+    
     /// <summary>
     /// Baril qui apparaît dans le jeu.
     /// </summary>
     public class Baril : GameItem, IAnimable
     {
+        #region Attributs
+        /// <summary>
+        /// Listes de toute les plateformes du jeu
+        /// </summary>
         private List<Plateforme> plateformes;
+
+        #endregion
+
+
+        #region Propriété
+        public override string TypeName
+        {
+            get
+            {
+                return "baril";
+            }
+        }
+
+        #endregion
+
+        #region Constructeur
+        /// <summary>
+        /// Constructeur du baril
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="game"></param>
         public Baril(List<Plateforme> p, double x, double y, Game game) : base(x, y, game, "baril.png", 1)
         {
             Collidable = true;
             this.plateformes = p;
         }
 
+        #endregion
+
+        #region Méthodes
         /// <summary>
         /// Méthode pour animer le baril
         /// </summary>
@@ -46,14 +77,10 @@ namespace Donkey_Kong_Metier.Items
             // implémenter logique de mouvement 
         }
 
-        public override string TypeName
-        {
-            get
-            {
-                return "baril";
-            }
-        }
-
+        /// <summary>
+        /// Méthode implémentant les conséquences lorsqu'un barril touche autre chose
+        /// </summary>
+        /// <param name="other"></param>
         public override void CollideEffect(GameItem other)
         {
             if (other.TypeName == "tonneau_huile")
@@ -93,5 +120,7 @@ namespace Donkey_Kong_Metier.Items
             }
             return res;
         }
+
+        #endregion
     }
 }

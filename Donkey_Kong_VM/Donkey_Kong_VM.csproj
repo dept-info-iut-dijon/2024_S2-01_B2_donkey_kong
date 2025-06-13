@@ -12,6 +12,44 @@
     <EmbeddedResource Remove="Ressources\Images\**" />
     <None Remove="Ressources\Images\**" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Ressources\Image\acceuil\arbre2.png" />
+    <None Remove="Ressources\Image\acceuil\Diddy-Kong.png" />
+    <None Remove="Ressources\Image\acceuil\Donkey-kong.png" />
+    <None Remove="Ressources\Image\acceuil\Donkey_kong.png" />
+    <None Remove="Ressources\Image\acceuil\grand-pere2png.png" />
+    <None Remove="Ressources\Image\acceuil\Logo2.png" />
+    <None Remove="Ressources\Image\baril.png" />
+    <None Remove="Ressources\Image\plateforme.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Ressources\Image\acceuil\arbre2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\Diddy-Kong.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\Donkey-kong.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\Donkey_kong.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\grand-pere2png.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\acceuil\Logo2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\baril.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\plateforme.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 	<ItemGroup>
 		<Reference Include="IUTGame">
 			<HintPath>..\IUTGame.dll</HintPath>

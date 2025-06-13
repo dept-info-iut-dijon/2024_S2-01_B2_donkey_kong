@@ -9,13 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Ressources\Image\acceuil\arbre2.png" />
-    <None Remove="Ressources\Image\acceuil\Diddy-Kong.png" />
-    <None Remove="Ressources\Image\acceuil\Donkey-kong.png" />
-    <None Remove="Ressources\Image\acceuil\Donkey_kong.png" />
-    <None Remove="Ressources\Image\acceuil\grand-pere2png.png" />
-    <None Remove="Ressources\Image\acceuil\Logo2.png" />
-    <None Remove="Ressources\Image\acceuil\Made_in.png" />
     <None Remove="Ressources\Image\baril.png" />
     <None Remove="Ressources\Image\parametre\Barril_parametre.png" />
     <None Remove="Ressources\Image\parametre\carte1.png" />
@@ -43,9 +36,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ressources\Image\acceuil\Logo2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Ressources\Image\acceuil\Made_in.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ressources\Image\parametre\carte1.png">
