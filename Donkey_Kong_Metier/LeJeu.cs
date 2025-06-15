@@ -13,15 +13,21 @@ namespace Donkey_Kong_Metier
     /// </summary>
     public class LeJeu : Game
     {
-        #region Attribut
+        #region Attributs
+
         /// <summary>
         /// Correspond à la langue du jeu
         /// </summary>
         private Langues langue;
         #endregion
 
-        #region Propiétés
-        
+        #region Propriétés
+
+        /// <summary>
+        /// Paramètres du jeu
+        /// </summary>
+        public Parametres Parametres { get; set; }
+
         /// <summary>
         /// Renvoie la langue du jeu
         /// </summary>
@@ -30,6 +36,20 @@ namespace Donkey_Kong_Metier
             get { return langue; }
             set { langue = value; }
         }
+
+        /// <summary>
+        /// Volume sonore du jeu
+        /// </summary>
+        public double Volume
+        {
+            get { return Parametres.Volume; }
+            set 
+            { 
+                Parametres.Volume = value; 
+                this.BackgroundVolume = value;
+            }
+        }
+
 
         /// <summary>
         /// Propriété pour obtenir le jeu
@@ -50,6 +70,8 @@ namespace Donkey_Kong_Metier
         /// <param name="fps"></param>
         public LeJeu(IScreen screen, string spritesFolder, string soundsFolder, Langues langue = Langues.Français, int fps = 50) : base(screen, spritesFolder, soundsFolder, fps)
         {
+            Parametres = new Parametres();
+            this.langue = langue;
         }
 
         /// <summary>
@@ -71,23 +93,31 @@ namespace Donkey_Kong_Metier
             Baril j = new Baril(plateformes, x, y, this);
             AddItem(j);
             PlayBackgroundMusic("bacmusic.wav");
+            BackgroundVolume = Parametres.Volume;
 
             //AddItem(new DonkeyKong(this));
         }
 
+
+        #endregion
+
+        #region Méthodes
+
+        /// <summary>
+        /// Méthode exécutée quand le joueur gagne
+        /// </summary>
         protected override void RunWhenWin()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Méthode exécutée quand le joueur perd
+        /// </summary>
         protected override void RunWhenLoose()
         {
             throw new NotImplementedException();
         }
-        #endregion
-
-        #region Méthodes
-
 
         #endregion
     }

@@ -35,6 +35,26 @@ namespace Donkey_Kong_IHM
         {
             this.jeu = jeu;
             InitializeComponent();
+            InitialiserInterface();
+        }
+
+        /// <summary>
+        /// Initialise l'interface avec les valeurs de base des paramètres
+        /// </summary>
+        void InitialiserInterface()
+        {
+            volumeSlider.Value = jeu.Parametres.Volume;
+
+            if (jeu.Parametres.Langue == Langues.Français)
+            {
+                radioFrancais.IsChecked = true;
+                radioAnglais.IsChecked = false;
+            }
+            else if (jeu.Parametres.Langue == Langues.Anglais)
+            {
+                radioFrancais.IsChecked = false;
+                radioAnglais.IsChecked = true;
+            }
         }
 
         /// <summary>
@@ -44,10 +64,9 @@ namespace Donkey_Kong_IHM
         /// <param name="e"></param>
         void MettreEnFrançais(object sender, RoutedEventArgs e)
         {
-            if (jeu.Langue != Langues.Français)
+            if (jeu.Parametres.Langue != Langues.Français)
             {
-                jeu.Langue = Langues.Français;
-
+                jeu.Parametres.Langue = Langues.Français;
             }
 
         }
@@ -59,12 +78,25 @@ namespace Donkey_Kong_IHM
         /// <param name="e"></param>
         void MettreEnAnglais(object sender, RoutedEventArgs e)
         {
-            if (jeu.Langue != Langues.Anglais)
+            if (jeu.Parametres.Langue != Langues.Anglais)
             {
-                jeu.Langue = Langues.Anglais;
-
+                jeu.Parametres.Langue = Langues.Anglais;
             }
 
+        }
+
+        /// <summary>
+        /// Méthode permettant de changer le volume du jeu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void ChangerVolume(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (jeu != null)
+            {
+                jeu.Parametres.Volume = volumeSlider.Value;
+                jeu.BackgroundVolume = jeu.Parametres.Volume;
+            }
         }
 
         /// <summary>

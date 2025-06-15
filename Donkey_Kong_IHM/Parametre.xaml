@@ -10,12 +10,12 @@
         <Rectangle HorizontalAlignment="Center" Height="523" Margin="0,19,0,0" Stroke="Black" VerticalAlignment="Top" Width="652" RadiusY="20" RadiusX="20" StrokeThickness="3" Panel.ZIndex="-3"/>
         <Canvas Background="Gray" Margin="562,429,0,0"/>
         <Image Source="Ressources/Image/parametre/donkey_kong_parametre.png" RenderTransformOrigin="2.735,2.647" HorizontalAlignment="Left" Height="284" Canvas.Left="455" Canvas.Top="293" VerticalAlignment="Top" Width="229" Margin="447,337,0,0" />
-        <Slider x:Name="volumeSlider" Maximum="1" Minimum="0" TickFrequency="1" Margin="78,192,374,172" Value="0.5" Panel.ZIndex="5"/>
+        <Slider x:Name="volumeSlider" Maximum="1" Minimum="0" TickFrequency="0,1" Margin="78,192,374,172" Value="0.5" ValueChanged="ChangerVolume" Panel.ZIndex="5"/>
         <Label Content="Volume :" Margin="111,98,309,249" FontSize="20" FontWeight="Bold" Panel.ZIndex="2" />
         <Label Content="Langue :" Margin="409,98,63,252" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.264,0.571" />
         <Label Content="numéro son" Margin="129,258,291,203" FontSize="20" RenderTransformOrigin="0.264,0.571" />
-        <RadioButton Content="anglais" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" Checked="MettreEnAnglais" Margin="409,247,47,0" Panel.ZIndex="3"/>
-        <RadioButton Content="français" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" IsChecked="True" Checked="MettreEnFrançais" Margin="409,192,47,0" Panel.ZIndex="3"/>
+        <RadioButton x:Name="radioAnglais" Content="anglais" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" Checked="MettreEnAnglais" Margin="409,247,47,0" Panel.ZIndex="3"/>
+        <RadioButton x:Name="radioFrancais" Content="français" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" IsChecked="True" Checked="MettreEnFrançais" Margin="409,192,47,0" Panel.ZIndex="3"/>
         <Button  Content="Quitter" Click="SortirParametre" Margin="355,462,199,63" Background="#ecc484" FontSize="22"  FontWeight="Bold"/>
         <Image Source="Ressources/Image/parametre/carte1.png"  Margin="27,51,316,141" Panel.ZIndex="-1" />
         <Image Source="Ressources/Image/parametre/carte2.png"  Margin="329,51,27,155" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5" />
