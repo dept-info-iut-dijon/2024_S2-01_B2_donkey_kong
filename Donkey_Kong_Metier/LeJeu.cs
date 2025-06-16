@@ -76,6 +76,7 @@ namespace Donkey_Kong_Metier
                 this.Parametres.Langue = langue;
             }
             this.langue = this.Parametres.Langue;
+            Parametres fichier  = new Parametres();
         }
 
         /// <summary>

@@ -16,6 +16,7 @@ namespace DonkeyKongMetier
     /// </summary>
     public class Joueur : GameItem, IAnimable, IKeyboardInteract
     {
+        #region Attributs
         //constante a ajuster pour bouger a la bonne vitesse
         private const double VitesseDeplacement = 5.0;
         //orientation du sprite
@@ -34,16 +35,44 @@ namespace DonkeyKongMetier
         private int zindex;
         //nombre d evue du joueur
         private int nbVie = 3;
+        //score du joueur
+        private int score = 0;
+        //determine si le joueur peut grimper
+        private bool peutGrimper = false;
+        //determine si le joeuur a un marteau
+        private bool aMarteau = false;
+        //depuis combien de temps mario a le marteau
+        private double tempsMarteau = 0;
 
+        #endregion
 
-        /// <summary>
-        /// constructeur du joueur
-        /// </summary>
-        /// <param name="x">coordonnées x du joueur</param>
-        /// <param name="y">coordonnées y du joueur</param>
-        /// <param name="game">le jeu en cours</param>
-        /// <param name="spriteName">le sprite du joueur a charger initialement</param>
-        /// <param name="zindex">priorité d'affichage du sprite</param>
+        #region Propriétés
+        public bool AMarteau
+        {
+            get { return aMarteau; }
+        }
+
+        public bool PeutGrimper
+        { 
+            get { return peutGrimper; } 
+        }
+
+        public double TempsMaretau
+        { 
+            get { return tempsMarteau; }
+        }
+
+         
+        #endregion
+
+            /// <summary>
+            /// constructeur du joueur
+            /// </summary>
+            /// <param name="x">coordonnées x du joueur</param>
+            /// <param name="y">coordonnées y du joueur</param>
+            /// <param name="game">le jeu en cours</param>
+            /// <param name="spriteName">le sprite du joueur a charger initialement</param>
+            /// <param name="zindex">priorité d'affichage du sprite</param>
         public Joueur(double x, double y, Game game, string spriteName, int zindex = 0) : base(x, y, game, "tile004.png", zindex)
         {
             this.x = x;
@@ -51,6 +80,7 @@ namespace DonkeyKongMetier
             this.game = game;
             this.zindex = zindex;
             this.sprite = spriteName;
+            Collidable = true;
 
         }
 
