@@ -8,7 +8,7 @@ using IUTGame;
 namespace Donkey_Kong_Metier.Items
 {
     /// <summary>
-    /// Marteau que Mario peut ramasser.
+    /// Marteau que le joueur peut ramasser.
     /// </summary>
     public class Marteau : GameItem
     {
@@ -27,7 +27,7 @@ namespace Donkey_Kong_Metier.Items
 
         public override void CollideEffect(GameItem other)
         {
-            if (other.TypeName == "mario")
+            if (other.TypeName == "Joueur")
             {
                 TheGame.RemoveItem(this);
             }

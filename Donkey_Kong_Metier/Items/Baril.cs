@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DonkeyKongMetier;
 using IUTGame;
 
 namespace Donkey_Kong_Metier.Items
@@ -94,7 +95,7 @@ namespace Donkey_Kong_Metier.Items
             {
                 // Vérifier si Mario a le marteau actif
                 
-                if (other is Mario mario && mario.AMarteau)
+                if (other is Joueur joueur && joueur.AMarteau)
                 {
                     TheGame.RemoveItem(this);
                     // il faut aussi que l'on oublie pas d'Ajouter des points au score
