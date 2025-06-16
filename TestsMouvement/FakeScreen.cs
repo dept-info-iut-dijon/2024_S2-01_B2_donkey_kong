@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace TestsMouvement
 {
+    /// <summary>
+    /// Classe FakeScreen afin de faire les tests unitaires
+    /// </summary>
     internal class FakeScreen : IScreen
     {
 
