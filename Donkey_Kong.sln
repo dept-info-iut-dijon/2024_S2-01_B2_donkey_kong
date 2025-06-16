@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donkey_Kong_Metier", "Donke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donkey_Kong_VM", "Donkey_Kong_VM\Donkey_Kong_VM.csproj", "{5212D533-8E95-4A23-A706-E3A6ABC2D1DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsMouvement", "TestsMouvement\TestsMouvement.csproj", "{65EB32EF-B20B-43BD-80FB-F7F108D77B2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5212D533-8E95-4A23-A706-E3A6ABC2D1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5212D533-8E95-4A23-A706-E3A6ABC2D1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5212D533-8E95-4A23-A706-E3A6ABC2D1DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65EB32EF-B20B-43BD-80FB-F7F108D77B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65EB32EF-B20B-43BD-80FB-F7F108D77B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65EB32EF-B20B-43BD-80FB-F7F108D77B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65EB32EF-B20B-43BD-80FB-F7F108D77B2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

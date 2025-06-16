@@ -39,7 +39,7 @@ namespace Donkey_Kong_Metier.Items
 
         public override void CollideEffect(GameItem other)
         {
-            if (other.TypeName == "mario")
+            if (other.TypeName == "Joueur")
             {
                 // Vérifier si Mario a le marteau actif
                 if (other is Joueur joueur && joueur.AMarteau)

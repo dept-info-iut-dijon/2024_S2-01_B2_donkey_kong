@@ -91,7 +91,7 @@ namespace Donkey_Kong_Metier.Items
                 TheGame.AddItem(feu);
                 TheGame.RemoveItem(this);
             }
-            else if (other.TypeName == "mario")
+            else if (other.TypeName == "Joueur")
             {
                 // Vérifier si Mario a le marteau actif
                 
