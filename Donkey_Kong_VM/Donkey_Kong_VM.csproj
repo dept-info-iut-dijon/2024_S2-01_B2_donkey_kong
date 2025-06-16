@@ -21,7 +21,6 @@
     <None Remove="Ressources\Image\acceuil\grand-pere2png.png" />
     <None Remove="Ressources\Image\acceuil\Logo2.png" />
     <None Remove="Ressources\Image\baril.png" />
-    <None Remove="Ressources\Image\plateforme.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,12 +40,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ressources\Image\acceuil\Logo2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Ressources\Image\baril.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Ressources\Image\plateforme.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

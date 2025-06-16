@@ -31,7 +31,7 @@ namespace Donkey_Kong_IHM
         {
             InitializeComponent();
             WPFScreen screen = new WPFScreen(canvas);
-            jeu = new LeJeu(screen, "Ressources/Image", "Ressources/Son");
+            jeu = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
             jeu.Run();
         }
 
