@@ -87,6 +87,11 @@
     <None Remove="Ressources\Image\Sprites\singe_retourner3.png" />
     <None Remove="Ressources\Image\Sprites\tremplin.png" />
     <None Remove="Ressources\Image\Sprites\tremplin_utiliser.png" />
+    <None Remove="Ressources\Image\touches\banane.png" />
+    <None Remove="Ressources\Image\touches\Diddy-Kong.png" />
+    <None Remove="Ressources\Image\touches\DKC-FINAL-IMAGE-scaled-removebg-preview.png" />
+    <None Remove="Ressources\Image\touches\Donkey-Kong.png" />
+    <None Remove="Ressources\Image\touches\troisBanane.png" />
     <None Remove="Ressources\Son\bacmusic.wav" />
     <None Remove="Ressources\Son\death.wav" />
     <None Remove="Ressources\Son\hammer.wav" />
@@ -380,6 +385,24 @@
     <Reference Include="IUTGame">
       <HintPath>..\IUTGame.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Ressources\Image\touches\banane.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Ressources\Image\touches\Diddy-Kong.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Ressources\Image\touches\DKC-FINAL-IMAGE-scaled-removebg-preview.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Ressources\Image\touches\Donkey-Kong.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Ressources\Image\touches\troisBanane.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

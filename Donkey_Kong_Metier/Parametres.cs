@@ -25,6 +25,31 @@ namespace Donkey_Kong_Metier
         private double volume = 0.5;
 
         /// <summary>
+        /// Touche pour aller a gauche (Q par défaut)
+        /// </summary>
+        private string toucheGauche = "Q";
+
+        /// <summary>
+        /// Touche pour aller à droite (D par défaut)
+        /// </summary>
+        private string toucheDroite = "D";
+
+        /// <summary>
+        /// Touche pour monter (Z par défaut)
+        /// </summary>
+        private string toucheHaut = "Z";
+
+        /// <summary>
+        /// Touche pour aller en bas (S par défaut)
+        /// </summary>
+        private string toucheBas = "S";
+
+        /// <summary>
+        /// Touche pour sauter (Espace par défaut)
+        /// </summary>
+        private string toucheSaut = "Espace";
+
+        /// <summary>
         /// Fichier dans lequel les paramètres seront sauvegardés 
         /// et depuis lequel on pourra charger des paramètres
         /// </summary>
@@ -60,6 +85,72 @@ namespace Donkey_Kong_Metier
             }
         }
 
+        /// <summary>
+        /// Accès à la touche gauche
+        /// </summary>
+        public string ToucheGauche
+        {
+            get { return toucheGauche; }
+            set
+            {
+                toucheGauche = value;
+                Sauvegarder();
+            }
+        }
+
+        /// <summary>
+        /// Accès à la touche droite
+        /// </summary>
+        public string ToucheDroite
+        {
+            get { return toucheDroite; }
+            set
+            {
+                toucheDroite = value;
+                Sauvegarder();
+            }
+        }
+
+        /// <summary>
+        /// Accès à la touche haut
+        /// </summary>
+        public string ToucheHaut
+        {
+            get { return toucheHaut; }
+            set
+            {
+                toucheHaut = value;
+                Sauvegarder();
+            }
+        }
+
+        /// <summary>
+        /// Accès à la touche bas
+        /// </summary>
+        public string ToucheBas
+        {
+            get { return toucheBas; }
+            set
+            {
+                toucheBas = value;
+                Sauvegarder();
+            }
+        }
+
+        /// <summary>
+        /// Accès à la touche saut
+        /// </summary>
+        public string ToucheSaut
+        {
+            get { return toucheSaut; }
+            set
+            {
+                toucheSaut = value;
+                Sauvegarder();
+            }
+        }
+
+
         #endregion
 
         #region Méthodes
@@ -72,6 +163,11 @@ namespace Donkey_Kong_Metier
             {
                 writer.WriteLine($"Langue={Langue}");
                 writer.WriteLine($"Volume={Volume}");
+                writer.WriteLine($"ToucheGauche={ToucheGauche}");
+                writer.WriteLine($"ToucheDroite={ToucheDroite}");
+                writer.WriteLine($"ToucheHaut={ToucheHaut}");
+                writer.WriteLine($"ToucheBas={ToucheBas}");
+                writer.WriteLine($"ToucheSaut={ToucheSaut}");
             }
         }
 
@@ -82,27 +178,45 @@ namespace Donkey_Kong_Metier
             if (File.Exists(fichierSauvegarde))
             {
                 string[] lignes = File.ReadAllLines(fichierSauvegarde);
-
-                if (lignes.Length >= 2)
+                foreach (string ligne in lignes) 
                 {
-                    string[] partieLangue = lignes[0].Split('=');
-                    if (partieLangue.Length == 2)
+                    string[] parties = ligne.Split('=');
+                    if (parties.Length == 2)
                     {
-                        string valeurLangue = partieLangue[1];
-                        if (valeurLangue == "Français")
+                        string cle = parties[0];
+                        string valeur = parties[1];
+
+                        switch (cle)
                         {
-                            p.langue = Langues.Français;
+                            case "Langue":
+                                if (valeur == "Francais")
+                                {
+                                    p.langue = Langues.Français;
+                                }
+                                else if (valeur == "Anglais")
+                                {
+                                    p.langue = Langues.Anglais;
+                                }
+                                break;
+                            case "Volume":
+                                p.Volume = Convert.ToDouble(valeur); ;
+                                break;
+                            case "ToucheGauche":
+                                p.ToucheGauche = valeur;
+                                break;
+                            case "ToucheDroite":
+                                p.ToucheDroite = valeur;
+                                break;
+                            case "ToucheHaut":
+                                p.ToucheHaut = valeur;
+                                break;
+                            case "ToucheBas":
+                                p.ToucheBas = valeur;
+                                break;
+                            case "ToucheSaut":
+                                p.ToucheSaut = valeur;
+                                break;
                         }
-                        else if (valeurLangue == "Anglais")
-                        {
-                            p.langue = Langues.Anglais;
-                        }
-                    }
-                    string[] partieVolume = lignes[1].Split('=');
-                    if (partieVolume.Length == 2)
-                    {
-                        string valeurVolume = partieVolume[1];
-                        p.volume = Convert.ToDouble(valeurVolume);
                     }
                 }
             }
