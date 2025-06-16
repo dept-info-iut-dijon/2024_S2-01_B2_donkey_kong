@@ -45,6 +45,12 @@ namespace Donkey_Kong_IHM
         {
             volumeSlider.Value = jeu.Parametres.Volume;
 
+            if (labelValeurVolume != null)
+            {
+                int pourcentage = Convert.ToInt32(jeu.Parametres.Volume*100);
+                labelValeurVolume.Content = pourcentage + " %";
+            }
+
             if (jeu.Parametres.Langue == Langues.Français)
             {
                 radioFrancais.IsChecked = true;
@@ -92,12 +98,16 @@ namespace Donkey_Kong_IHM
         /// <param name="e"></param>
         void ChangerVolume(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (jeu != null)
+            if (jeu != null && labelValeurVolume != null)
             {
                 jeu.Parametres.Volume = volumeSlider.Value;
                 jeu.BackgroundVolume = jeu.Parametres.Volume;
+
+                int pourcentage = Convert.ToInt32(volumeSlider.Value * 100);
+                labelValeurVolume.Content = pourcentage + " %";
             }
         }
+
 
         /// <summary>
         /// Méthode permettant de sortir des parametres et de rejouer

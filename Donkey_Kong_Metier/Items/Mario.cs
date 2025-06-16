@@ -30,7 +30,7 @@ namespace Donkey_Kong_Metier.Items
         #endregion
 
         #region Constructeur
-        public Mario(double x, double y, Game game) : base(x, y, game, "mario.png", 1)
+        public Mario(double x, double y, Game game) : base(x, y, game, "mario_debout_droite.png", 1)
         {
             Collidable = true;
         }

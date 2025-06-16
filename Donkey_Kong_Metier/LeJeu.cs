@@ -86,19 +86,14 @@ namespace Donkey_Kong_Metier
             List<Plateforme> plateformes = new List<Plateforme>();
             double y = this.Screen.Height + 360;
             double x = this.Screen.Width + 520;
-
-
             Plateforme p1 = new Plateforme(x, y, this);
             plateformes.Add(p1);
-
-
             y -= 100;
             x += 50;
             Baril j = new Baril(plateformes, x, y, this);
             AddItem(j);
             PlayBackgroundMusic("bacmusic.wav");
             BackgroundVolume = Parametres.Volume;
-
             //AddItem(new DonkeyKong(this));
         }
 

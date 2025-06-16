@@ -12,7 +12,7 @@ namespace Donkey_Kong_Metier.Items
     /// </summary>
     public class Marteau : GameItem
     {
-        public Marteau(double x, double y, Game game) : base(x, y, game, "marteau_debout.png", 1)
+        public Marteau(double x, double y, Game game) : base(x, y, game, "marteau_haut.png", 1)
         {
             Collidable = true;
         }

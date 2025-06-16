@@ -15,7 +15,7 @@ namespace Donkey_Kong_Metier.Items
         private double tempsAnimation = 0;
         private bool piedGauche = true;
 
-        public Princesse(double x, double y, Game game) : base(x, y, game, "princesse_gauche.png", 1)
+        public Princesse(double x, double y, Game game) : base(x, y, game, "peach_gauche.png", 1)
         {
             Collidable = true;
         }
@@ -29,11 +29,11 @@ namespace Donkey_Kong_Metier.Items
             {
                 if (piedGauche)
                 {
-                    ChangeSprite("princesse_droite.png");
+                    ChangeSprite("peach_droite.png");
                 }
                 else
                 {
-                    ChangeSprite("princesse_gauche.png");
+                    ChangeSprite("peach_gauche.png");
                 }
 
                 piedGauche = !piedGauche;

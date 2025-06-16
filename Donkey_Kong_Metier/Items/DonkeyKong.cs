@@ -12,7 +12,7 @@ namespace Donkey_Kong_Metier.Items
     /// </summary>
     public class DonkeyKong : GameItem, IAnimable
     {
-        public DonkeyKong(double x, double y, Game game) : base(x, y, game, "donkey_kong.png", 1)
+        public DonkeyKong(double x, double y, Game game) : base(x, y, game, "singe_debout.png", 1)
         {
             Collidable = true;
         }

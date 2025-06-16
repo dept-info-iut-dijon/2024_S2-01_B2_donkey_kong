@@ -13,7 +13,7 @@
         <Slider x:Name="volumeSlider" Maximum="1" Minimum="0" TickFrequency="0.5" Margin="78,192,374,172" Value="0.5" ValueChanged="ChangerVolume" Panel.ZIndex="5"/>
         <Label Content="Volume :" Margin="111,98,309,249" FontSize="20" FontWeight="Bold" Panel.ZIndex="2" />
         <Label Content="Langue :" Margin="409,98,63,252" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.264,0.571" />
-        <Label Content="numéro son" Margin="129,258,291,203" FontSize="20" RenderTransformOrigin="0.264,0.571" />
+        <Label x:Name="labelValeurVolume" Content="numéro son" Margin="129,258,291,203" FontSize="20" RenderTransformOrigin="0.264,0.571" />
         <RadioButton x:Name="radioAnglais" Content="anglais" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" Checked="MettreEnAnglais" Margin="409,247,47,0" Panel.ZIndex="3"/>
         <RadioButton x:Name="radioFrancais" Content="français" FontSize="18" VerticalContentAlignment="Center" VerticalAlignment="Top" IsChecked="True" Checked="MettreEnFrançais" Margin="409,192,47,0" Panel.ZIndex="3"/>
         <Button  Content="Quitter" Click="SortirParametre" Margin="355,462,199,63" Background="#ecc484" FontSize="22"  FontWeight="Bold"/>
