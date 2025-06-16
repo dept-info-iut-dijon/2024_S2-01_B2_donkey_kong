@@ -21,7 +21,7 @@ namespace Donkey_Kong_Metier.Items
         {
             get
             {
-                return "oil";
+                return "tonneau_huile";
             }
         }
 

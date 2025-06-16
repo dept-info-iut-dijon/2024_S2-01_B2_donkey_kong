@@ -99,6 +99,10 @@ namespace Donkey_Kong_Metier.Items
                     TheGame.RemoveItem(this);
                     // il faut aussi que l'on oublie pas d'Ajouter des points au score
                 }
+                else
+                {
+                    /// mario doit mourir si il touche sans marteau
+                }
             }
         }
 
@@ -109,16 +113,14 @@ namespace Donkey_Kong_Metier.Items
         /// <returns></returns>
         public bool VerificationCollision(List<Plateforme> plateforme)
         {
-            bool res = false;
             foreach (Plateforme p in plateforme)
             {
                 if (this.IsCollide(p))
                 {
-                    res = true;
-                    break;
+                    return true;
                 }
             }
-            return res;
+            return false;
         }
 
         #endregion

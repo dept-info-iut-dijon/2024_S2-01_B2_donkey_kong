@@ -70,8 +70,12 @@ namespace Donkey_Kong_Metier
         /// <param name="fps"></param>
         public LeJeu(IScreen screen, string spritesFolder, string soundsFolder, Langues langue = Langues.Français, int fps = 50) : base(screen, spritesFolder, soundsFolder, fps)
         {
-            Parametres = new Parametres();
-            this.langue = langue;
+            Parametres = Parametres.Charger();
+            if (langue != Langues.Français)
+            {
+                this.Parametres.Langue = langue;
+            }
+            this.langue = this.Parametres.Langue;
         }
 
         /// <summary>

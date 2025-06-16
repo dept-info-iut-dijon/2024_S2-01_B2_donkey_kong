@@ -7,31 +7,34 @@ using IUTGame;
 
 namespace Donkey_Kong_Metier.Items
 {
-
     /// <summary>
     /// Boule de feu présente dans le jeu.
     /// </summary>
-   
-        public class BouleFeu : GameItem, IAnimable
+    public class BouleFeu : GameItem, IAnimable
+    {
+        #region Constructeur
+        public BouleFeu(double x, double y, Game game) : base(x, y, game, "boule_feu.png", 2)
         {
-            public BouleFeu(double x, double y, Game game) : base(x, y, game, "boule_feu.png", 2)
-            {
-                Collidable = true;
-            }
+            Collidable = true;
+        }
+        #endregion
 
-            public void Animate(TimeSpan dt)
+        #region Propriété
+        public override string TypeName
+        {
+            get
             {
-                // La boule de feu se déplace 
-                // implémenter mouvement aléatoire
+                return "boule_feu";
             }
+        }
+        #endregion
 
-            public override string TypeName
-            {
-                get
-                {
-                    return "boule_feu";
-                }
-            }
+        #region Méthodes
+        public void Animate(TimeSpan dt)
+        {
+            // La boule de feu se déplace 
+            // implémenter mouvement aléatoire
+        }
 
         public override void CollideEffect(GameItem other)
         {
@@ -45,5 +48,6 @@ namespace Donkey_Kong_Metier.Items
                 }
             }
         }
+        #endregion
     }
-    }
+}

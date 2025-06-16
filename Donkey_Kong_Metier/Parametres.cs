@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,12 @@ namespace Donkey_Kong_Metier
         /// </summary>
         private double volume = 0.5;
 
+        /// <summary>
+        /// Fichier dans lequel les paramètres seront sauvegardés 
+        /// et depuis lequel on pourra charger des paramètres
+        /// </summary>
+        private const string fichierSauvegarde = "parametres.txt";
+
         #endregion
 
         #region Propriétés
@@ -33,7 +40,11 @@ namespace Donkey_Kong_Metier
         public Langues Langue 
         { 
             get { return langue; }
-            set { langue = value; }
+            set 
+            { 
+                langue = value;
+                Sauvegarder();
+            }
         }
 
         /// <summary>
@@ -42,9 +53,61 @@ namespace Donkey_Kong_Metier
         public double Volume
         {
             get { return volume; }
-            set { this.volume = value; }
+            set 
+            { 
+                this.volume = value;
+                Sauvegarder();   
+            }
         }
 
+        #endregion
+
+        #region Méthodes
+        /// <summary>
+        /// Sauvegarde les paramètres dans un fichier texte
+        /// </summary>
+        public void Sauvegarder()
+        {
+            using (StreamWriter writer = new StreamWriter(fichierSauvegarde))
+            {
+                writer.WriteLine($"Langue={Langue}");
+                writer.WriteLine($"Volume={Volume}");
+            }
+        }
+
+        public static Parametres Charger()
+        {
+            Parametres p = new Parametres();
+
+            if (File.Exists(fichierSauvegarde))
+            {
+                string[] lignes = File.ReadAllLines(fichierSauvegarde);
+
+                if (lignes.Length >= 2)
+                {
+                    string[] partieLangue = lignes[0].Split('=');
+                    if (partieLangue.Length == 2)
+                    {
+                        string valeurLangue = partieLangue[1];
+                        if (valeurLangue == "Français")
+                        {
+                            p.langue = Langues.Français;
+                        }
+                        else if (valeurLangue == "Anglais")
+                        {
+                            p.langue = Langues.Anglais;
+                        }
+                    }
+                    string[] partieVolume = lignes[1].Split('=');
+                    if (partieVolume.Length == 2)
+                    {
+                        string valeurVolume = partieVolume[1];
+                        p.volume = Convert.ToDouble(valeurVolume);
+                    }
+                }
+            }
+            return p;
+        }
         #endregion
     }
 }
