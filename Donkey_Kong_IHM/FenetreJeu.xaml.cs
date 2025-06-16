@@ -1,4 +1,5 @@
 ﻿using Donkey_Kong_Metier;
+using IUTGame;
 using IUTGame.WPF;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Donkey_Kong_IHM
     /// <summary>
     /// Logique d'interaction pour FenetreJeu.xaml
     /// </summary>
-    public partial class FenetreJeu : Window 
+    public partial class FenetreJeu : Window
     {
         private LeJeu jeu;
 
@@ -47,5 +48,6 @@ namespace Donkey_Kong_IHM
             jeu.Pause();
             parametre.Show();
         }
+
     }
 }

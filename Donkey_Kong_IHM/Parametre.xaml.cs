@@ -41,7 +41,7 @@ namespace Donkey_Kong_IHM
         /// <summary>
         /// Initialise l'interface avec les valeurs de base des paramètres
         /// </summary>
-        void InitialiserInterface()
+        public void InitialiserInterface()
         {
             volumeSlider.Value = jeu.Parametres.Volume;
 
@@ -68,7 +68,7 @@ namespace Donkey_Kong_IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void MettreEnFrançais(object sender, RoutedEventArgs e)
+        public void MettreEnFrançais(object sender, RoutedEventArgs e)
         {
             if (jeu.Parametres.Langue != Langues.Français)
             {
@@ -82,7 +82,7 @@ namespace Donkey_Kong_IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void MettreEnAnglais(object sender, RoutedEventArgs e)
+        public void MettreEnAnglais(object sender, RoutedEventArgs e)
         {
             if (jeu.Parametres.Langue != Langues.Anglais)
             {
@@ -96,7 +96,7 @@ namespace Donkey_Kong_IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void ChangerVolume(object sender, RoutedPropertyChangedEventArgs<double> e)
+        public void ChangerVolume(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (jeu != null && labelValeurVolume != null)
             {
@@ -114,10 +114,16 @@ namespace Donkey_Kong_IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void SortirParametre(object sender, RoutedEventArgs e)
+        public void SortirParametre(object sender, RoutedEventArgs e)
         {
             jeu.Run();
             this.Close();
+        }
+
+        public void AllerTouche(object sender, RoutedEventArgs e)
+        {
+            Touches fenTouche = new Touches();
+            fenTouche.Show();
         }
     }
 }

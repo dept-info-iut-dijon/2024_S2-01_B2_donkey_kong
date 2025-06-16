@@ -20,7 +20,7 @@
         <Image Source="Ressources/Image/parametre/carte1.png"  Margin="27,51,316,141" Panel.ZIndex="-1" />
         <Image Source="Ressources/Image/parametre/carte2.png"  Margin="329,51,27,155" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5" />
         <Image Source="Ressources/Image/parametre/Barril_parametre.png" Margin="-16,343,494,-10" RenderTransformOrigin="-1.895,2.202" />
-        <Button  Content="Touches" Click="SortirParametre" Margin="176,462,374,63" Background="#ecc484" FontSize="22" FontWeight="Bold"/>
+        <Button  Content="Touches" Click="AllerTouche" Margin="176,462,374,63" Background="#ecc484" FontSize="22" FontWeight="Bold"/>
         <Canvas Background="Gray" Margin="238,0,238,533"/>
         <Label Content="Paramètres" Margin="262,-8,177,342" FontSize="30" FontWeight="Bold" Panel.ZIndex="2"  />
     </Grid>
