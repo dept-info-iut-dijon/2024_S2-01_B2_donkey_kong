@@ -40,9 +40,9 @@ namespace Donkey_Kong_Metier
         public double Volume
         {
             get { return Parametres.Volume; }
-            set 
-            { 
-                Parametres.Volume = value; 
+            set
+            {
+                Parametres.Volume = value;
                 this.BackgroundVolume = value;
             }
         }
@@ -71,7 +71,7 @@ namespace Donkey_Kong_Metier
         {
             List<Plateforme> plateformes = new List<Plateforme>();
 
-            double baseY = this.Screen.Height + 520; 
+            double baseY = this.Screen.Height + 520;
             double baseX = this.Screen.Width + 520;
 
             double y = baseY;
@@ -82,7 +82,7 @@ namespace Donkey_Kong_Metier
                 AddItem(pSol);
             }
 
-            y -= 80; 
+            y -= 80;
             for (int i = 0; i < 7; i++)
             {
                 Plateforme p1 = new Plateforme(baseX - 420 + (i * 80), y, this);
@@ -90,7 +90,7 @@ namespace Donkey_Kong_Metier
                 AddItem(p1);
             }
 
-            y -= 80; 
+            y -= 80;
             for (int i = 0; i < 6; i++)
             {
                 Plateforme p2 = new Plateforme(baseX - 380 + (i * 80), y, this);
@@ -106,7 +106,7 @@ namespace Donkey_Kong_Metier
                 AddItem(p3);
             }
 
-            y -= 80; 
+            y -= 80;
             for (int i = 0; i < 6; i++)
             {
                 Plateforme p4 = new Plateforme(baseX - 350 + (i * 70), y, this);
@@ -122,7 +122,7 @@ namespace Donkey_Kong_Metier
                 AddItem(pSommet);
             }
 
-            DonkeyKong donkeyKong = new DonkeyKong(baseX - 400, y - 40, this); 
+            DonkeyKong donkeyKong = new DonkeyKong(baseX - 400, y - 40, this);
             AddItem(donkeyKong);
 
             Princesse princesse = new Princesse(baseX - 100, y - 40, this);
@@ -136,18 +136,22 @@ namespace Donkey_Kong_Metier
 
             TonneauHuile tonneauHuile = new TonneauHuile(baseX - 450, baseY - 30, this);
             AddItem(tonneauHuile);
-
+            /*
             for (int i = 0; i < 2; i++)
             {
                 BouleFeu bouleFeu = new BouleFeu(baseX - 430 + (i * 30), baseY - 20, this);
                 AddItem(bouleFeu);
             }
+            */
 
             Marteau marteau1 = new Marteau(baseX - 200, baseY - 200 - 30, this);
             AddItem(marteau1);
 
             Marteau marteau2 = new Marteau(baseX - 300, baseY - 400 - 30, this);
             AddItem(marteau2);
+           
+            Joueur mario = new Joueur(baseX-405, baseY-25,this);
+            AddItem(mario);
 
             PlayBackgroundMusic("bacmusic.wav");
             BackgroundVolume = Parametres.Volume;

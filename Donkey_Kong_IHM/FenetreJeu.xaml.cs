@@ -25,15 +25,20 @@ namespace Donkey_Kong_IHM
     {
         private LeJeu jeu;
 
-
         /// <summary>
         /// Contient le code c# de la fenetre dans lequel va se passer le jeu
         /// </summary>
         public FenetreJeu()
         {
             InitializeComponent();
+
             WPFScreen screen = new WPFScreen(canvas);
             jeu = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
+
+            // IMPORTANT : Le canvas doit avoir le focus pour recevoir les événements clavier
+            canvas.Focusable = true;
+            canvas.Focus();
+
             jeu.Run();
             InitialiserLangue();
         }
@@ -43,7 +48,6 @@ namespace Donkey_Kong_IHM
             btnParametre.Content = Strings.Button_Settings;
             this.Title = Strings.FenetreJeu_Title;
         }
-
 
         /// <summary>
         /// Méthode pour ouvrir la fenetre des parametres
@@ -56,6 +60,5 @@ namespace Donkey_Kong_IHM
             jeu.Pause();
             parametre.Show();
         }
-
     }
 }

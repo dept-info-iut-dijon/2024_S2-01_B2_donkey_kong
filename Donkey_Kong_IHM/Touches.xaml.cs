@@ -29,7 +29,7 @@ namespace Donkey_Kong_IHM
         /// </summary>
         private Parametres parametres;
 
-        // <summary>
+        /// <summary>
         /// Constructeur de la fenêtre Touches.
         /// Initialise les composants et charge les touches sauvegardées.
         /// Sélectionne dans chaque ComboBox la touche correspondante.
@@ -40,7 +40,6 @@ namespace Donkey_Kong_IHM
             parametres = Parametres.Charger();
             InitialiserLangue();
             InitialiserComboBoxes();
-           
         }
 
         private void InitialiserLangue()
@@ -55,16 +54,15 @@ namespace Donkey_Kong_IHM
             labelSaut.Content = Strings.Label_Sauter;
         }
 
-        // <summary>
-        /// Recherche un ComboBoxItem correspondnat a une valeur donnée
-        /// Permet de sélectionner l'element qui correspond à la touche sauvegardée
+        /// <summary>
+        /// Initialise les ComboBoxes avec les touches disponibles
         /// </summary>
-        /// <param name="combo"> La combob
         private void InitialiserComboBoxes()
         {
+            // Touches disponibles : A, Z, Q, S, D, Space, Enter
             string[] touchesPossibles = new string[]
             {
-                "Z", "Q", "S", "D", "Space", "Left arrow", "Right Arrow", "Up Arrow", "Down Arrow"
+                "A", "Z", "Q", "S", "D", "Space", "Enter"
             };
 
             RemplirComboBox(comboGauche, touchesPossibles, parametres.ToucheGauche);
@@ -87,10 +85,17 @@ namespace Donkey_Kong_IHM
                 item.Content = t;
                 comboBox.Items.Add(item);
 
+                // Sélectionner l'item si c'est la valeur actuelle
                 if (t == valeurActuelle)
                 {
                     comboBox.SelectedItem = item;
                 }
+            }
+
+            // Si aucune sélection, prendre le premier élément
+            if (comboBox.SelectedItem == null && comboBox.Items.Count > 0)
+            {
+                comboBox.SelectedIndex = 0;
             }
         }
 
@@ -100,14 +105,14 @@ namespace Donkey_Kong_IHM
         private void Tgauche(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem item = comboGauche.SelectedItem as ComboBoxItem;
-            if (item != null) 
+            if (item != null)
             {
                 parametres.ToucheGauche = item.Content.ToString();
             }
         }
 
         /// <summary>
-        /// Événement quand on change la touche "Aller à doite"
+        /// Événement quand on change la touche "Aller à droite"
         /// </summary>
         private void Tdroite(object sender, SelectionChangedEventArgs e)
         {
@@ -153,5 +158,5 @@ namespace Donkey_Kong_IHM
                 parametres.ToucheSaut = item.Content.ToString();
             }
         }
-    }   
+    }
 }

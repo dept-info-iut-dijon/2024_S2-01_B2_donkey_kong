@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup.Localizer;
-using DonkeyKongMetier;
+using Donkey_Kong_Metier;
 using IUTGame;
 
 namespace Donkey_Kong_Metier.Items
