@@ -62,7 +62,11 @@ namespace Donkey_Kong_IHM
             // Touches disponibles : A, Z, Q, S, D, Space, Enter
             string[] touchesPossibles = new string[]
             {
+<<<<<<< Updated upstream
                 "A", "Z", "Q", "S", "D", "Space", "Enter"
+=======
+                "Z", "Q", "S", "D", "Space", "Left Arrow", "Right Arrow", "Up Arrow", "Down Arrow"
+>>>>>>> Stashed changes
             };
 
             RemplirComboBox(comboGauche, touchesPossibles, parametres.ToucheGauche);
