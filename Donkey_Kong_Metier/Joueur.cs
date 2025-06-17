@@ -1,4 +1,5 @@
-﻿using Donkey_Kong_Metier.Items;
+﻿using Donkey_Kong_Metier;
+using Donkey_Kong_Metier.Items;
 using IUTGame;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,11 @@ namespace DonkeyKongMetier
 
         // Attributs du jeu
         private int nbVie = 3;
-        private int score = 0;
+        //score du joueur
+        private Score score;
+        //determine si le joueur peut grimper
+        private bool peutGrimper = false;
+        //determine si le joeuur a un marteau
         private bool aMarteau = false;
         private double tempsMarteau = 0;
 
@@ -68,6 +73,10 @@ namespace DonkeyKongMetier
 
         public override string TypeName => "Joueur";
 
+        public double TempsMarteau
+        { 
+            get { return tempsMarteau; }
+        }
         #endregion
 
         #region Constructeur
@@ -87,6 +96,7 @@ namespace DonkeyKongMetier
             this.plateformes = plateformes;
             this.echelles = echelles;
             Collidable = true;
+            score = new Score();
         }
         #endregion
 
@@ -112,6 +122,16 @@ namespace DonkeyKongMetier
                         ChangeSprite("mario_marteau_gauche.png.png");
                     else
                         ChangeSprite("mario_debout_gauche.png");
+                }
+                if (aMarteau)
+                {
+                    tempsMarteau += dt.TotalSeconds;
+
+                    if (tempsMarteau >= 10)
+                    {
+                        aMarteau = false;
+                        tempsMarteau = 0;
+                    }
                 }
             }
             else if (mouvementDroite && !mouvementGauche)
@@ -250,8 +270,6 @@ namespace DonkeyKongMetier
         #endregion
 
         #region Gestion du clavier
-        
-
         /// <summary>
         /// Gestion de l'appui sur une touche
         /// </summary>
@@ -293,19 +311,15 @@ namespace DonkeyKongMetier
             switch (key)
             {
                 case Key.Q:
-                case Key.Left:
                     mouvementGauche = false;
                     break;
                 case Key.D:
-                case Key.Right:
                     mouvementDroite = false;
                     break;
                 case Key.Z:
-                case Key.Up:
                     mouvementHaut = false;
                     break;
                 case Key.S:
-                case Key.Down:
                     mouvementBas = false;
                     break;
             }

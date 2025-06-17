@@ -27,6 +27,11 @@ namespace Donkey_Kong_Metier
         public Parametres Parametres { get; set; }
 
         /// <summary>
+        /// Score du joueur
+        /// </summary>
+        public Score ScoreJeu { get; set; }
+
+        /// <summary>
         /// Renvoie la langue du jeu
         /// </summary>
         public Langues Langue
@@ -63,6 +68,7 @@ namespace Donkey_Kong_Metier
         public LeJeu(IScreen screen, string spritesFolder, string soundsFolder, Langues langue = Langues.Français, int fps = 50) : base(screen, spritesFolder, soundsFolder, fps)
         {
             Parametres = Parametres.Charger();
+            ScoreJeu = new Score();
         }
 
         /// <summary>
