@@ -47,12 +47,6 @@ namespace Donkey_Kong_Metier
             }
         }
 
-
-        /// <summary>
-        /// Propriété pour obtenir le jeu
-        /// </summary>
-        public LeJeu Jeu => this;
-
         #endregion
 
         #region Constructeur
