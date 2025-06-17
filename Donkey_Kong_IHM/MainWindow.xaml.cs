@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Donkey_Kong_Metier;
 using IUTGame.WPF;
+using Donkey_Kong_IHM.Res;
 
 namespace Donkey_Kong_IHM
 {
@@ -19,12 +21,30 @@ namespace Donkey_Kong_IHM
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Parametres parametres;
         /// <summary>
         /// Constructeur de la fenetre d'accueil
         /// </summary>
         public MainWindow()
         {
+            parametres = Parametres.Charger();
             InitializeComponent();
+            InitialiserLangue();
+        }
+
+        private void InitialiserLangue()
+        {
+            CultureInfo culture = parametres.Langue == Langues.Français
+                ? new CultureInfo("fr-FR")
+                : new CultureInfo("en-US");
+
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+
+            this.Title = Strings.MainWindow_Title;
+            nvlle_partie.Content = Strings.Button_NewGame;
+            labelCopyright.Content = Strings.Label_Copyright;
+            labelMadeInJapan.Content = Strings.Label_MadeInJapan;
         }
 
         /// <summary>

@@ -73,7 +73,7 @@ namespace DonkeyKongMetier
             /// <param name="game">le jeu en cours</param>
             /// <param name="spriteName">le sprite du joueur a charger initialement</param>
             /// <param name="zindex">priorité d'affichage du sprite</param>
-        public Joueur(double x, double y, Game game, string spriteName, int zindex = 0) : base(x, y, game, "tile004.png", zindex)
+        public Joueur(double x, double y, Game game, string spriteName, int zindex = 0) : base(x, y, game, "mario_debout_droite", zindex)
         {
             this.x = x;
             this.y = y;

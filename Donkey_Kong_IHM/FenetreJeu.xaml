@@ -8,6 +8,6 @@
         Title="FenetreJeu" Height="600" Width="800">
     <Grid>
         <Canvas x:Name="canvas" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Panel.ZIndex="-3" />
-        <Button Margin="10,10,650,521" Content="Paramètre" FontSize="20" Click="OuvrirParametre"/>
+        <Button x:Name="btnParametre" Margin="10,10,650,521" Content="Paramètre" FontSize="20" Click="OuvrirParametre"/>
     </Grid>
 </Window>

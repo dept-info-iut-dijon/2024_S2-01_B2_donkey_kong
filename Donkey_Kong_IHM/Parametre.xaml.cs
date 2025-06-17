@@ -1,4 +1,5 @@
-﻿using Donkey_Kong_Metier;
+﻿using Donkey_Kong_IHM.Res;
+using Donkey_Kong_Metier;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -36,13 +37,16 @@ namespace Donkey_Kong_IHM
             this.jeu = jeu;
             InitializeComponent();
             InitialiserInterface();
+            InitialiserLangue();
+            
         }
 
         /// <summary>
         /// Initialise l'interface avec les valeurs de base des paramètres
         /// </summary>
-        public void InitialiserInterface()
+        private void InitialiserInterface()
         {
+            
             volumeSlider.Value = jeu.Parametres.Volume;
 
             if (labelValeurVolume != null)
@@ -63,12 +67,25 @@ namespace Donkey_Kong_IHM
             }
         }
 
+        private void InitialiserLangue()
+        {
+            this.Title = Strings.Parametre_Title;
+            labelVolume.Content = Strings.Label_Volume;
+            labelLangue.Content = Strings.Label_Langue;
+            radioFrancais.Content = Strings.Radio_French;
+            radioAnglais.Content = Strings.Radio_English;
+            btnQuitter.Content = Strings.Button_Quit;
+            btnTouches.Content = Strings.Button_Keys;
+            labelParametresTitre.Content = Strings.Parametre_Title;
+
+        }
+
         /// <summary>
         /// Permet de mettre le jeu en français
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void MettreEnFrançais(object sender, RoutedEventArgs e)
+        private void MettreEnFrançais(object sender, RoutedEventArgs e)
         {
             if (jeu.Parametres.Langue != Langues.Français)
             {
@@ -82,7 +99,7 @@ namespace Donkey_Kong_IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void MettreEnAnglais(object sender, RoutedEventArgs e)
+        private void MettreEnAnglais(object sender, RoutedEventArgs e)
         {
             if (jeu.Parametres.Langue != Langues.Anglais)
             {
@@ -96,7 +113,7 @@ namespace Donkey_Kong_IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void ChangerVolume(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void ChangerVolume(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (jeu != null && labelValeurVolume != null)
             {
@@ -114,13 +131,13 @@ namespace Donkey_Kong_IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void SortirParametre(object sender, RoutedEventArgs e)
+        private void SortirParametre(object sender, RoutedEventArgs e)
         {
             jeu.Run();
             this.Close();
         }
 
-        public void AllerTouche(object sender, RoutedEventArgs e)
+        private void AllerTouche(object sender, RoutedEventArgs e)
         {
             Touches fenTouche = new Touches();
             fenTouche.Show();

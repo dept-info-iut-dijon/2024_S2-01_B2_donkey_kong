@@ -12,6 +12,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Donkey_Kong_IHM.Res;
 using Donkey_Kong_Metier;
 using IUTGame;
 
@@ -37,8 +38,21 @@ namespace Donkey_Kong_IHM
         {
             InitializeComponent();
             parametres = Parametres.Charger();
+            InitialiserLangue();
             InitialiserComboBoxes();
            
+        }
+
+        private void InitialiserLangue()
+        {
+            this.Title = Strings.Touches_Title;
+            labelFonctionnalite.Content = Strings.Label_Fonctionnalite;
+            labelToucheAssociee.Content = Strings.Label_ToucheAssociee;
+            labelGauche.Content = Strings.Label_AllerGauche;
+            labelDroite.Content = Strings.Label_AllerDroite;
+            labelHaut.Content = Strings.Label_GrimperEchelle;
+            labelBas.Content = Strings.Label_DescendreEchelle;
+            labelSaut.Content = Strings.Label_Sauter;
         }
 
         // <summary>
@@ -83,7 +97,7 @@ namespace Donkey_Kong_IHM
         /// <summary>
         /// Événement quand on change la touche "Aller à gauche"
         /// </summary>
-        public void Tgauche(object sender, SelectionChangedEventArgs e)
+        private void Tgauche(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem item = comboGauche.SelectedItem as ComboBoxItem;
             if (item != null) 
@@ -95,7 +109,7 @@ namespace Donkey_Kong_IHM
         /// <summary>
         /// Événement quand on change la touche "Aller à doite"
         /// </summary>
-        public void Tdroite(object sender, SelectionChangedEventArgs e)
+        private void Tdroite(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem item = comboDroite.SelectedItem as ComboBoxItem;
             if (item != null)
@@ -107,7 +121,7 @@ namespace Donkey_Kong_IHM
         /// <summary>
         /// Événement quand on change la touche "Grimper à l'échelle"
         /// </summary>
-        public void Thaut(object sender, SelectionChangedEventArgs e)
+        private void Thaut(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem item = comboHaut.SelectedItem as ComboBoxItem;
             if (item != null)
@@ -119,7 +133,7 @@ namespace Donkey_Kong_IHM
         /// <summary>
         /// Événement quand on change la touche "Descendre l'échelle"
         /// </summary>
-        public void Tbas(object sender, SelectionChangedEventArgs e)
+        private void Tbas(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem item = comboBas.SelectedItem as ComboBoxItem;
             if (item != null)
@@ -131,7 +145,7 @@ namespace Donkey_Kong_IHM
         /// <summary>
         /// Événement quand on change la touche "Sauter"
         /// </summary>
-        public void Tsaut(object sender, SelectionChangedEventArgs e)
+        private void Tsaut(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem item = comboSaut.SelectedItem as ComboBoxItem;
             if (item != null)

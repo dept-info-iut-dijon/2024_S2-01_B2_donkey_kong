@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Donkey_Kong_IHM"
         mc:Ignorable="d"
+        xmlns:res="clr-namespace:Donkey_Kong_IHM.Res"
         Title="MainWindow" Height="600" Width="800">
     <Grid Background="black">
-        <Canvas x:Name="canvas" Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Panel.ZIndex="0" /> 
-        <Label Content="© 1983-2010 Nintendo" Margin="290,494,258,0" Foreground="white" FontSize="20"/>
-        <Label Content="Made in Japan" Margin="322,524,280,-22" Foreground="white" FontSize="20"/>
+        <Canvas x:Name="canvas" Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Panel.ZIndex="0" />
+        <Label x:Name ="labelCopyright" Content="© 1983-2010 Nintendo" Margin="290,494,258,0" Foreground="white" FontSize="20"/>
+        <Label x:Name="labelMadeInJapan" Content="Made in Japan" Margin="322,524,280,-22" Foreground="white" FontSize="20"/>
         <Image  Source="Ressources/Image/acceuil/logo2.png" Margin="10,8,307,322" RenderTransformOrigin="1.209,0.863"/>
         <Image Source="Ressources/Image/acceuil/Diddy-Kong.png" Margin="352,143,183,237" Panel.ZIndex="1" RenderTransformOrigin="0.5,0.5"/>
         <Image Source="Ressources/Image/acceuil/Donkey-kong.png" Margin="-8,292,508,10" Panel.ZIndex="1"  RenderTransformOrigin="0.5,0.5" >

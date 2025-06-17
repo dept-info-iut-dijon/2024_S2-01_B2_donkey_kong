@@ -1,4 +1,5 @@
-﻿using Donkey_Kong_Metier;
+﻿using Donkey_Kong_IHM.Res;
+using Donkey_Kong_Metier;
 using IUTGame;
 using IUTGame.WPF;
 using System;
@@ -34,6 +35,13 @@ namespace Donkey_Kong_IHM
             WPFScreen screen = new WPFScreen(canvas);
             jeu = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
             jeu.Run();
+            InitialiserLangue();
+        }
+
+        private void InitialiserLangue()
+        {
+            btnParametre.Content = Strings.Button_Settings;
+            this.Title = Strings.FenetreJeu_Title;
         }
 
 

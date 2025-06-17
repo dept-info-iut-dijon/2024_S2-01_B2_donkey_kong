@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Donkey_Kong_Metier
 {
@@ -162,7 +163,7 @@ namespace Donkey_Kong_Metier
             using (StreamWriter writer = new StreamWriter(fichierSauvegarde))
             {
                 writer.WriteLine($"Langue={Langue}");
-                writer.WriteLine($"Volume={Volume}");
+                writer.WriteLine($"Volume={Volume.ToString().Replace(',', '.')}");
                 writer.WriteLine($"ToucheGauche={ToucheGauche}");
                 writer.WriteLine($"ToucheDroite={ToucheDroite}");
                 writer.WriteLine($"ToucheHaut={ToucheHaut}");
@@ -189,7 +190,8 @@ namespace Donkey_Kong_Metier
                         switch (cle)
                         {
                             case "Langue":
-                                if (valeur == "Francais")
+                                
+                                if (valeur == "Français")
                                 {
                                     p.langue = Langues.Français;
                                 }
@@ -197,24 +199,25 @@ namespace Donkey_Kong_Metier
                                 {
                                     p.langue = Langues.Anglais;
                                 }
+       
                                 break;
                             case "Volume":
-                                p.Volume = Convert.ToDouble(valeur); ;
+                                p.volume = double.Parse(valeur, System.Globalization.CultureInfo.InvariantCulture);
                                 break;
                             case "ToucheGauche":
-                                p.ToucheGauche = valeur;
+                                p.toucheGauche = valeur;
                                 break;
                             case "ToucheDroite":
-                                p.ToucheDroite = valeur;
+                                p.toucheDroite = valeur;
                                 break;
                             case "ToucheHaut":
-                                p.ToucheHaut = valeur;
+                                p.toucheHaut = valeur;
                                 break;
                             case "ToucheBas":
-                                p.ToucheBas = valeur;
+                                p.toucheBas = valeur;
                                 break;
                             case "ToucheSaut":
-                                p.ToucheSaut = valeur;
+                                p.toucheSaut = valeur;
                                 break;
                         }
                     }

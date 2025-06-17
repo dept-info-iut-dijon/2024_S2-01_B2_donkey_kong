@@ -22,13 +22,13 @@
 
 
         </Grid.RowDefinitions>
-        <Label Content= "Fonctionnalité :" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
-        <Label Grid.Column="1" Content="Touche associée :" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Aller à gauche" HorizontalAlignment="Left" Margin="122,0,0,0" Grid.Row="1" VerticalAlignment="Center"/>
-        <Label Content="Aller à droite" HorizontalAlignment="Left" Margin="122,0,0,0" Grid.Row="2" VerticalAlignment="Center"/>
-        <Label Content="Grimper à l'échelle" HorizontalAlignment="Left" Margin="122,0,0,0" Grid.Row="3" VerticalAlignment="Center"/>
-        <Label Content="Descendre l'échelle" HorizontalAlignment="Left" Margin="122,0,0,0" Grid.Row="4" VerticalAlignment="Center"/>
-        <Label Content="Sauter" HorizontalAlignment="Left" Margin="122,0,0,0" Grid.Row="5" VerticalAlignment="Center"/>
+        <Label x:Name="labelFonctionnalite" Content= "Fonctionnalité :" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="labelToucheAssociee" Grid.Column="1" Content="Touche associée :" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="labelGauche" Content="Aller à gauche" HorizontalAlignment="Left" Margin="122,0,0,0" Grid.Row="1" VerticalAlignment="Center"/>
+        <Label x:Name="labelDroite" Content="Aller à droite" HorizontalAlignment="Left" Margin="122,0,0,0" Grid.Row="2" VerticalAlignment="Center"/>
+        <Label x:Name="labelHaut" Content="Grimper à l'échelle" HorizontalAlignment="Left" Margin="122,0,0,0" Grid.Row="3" VerticalAlignment="Center"/>
+        <Label x:Name="labelBas" Content="Descendre l'échelle" HorizontalAlignment="Left" Margin="122,0,0,0" Grid.Row="4" VerticalAlignment="Center"/>
+        <Label x:Name="labelSaut" Content="Sauter" HorizontalAlignment="Left" Margin="122,0,0,0" Grid.Row="5" VerticalAlignment="Center"/>
 
         <Image HorizontalAlignment="Left" Height="125" Margin="260,18,0,0" Grid.Row="6" VerticalAlignment="Top" Width="138" Source="/Ressources/Image/touches/Diddy-Kong.png" Grid.Column="1" Grid.RowSpan="2"/>
         <Image HorizontalAlignment="Left" Height="115" Margin="0,30,0,0" Grid.Row="7" VerticalAlignment="Top" Width="130" Source="/Ressources/Image/touches/Donkey-Kong.png" Grid.Column="1"/>

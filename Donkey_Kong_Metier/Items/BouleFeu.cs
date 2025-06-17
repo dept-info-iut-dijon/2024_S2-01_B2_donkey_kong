@@ -14,7 +14,7 @@ namespace Donkey_Kong_Metier.Items
     public class BouleFeu : GameItem, IAnimable
     {
         #region Constructeur
-        public BouleFeu(double x, double y, Game game) : base(x, y, game, "boule_feu.png", 2)
+        public BouleFeu(double x, double y, Game game) : base(x, y, game, "feu_bas_droite.png", 2)
         {
             Collidable = true;
         }
