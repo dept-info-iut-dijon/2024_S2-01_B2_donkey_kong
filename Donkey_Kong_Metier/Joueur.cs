@@ -32,15 +32,11 @@ namespace Donkey_Kong_Metier
 
         // Attributs du jeu
         private int nbVie = 3;
-<<<<<<< Updated upstream
-        private int score = 0;
-=======
         //score du joueur
         private Score score;
         //determine si le joueur peut grimper
         private bool peutGrimper = false;
         //determine si le joeuur a un marteau
->>>>>>> Stashed changes
         private bool aMarteau = false;
         private double tempsMarteau = 0;
 
@@ -54,45 +50,20 @@ namespace Donkey_Kong_Metier
 
         public int Score
         {
-            get { return score; }
+            get { return Score; }
         }
 
-<<<<<<< Updated upstream
         public int NbVie
         {
             get { return nbVie; }
-=======
+        }
         public double TempsMarteau
         { 
             get { return tempsMarteau; }
->>>>>>> Stashed changes
         }
         #endregion
 
-<<<<<<< Updated upstream
         #region Constructeur
-=======
-            /// <summary>
-            /// constructeur du joueur
-            /// </summary>
-            /// <param name="x">coordonnées x du joueur</param>
-            /// <param name="y">coordonnées y du joueur</param>
-            /// <param name="game">le jeu en cours</param>
-            /// <param name="spriteName">le sprite du joueur a charger initialement</param>
-            /// <param name="zindex">priorité d'affichage du sprite</param>
-        public Joueur(double x, double y, Game game, string spriteName,Score score, int zindex = 0) : base(x, y, game, "mario_debout_droite", zindex)
-        {
-            this.x = x;
-            this.y = y;
-            this.game = game;
-            this.score = score;
-            this.zindex = zindex;
-            this.sprite = spriteName;
-            Collidable = true;
-
-        }
-
->>>>>>> Stashed changes
         /// <summary>
         /// Constructeur du joueur
         /// </summary>
@@ -104,6 +75,7 @@ namespace Donkey_Kong_Metier
             : base(x, y, game, "mario_debout_droite.png", zindex)
         {
             Collidable = true;
+            score = new Score();
         }
         #endregion
 
@@ -317,7 +289,6 @@ namespace Donkey_Kong_Metier
         /// <param name="other">Objet avec lequel il y a collision</param>
         public override void CollideEffect(GameItem other)
         {
-<<<<<<< Updated upstream
             switch (other.TypeName)
             {
                 case "baril":
@@ -326,36 +297,6 @@ namespace Donkey_Kong_Metier
                     {
                         nbVie--;
                         ChangeSprite("mario_ko.png");
-=======
-            if (other.TypeName == "baril" || other.TypeName == "BouleFeu")
-            {
-                if (aMarteau == false)
-                {
-                    nbVie -= 1;
-                    if (this.nbVie < 1)
-                    {
-                        game.Loose();
-                    }
-                }
-                else
-                {
-                    game.RemoveItem(other);
-                    score.AjouterScore(100);
-                }
-            }
-            else if (other.TypeName == "princesse")
-            {
-                score.AjouterScore(5000);
-                game.Win();
-            }
-            else if (other.TypeName == "marteau")
-            {
-                aMarteau = true;
-                tempsMarteau = 0;
-                game.RemoveItem(other);
-            }
-        }
->>>>>>> Stashed changes
 
                         if (nbVie <= 0)
                         {

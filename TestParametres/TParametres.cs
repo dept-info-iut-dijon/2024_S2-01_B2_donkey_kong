@@ -55,21 +55,21 @@ namespace TestParametres
 
             parametresDeBase.Langue = Langues.Anglais;
             parametresDeBase.Volume = 0.8;
-            parametresDeBase.ToucheGauche = "Left Arrow";
-            parametresDeBase.ToucheDroite = "Right Arrow";
-            parametresDeBase.ToucheHaut = "Up Arrow";
-            parametresDeBase.ToucheBas = "Down Arrow";
-            parametresDeBase.ToucheSaut = "Space";
+            parametresDeBase.ToucheGauche = "A";
+            parametresDeBase.ToucheDroite = "Q";
+            parametresDeBase.ToucheHaut = "Z";
+            parametresDeBase.ToucheBas = "S";
+            parametresDeBase.ToucheSaut = "Enter";
 
             Parametres parametresCharges = Parametres.Charger();
 
             Assert.Equal(Langues.Anglais, parametresCharges.Langue);
             Assert.Equal(0.8, parametresCharges.Volume, 3);
-            Assert.Equal("Left Arrow", parametresCharges.ToucheGauche);
-            Assert.Equal("Right Arrow", parametresCharges.ToucheDroite);
-            Assert.Equal("Up Arrow", parametresCharges.ToucheHaut);
-            Assert.Equal("Down Arrow", parametresCharges.ToucheBas);
-            Assert.Equal("Space", parametresCharges.ToucheSaut);
+            Assert.Equal("A", parametresCharges.ToucheGauche);
+            Assert.Equal("Q", parametresCharges.ToucheDroite);
+            Assert.Equal("Z", parametresCharges.ToucheHaut);
+            Assert.Equal("S", parametresCharges.ToucheBas);
+            Assert.Equal("Enter", parametresCharges.ToucheSaut);
 
             SupprimerFichier();
 
@@ -111,19 +111,19 @@ namespace TestParametres
             SupprimerFichier();
             Parametres parametres = new Parametres();
 
-            parametres.ToucheGauche = "Left Arrow";
-            parametres.ToucheDroite = "Right Arrow";
-            parametres.ToucheHaut = "Up Arrow";
-            parametres.ToucheBas = "Down Arrow";
-            parametres.ToucheSaut = "Space";
+            parametres.ToucheGauche = "A";
+            parametres.ToucheDroite = "Q";
+            parametres.ToucheHaut = "Z";
+            parametres.ToucheBas = "S";
+            parametres.ToucheSaut = "Enter";
 
             Parametres parametresCharges = Parametres.Charger();
 
-            Assert.Equal("Left Arrow", parametresCharges.ToucheGauche);
-            Assert.Equal("Right Arrow", parametresCharges.ToucheDroite);
-            Assert.Equal("Up Arrow", parametresCharges.ToucheHaut);
-            Assert.Equal("Down Arrow", parametresCharges.ToucheBas);
-            Assert.Equal("Space", parametresCharges.ToucheSaut);
+            Assert.Equal("A", parametresCharges.ToucheGauche);
+            Assert.Equal("Q", parametresCharges.ToucheDroite);
+            Assert.Equal("Z", parametresCharges.ToucheHaut);
+            Assert.Equal("S", parametresCharges.ToucheBas);
+            Assert.Equal("Enter", parametresCharges.ToucheSaut);
         }
 
         [Fact]
@@ -147,7 +147,7 @@ namespace TestParametres
             SupprimerFichier();
             Parametres parametres = new Parametres();
             parametres.Volume = 0.9;
-            parametres.ToucheGauche = "Test";
+            parametres.ToucheGauche = "A";
 
             parametres.ToucheGauche = "Z";
 
