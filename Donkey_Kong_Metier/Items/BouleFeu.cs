@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup.Localizer;
 using Donkey_Kong_Metier;
+using DonkeyKongMetier;
 using IUTGame;
 
 namespace Donkey_Kong_Metier.Items

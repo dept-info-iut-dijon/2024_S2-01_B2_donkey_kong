@@ -1,11 +1,12 @@
 ﻿using Donkey_Kong_Metier.Items;
-using DonkeyKongMetier;
+using Donkey_Kong_Metier;
 using IUTGame;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DonkeyKongMetier;
 
 namespace Donkey_Kong_Metier
 {
@@ -149,9 +150,51 @@ namespace Donkey_Kong_Metier
 
             Marteau marteau2 = new Marteau(baseX - 300, baseY - 400 - 30, this);
             AddItem(marteau2);
-           
-            Joueur mario = new Joueur(baseX-405, baseY-25,this);
+
+
+
+
+            // Dans la méthode InitItems() de LeJeu.cs, après la création des plateformes :
+
+            // Créer les listes pour stocker les éléments
+            List<Echelle> echelles = new List<Echelle>();
+
+            // ... Code existant pour créer les plateformes ...
+
+            // Ajouter les échelles entre les niveaux
+            // Échelle du sol au premier niveau
+            Echelle echelle1 = new Echelle(baseX - 100, baseY - 80, this);
+            echelles.Add(echelle1);
+            AddItem(echelle1);
+
+            // Échelle du premier au deuxième niveau
+            Echelle echelle2 = new Echelle(baseX - 300, baseY - 160, this);
+            echelles.Add(echelle2);
+            AddItem(echelle2);
+
+            // Échelle du deuxième au troisième niveau
+            Echelle echelle3 = new Echelle(baseX - 200, baseY - 240, this);
+            echelles.Add(echelle3);
+            AddItem(echelle3);
+
+            // Échelle du troisième au quatrième niveau
+            Echelle echelle4 = new Echelle(baseX - 350, baseY - 320, this);
+            echelles.Add(echelle4);
+            AddItem(echelle4);
+
+            // Échelle du quatrième au cinquième niveau
+            Echelle echelle5 = new Echelle(baseX - 150, baseY - 400, this);
+            echelles.Add(echelle5);
+            AddItem(echelle5);
+
+
+            Parametres para = new Parametres();
+
+            // Créer le joueur avec les références aux plateformes et échelles
+            Joueur mario = new Joueur(baseX - 450, baseY - 30, this, plateformes, echelles, 2);
             AddItem(mario);
+
+
 
             PlayBackgroundMusic("bacmusic.wav");
             BackgroundVolume = Parametres.Volume;

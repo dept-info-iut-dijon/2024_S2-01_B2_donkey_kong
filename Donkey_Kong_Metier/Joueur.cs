@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Donkey_Kong_Metier
+namespace DonkeyKongMetier
 {
     /// <summary>
     /// Classe représentant le joueur
@@ -15,8 +15,11 @@ namespace Donkey_Kong_Metier
     public class Joueur : GameItem, IAnimable, IKeyboardInteract
     {
         #region Attributs
-        // Constante pour la vitesse
+        // Constantes pour le mouvement
         private const double VitesseDeplacement = 3.0;
+        private const double VitesseSaut = -8.0; // Vitesse initiale du saut (négatif = vers le haut)
+        private const double Gravite = 0.3; // Force de gravité
+        private const double VitesseMaxChute = 10.0; // Vitesse maximale de chute
 
         // État du mouvement
         private bool mouvementGauche = false;
@@ -24,16 +27,26 @@ namespace Donkey_Kong_Metier
         private bool mouvementHaut = false;
         private bool mouvementBas = false;
 
-        // Animation et sprites
-        private double tempsAnimation = 0;
-        private bool piedDroit = true;
-        private string derniereDirection = "droite";
+        // Propriété physique
+        private double vitesseVertical = 0;
+        private bool enSaut = false;
+        private bool auSol = false;
+        private bool surEchelle = false;
+        private bool peutMonterEchelle = false;
+        private bool peutDescendreEchelle = false;
 
         // Attributs du jeu
         private int nbVie = 3;
         private int score = 0;
         private bool aMarteau = false;
         private double tempsMarteau = 0;
+
+        // Référence vers les paramètres pour les touches
+        private Donkey_Kong_Metier.Parametres parametres;
+
+        // Références aux plateformes et échelles pour les collisions
+        private List<Plateforme> plateformes;
+        private List<Echelle> echelles;
 
         #endregion
 
@@ -52,6 +65,9 @@ namespace Donkey_Kong_Metier
         {
             get { return nbVie; }
         }
+
+        public override string TypeName => "Joueur";
+
         #endregion
 
         #region Constructeur
@@ -61,131 +77,113 @@ namespace Donkey_Kong_Metier
         /// <param name="x">Coordonnées x du joueur</param>
         /// <param name="y">Coordonnées y du joueur</param>
         /// <param name="game">Le jeu en cours</param>
+        /// <param name="parametres">Les paramètres du jeu pour les touches</param>
+        /// <param name="plateformes">Liste des plateformes du niveau</param>
+        /// <param name="echelles">Liste des échelles du niveau</param>
         /// <param name="zindex">Priorité d'affichage du sprite</param>
-        public Joueur(double x, double y, Game game, int zindex = 1)
+        public Joueur(double x, double y, Game game, List<Plateforme> plateformes, List<Echelle> echelles, int zindex = 1)
             : base(x, y, game, "mario_debout_droite.png", zindex)
         {
+            this.plateformes = plateformes;
+            this.echelles = echelles;
             Collidable = true;
         }
         #endregion
 
-        #region Propriété héritée
-        /// <summary>
-        /// Type de l'objet
-        /// </summary>
-        public override string TypeName => "Joueur";
-        #endregion
+       
 
-        #region Méthodes d'animation
+        #region --Méthodes--
         /// <summary>
         /// Animation du joueur
         /// </summary>
         /// <param name="dt">Temps écoulé depuis la dernière frame</param>
         public void Animate(TimeSpan dt)
         {
-            tempsAnimation += dt.TotalSeconds;
-
-            bool enMouvement = false;
+            // Vérification des collisions avec les plateformes et échelles
+            VerifierCollisions();
 
             // Gestion du mouvement horizontal
             if (mouvementGauche && !mouvementDroite)
             {
                 MoveXY(-VitesseDeplacement, 0);
-                derniereDirection = "gauche";
-                enMouvement = true;
-
-                // Animation de marche
-                if (tempsAnimation >= 0.15)
+                if (!enSaut && !surEchelle)
                 {
-                    if (piedDroit)
-                        ChangeSprite("mario_retourner_gauche.png");
+                    if (aMarteau)
+                        ChangeSprite("mario_marteau_gauche.png.png");
                     else
-                        ChangeSprite("mario_retourner_gauche2.png");
-
-                    piedDroit = !piedDroit;
-                    tempsAnimation = 0;
+                        ChangeSprite("mario_debout_gauche.png");
                 }
             }
             else if (mouvementDroite && !mouvementGauche)
             {
                 MoveXY(VitesseDeplacement, 0);
-                derniereDirection = "droite";
-                enMouvement = true;
-
-                // Animation de marche
-                if (tempsAnimation >= 0.15)
+                if (!enSaut && !surEchelle)
                 {
-                    if (piedDroit)
-                        ChangeSprite("mario_retourner_droite.png");
+                    if (aMarteau)
+                        ChangeSprite("mario_marteau_droite.png");
                     else
-                        ChangeSprite("mario_retouner_droite_face.png");
-
-                    piedDroit = !piedDroit;
-                    tempsAnimation = 0;
-                }
-            }
-
-            // Gestion du mouvement vertical
-            if (mouvementHaut && !mouvementBas)
-            {
-                MoveXY(0, -VitesseDeplacement);
-                enMouvement = true;
-
-                // Animation d'escalade
-                if (tempsAnimation >= 0.2)
-                {
-                    if (piedDroit)
-                        ChangeSprite("mario_echelle2.png");
-                    else
-                        ChangeSprite("mario_echelle3.png");
-
-                    piedDroit = !piedDroit;
-                    tempsAnimation = 0;
-                }
-            }
-            else if (mouvementBas && !mouvementHaut)
-            {
-                MoveXY(0, VitesseDeplacement);
-                enMouvement = true;
-
-                // Animation d'escalade
-                if (tempsAnimation >= 0.2)
-                {
-                    if (piedDroit)
-                        ChangeSprite("mario_echelle4.png");
-                    else
-                        ChangeSprite("mario_echelle5.png");
-
-                    piedDroit = !piedDroit;
-                    tempsAnimation = 0;
-                }
-            }
-
-            // Si pas de mouvement, sprite debout
-            if (!enMouvement)
-            {
-                if (aMarteau)
-                {
-                    if (derniereDirection == "droite")
-                        ChangeSprite("mario_debout_marteau_droite.png");
-                    else
-                        ChangeSprite("mario_debout_marteau_gauche.png");
-                }
-                else
-                {
-                    if (derniereDirection == "droite")
                         ChangeSprite("mario_debout_droite.png");
-                    else
-                        ChangeSprite("mario_debout_gauche.png");
                 }
-                tempsAnimation = 0;
+            }
+            else if (!enSaut && !surEchelle && !mouvementGauche && !mouvementDroite)
+            {
+                // Sprite statique quand on ne bouge pas
+                if (aMarteau)
+                    ChangeSprite("mario_debout_marteau_droite.png");
+                else
+                    ChangeSprite("mario_debout_droite.png");
+            }
+
+            // Gestion du mouvement sur échelle
+            if (surEchelle)
+            {
+                vitesseVertical = 0; // Pas de gravité sur l'échelle
+                enSaut = false;
+
+                if (mouvementHaut && peutMonterEchelle)
+                {
+                    MoveXY(0, -VitesseDeplacement);
+                    ChangeSprite("mario_dos.png");
+                }
+                else if (mouvementBas && peutDescendreEchelle)
+                {
+                    MoveXY(0, VitesseDeplacement);
+                    ChangeSprite("mario_dos2.png");
+                }
+            }
+            else
+            {
+                // Application de la gravité si pas sur une échelle
+                if (!auSol)
+                {
+                    vitesseVertical += Gravite;
+                    if (vitesseVertical > VitesseMaxChute)
+                        vitesseVertical = VitesseMaxChute;
+                }
+                if (auSol && vitesseVertical > 0)
+                {
+                    vitesseVertical = 0;
+                    enSaut = false;
+                }
+
+                // Application du mouvement vertical
+                MoveXY(0, vitesseVertical);
+            }
+
+            // Gestion du sprite de saut
+            if (enSaut && !surEchelle)
+            {
+                if (mouvementDroite || (!mouvementGauche && !mouvementDroite))
+                    ChangeSprite("mario_saut_droite.png");
+                else
+                    ChangeSprite("mario_saut_gauche.png");
             }
 
             // Gestion du temps de marteau
             if (aMarteau)
             {
                 tempsMarteau += dt.TotalSeconds;
-                if (tempsMarteau >= 10.0)
+                if (tempsMarteau >= 10.0) // Le marteau dure 10 secondes
                 {
                     aMarteau = false;
                     tempsMarteau = 0;
@@ -198,9 +196,62 @@ namespace Donkey_Kong_Metier
             if (Right > GameWidth) PutXY(GameWidth - Width, Top);
             if (Bottom > GameHeight) PutXY(Left, GameHeight - Height);
         }
+
+        /// <summary>
+        /// Vérifie les collisions avec plateformes et échelles
+        /// </summary>
+        private void VerifierCollisions()
+        {
+            // Vérification si on est au sol
+            auSol = false;
+            foreach (var plateforme in plateformes)
+            {
+                // On considère qu'on est au sol si on est juste au-dessus d'une plateforme
+                if (Bottom >= plateforme.Top - 5 && Bottom <= plateforme.Top + 5 &&
+                    Right > plateforme.Left && Left < plateforme.Right)
+                {
+                    auSol = true;
+                    // Ajuster la position pour être exactement sur la plateforme
+                    if (vitesseVertical > 0) // Si on tombe
+                    {
+                        PutXY(Left, plateforme.Top - Height);
+                    }
+                    break;
+                }
+            }
+
+            // Vérification si on est sur/près d'une échelle
+            surEchelle = false;
+            peutMonterEchelle = false;
+            peutDescendreEchelle = false;
+
+            foreach (var echelle in echelles)
+            {
+                // Vérifier si le joueur est aligné avec l'échelle (horizontalement)
+                if (Left < echelle.Right - 10 && Right > echelle.Left + 10)
+                {
+                    // Vérifier si on peut monter
+                    if (Bottom > echelle.Top && Top < echelle.Bottom)
+                    {
+                        peutMonterEchelle = true;
+                        peutDescendreEchelle = true;
+
+                        // Si on appuie sur haut ou bas, on s'accroche à l'échelle
+                        if (mouvementHaut || mouvementBas)
+                        {
+                            surEchelle = true;
+                            // Centrer le joueur sur l'échelle
+                            PutXY(echelle.Left + (echelle.Width - Width) / 2, Top);
+                        }
+                    }
+                }
+            }
+        }
         #endregion
 
         #region Gestion du clavier
+        
+
         /// <summary>
         /// Gestion de l'appui sur une touche
         /// </summary>
@@ -209,20 +260,26 @@ namespace Donkey_Kong_Metier
         {
             switch (key)
             {
-                case Key.Left:
+                case Key.Q:
                     mouvementGauche = true;
                     break;
-                case Key.Right:
+                case Key.D:
                     mouvementDroite = true;
                     break;
-                case Key.Up:
+                case Key.Z:
                     mouvementHaut = true;
                     break;
-                case Key.Down:
+                case Key.S:
                     mouvementBas = true;
                     break;
                 case Key.Space:
-                    Sauter();
+                    // Saut uniquement si au sol et pas sur échelle
+                    if (auSol && !surEchelle && !enSaut)
+                    {
+                        vitesseVertical = VitesseSaut;
+                        enSaut = true;
+                        TheGame.PlayBackgroundMusic("jump.wav");
+                    }
                     break;
             }
         }
@@ -235,61 +292,60 @@ namespace Donkey_Kong_Metier
         {
             switch (key)
             {
+                case Key.Q:
                 case Key.Left:
                     mouvementGauche = false;
                     break;
+                case Key.D:
                 case Key.Right:
                     mouvementDroite = false;
                     break;
+                case Key.Z:
                 case Key.Up:
                     mouvementHaut = false;
                     break;
+                case Key.S:
                 case Key.Down:
                     mouvementBas = false;
                     break;
             }
-        }
 
-        /// <summary>
-        /// Gestion du saut
-        /// </summary>
-        private void Sauter()
-        {
-            if (derniereDirection == "droite")
-                ChangeSprite("mario_saut_droite.png");
-            else
-                ChangeSprite("mario_saut_gauche.png");
         }
         #endregion
 
-        #region Collision
-        /// <summary>
-        /// Collision avec les autres objets
-        /// </summary>
-        /// <param name="other">Objet avec lequel il y a collision</param>
+            #region Collision
+            /// <summary>
+            /// Collision avec les autres objets
+            /// </summary>
+            /// <param name="other">Objet avec lequel il y a collision</param>
         public override void CollideEffect(GameItem other)
         {
             switch (other.TypeName)
             {
+                case "marteau_debout":
+                    aMarteau = true;
+                    tempsMarteau = 0;
+                    TheGame.PlayBackgroundMusic("itemget.wav");
+                    break;
                 case "baril":
                 case "boule_feu":
                     if (!aMarteau)
                     {
                         nbVie--;
                         ChangeSprite("mario_ko.png");
-
+                        TheGame.PlayBackgroundMusic("death.wav");
                         if (nbVie <= 0)
                         {
                             TheGame.Loose();
                         }
                     }
+                    else
+                    {
+                        // Détruire l'ennemi avec le marteau
+                        score += 300;
+                        TheGame.PlayBackgroundMusic("hammer.wav");
+                    }
                     break;
-
-                case "marteau_debout":
-                    aMarteau = true;
-                    tempsMarteau = 0;
-                    break;
-
                 case "princesse":
                     TheGame.Win();
                     break;
