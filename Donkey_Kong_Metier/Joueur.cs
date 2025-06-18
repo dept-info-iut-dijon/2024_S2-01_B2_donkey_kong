@@ -205,24 +205,24 @@ namespace DonkeyKongMetier
                     {
                         if (mouvementDroite || (!mouvementGauche && !mouvementDroite))
                         {
-                            ChangeSprite("mario_saut_droite.png");
+                            ChangeSprite("mario_marteau_droite.png");
                         }
                         else
                         {
-                            ChangeSprite("mario_saut_gauche.png");
+                            ChangeSprite("mario_marteau_gauche.png");
                         }
                     }
                     else if (mouvementGauche && !mouvementDroite)
                     {
-                        ChangeSprite("mario_debout_gauche.png");
+                        ChangeSprite("mario_marteau_gauche.png");
                     }
                     else if (mouvementDroite && !mouvementGauche)
                     {
-                        ChangeSprite("mario_debout_droite.png");
+                        ChangeSprite("mario_marteau_droite.png");
                     }
                     else
                     {
-                        ChangeSprite("mario_debout_droite.png");
+                        ChangeSprite("mario_marteau_droite.png");
                     }
                     
                 }
@@ -345,7 +345,7 @@ namespace DonkeyKongMetier
         }
         #endregion
 
-            #region Collision
+        #region Collision
             /// <summary>
             /// Collision avec les autres objets
             /// </summary>
