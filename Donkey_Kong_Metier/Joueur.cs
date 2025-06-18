@@ -61,7 +61,7 @@ namespace DonkeyKongMetier
             get { return aMarteau; }
         }
 
-        public int Score
+        public Score Score
         {
             get { return score; }
         }
@@ -356,7 +356,7 @@ namespace DonkeyKongMetier
                     else
                     {
                         // Détruire l'ennemi avec le marteau
-                        score += 300;
+                        score.AjouterScore(300);
                         TheGame.PlayBackgroundMusic("hammer.wav");
                     }
                     break;
