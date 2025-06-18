@@ -195,8 +195,13 @@ namespace Donkey_Kong_Metier
 
 
             // Créer le joueur avec les références aux plateformes et échelles
-            Joueur mario = new Joueur(baseX - 450, baseY - 30, this, plateformes, echelles, 2);
-            AddItem(mario);
+            GameItem[] list = this.ListItems();
+            //eviter l'apparition d'un 2eme joueur en allant dans les parametres
+            if (!list.OfType<Joueur>().Any())
+            {
+                Joueur mario = new Joueur(baseX - 450, baseY - 30, this, plateformes, echelles, 2);
+                AddItem(mario);
+            }
 
 
             PlayBackgroundMusic("bacmusic.wav");
