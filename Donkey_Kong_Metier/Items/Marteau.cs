@@ -21,16 +21,13 @@ namespace Donkey_Kong_Metier.Items
         {
             get
             {
-                return "marteau_debout";
+                return "marteau";
             }
         }
 
         public override void CollideEffect(GameItem other)
         {
-            if (other.TypeName == "Joueur")
-            {
-                TheGame.RemoveItem(this);
-            }
+            ///Déja geré dans joueur
         }
     }
 }

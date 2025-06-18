@@ -40,6 +40,8 @@ namespace DonkeyKongMetier
         private int nbVie = 3;
         //score du joueur
         private Score score;
+
+        private Game game;
         //determine si le joueur peut grimper
         private bool peutGrimper = false;
         //determine si le joeuur a un marteau
@@ -63,7 +65,7 @@ namespace DonkeyKongMetier
 
         public int Score
         {
-            get { return score; }
+            get { return score.ScoreFinal ; }
         }
 
         public int NbVie
@@ -93,6 +95,7 @@ namespace DonkeyKongMetier
         public Joueur(double x, double y, Game game, List<Plateforme> plateformes, List<Echelle> echelles, int zindex = 1)
             : base(x, y, game, "mario_debout_droite.png", zindex)
         {
+            this.game = game;
             this.plateformes = plateformes;
             this.echelles = echelles;
             Collidable = true;
@@ -122,16 +125,6 @@ namespace DonkeyKongMetier
                         ChangeSprite("mario_marteau_gauche.png.png");
                     else
                         ChangeSprite("mario_debout_gauche.png");
-                }
-                if (aMarteau)
-                {
-                    tempsMarteau += dt.TotalSeconds;
-
-                    if (tempsMarteau >= 10)
-                    {
-                        aMarteau = false;
-                        tempsMarteau = 0;
-                    }
                 }
             }
             else if (mouvementDroite && !mouvementGauche)
@@ -193,10 +186,10 @@ namespace DonkeyKongMetier
             // Gestion du sprite de saut
             if (enSaut && !surEchelle)
             {
-                if (mouvementDroite || (!mouvementGauche && !mouvementDroite))
-                    ChangeSprite("mario_saut_droite.png");
-                else
-                    ChangeSprite("mario_saut_gauche.png");
+                    if (mouvementDroite || (!mouvementGauche && !mouvementDroite))
+                        ChangeSprite("mario_saut_droite.png");
+                    else
+                        ChangeSprite("mario_saut_gauche.png");
             }
 
             // Gestion du temps de marteau
@@ -207,6 +200,31 @@ namespace DonkeyKongMetier
                 {
                     aMarteau = false;
                     tempsMarteau = 0;
+
+                    if (enSaut && !surEchelle)
+                    {
+                        if (mouvementDroite || (!mouvementGauche && !mouvementDroite))
+                        {
+                            ChangeSprite("mario_saut_droite.png");
+                        }
+                        else
+                        {
+                            ChangeSprite("mario_saut_gauche.png");
+                        }
+                    }
+                    else if (mouvementGauche && !mouvementDroite)
+                    {
+                        ChangeSprite("mario_debout_gauche.png");
+                    }
+                    else if (mouvementDroite && !mouvementGauche)
+                    {
+                        ChangeSprite("mario_debout_droite.png");
+                    }
+                    else
+                    {
+                        ChangeSprite("mario_debout_droite.png");
+                    }
+                    
                 }
             }
 
@@ -334,36 +352,38 @@ namespace DonkeyKongMetier
             /// <param name="other">Objet avec lequel il y a collision</param>
         public override void CollideEffect(GameItem other)
         {
-            switch (other.TypeName)
+            Console.WriteLine("Collision avec : " + other.TypeName);
+            if (other.TypeName =="baril" || other.TypeName =="BouleFeu"|| other.TypeName == "DonkeyKong")
             {
-                case "marteau_debout":
-                    aMarteau = true;
-                    tempsMarteau = 0;
-                    TheGame.PlayBackgroundMusic("itemget.wav");
-                    break;
-                case "baril":
-                case "boule_feu":
-                    if (!aMarteau)
+                if (aMarteau == false)
+                {
+                    nbVie -= 1;
+                    if (nbVie < 1)
                     {
-                        nbVie--;
-                        ChangeSprite("mario_ko.png");
-                        TheGame.PlayBackgroundMusic("death.wav");
-                        if (nbVie <= 0)
-                        {
-                            TheGame.Loose();
-                        }
+                        game.Loose();
                     }
-                    else
-                    {
-                        // Détruire l'ennemi avec le marteau
-                        score += 300;
-                        TheGame.PlayBackgroundMusic("hammer.wav");
-                    }
-                    break;
-                case "princesse":
-                    TheGame.Win();
-                    break;
+                }
+                else
+                {
+                    game.RemoveItem(other);
+                    score.AjouterScore(100);
+                }
             }
+            else if (other.TypeName =="marteau")
+            {
+                Console.WriteLine("Marteau ramassé");
+                aMarteau = true;
+                tempsMarteau = 0;
+                game.RemoveItem(other);
+                ChangeSprite("mario_marteau_droite.png");
+            }
+            else if (other.TypeName =="princesse")
+            {
+                score.AjouterScore(5000);
+                game.Win();
+            }
+
+            
         }
         #endregion
     }

@@ -33,10 +33,7 @@ namespace Donkey_Kong_Metier.Items
 
         public override void CollideEffect(GameItem other)
         {
-            if (other.TypeName == "Joueur")
-            {
-                TheGame.Loose();
-            }
+            ///geré dans Joueur
         }
     }
 }

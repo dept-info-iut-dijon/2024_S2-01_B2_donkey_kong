@@ -92,20 +92,6 @@ namespace Donkey_Kong_Metier.Items
                 TheGame.AddItem(feu);
                 TheGame.RemoveItem(this);
             }
-            else if (other.TypeName == "Joueur")
-            {
-                // Vérifier si Mario a le marteau actif
-                
-                if (other is Joueur joueur && joueur.AMarteau)
-                {
-                    TheGame.RemoveItem(this);
-                    // il faut aussi que l'on oublie pas d'Ajouter des points au score
-                }
-                else
-                {
-                    /// mario doit mourir si il touche sans marteau
-                }
-            }
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace Donkey_Kong_Metier
         #endregion
 
         #region --Propriété--
-        public int ScoreFinal { get; }
+        public int ScoreFinal { get { return scoreFinal; } }
         #endregion
 
         #region --Constructeur
@@ -23,7 +23,7 @@ namespace Donkey_Kong_Metier
         /// </summary>
         public Score()
         {
-            ScoreFinal = 0;
+            scoreFinal = 0;
         }
         #endregion
 

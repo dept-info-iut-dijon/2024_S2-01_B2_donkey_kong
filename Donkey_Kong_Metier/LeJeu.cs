@@ -194,12 +194,9 @@ namespace Donkey_Kong_Metier
             AddItem(echelle5);
 
 
-            Parametres para = new Parametres();
-
             // Créer le joueur avec les références aux plateformes et échelles
             Joueur mario = new Joueur(baseX - 450, baseY - 30, this, plateformes, echelles, 2);
             AddItem(mario);
-
 
 
             PlayBackgroundMusic("bacmusic.wav");

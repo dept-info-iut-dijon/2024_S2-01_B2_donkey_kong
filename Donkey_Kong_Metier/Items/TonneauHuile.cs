@@ -27,7 +27,7 @@ namespace Donkey_Kong_Metier.Items
 
         public override void CollideEffect(GameItem other)
         {
-            // il fait rien 
+            //geré dans baril
         }
     }
 }
