@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsMouvement", "TestsMouv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestParametres", "TestParametres\TestParametres.csproj", "{502227CA-38D5-4E23-9DC5-8AB431B5BE73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestColision", "TestColision\TestColision.csproj", "{C73D37E9-BFD1-4F01-8302-AE4EBCDB321E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{502227CA-38D5-4E23-9DC5-8AB431B5BE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{502227CA-38D5-4E23-9DC5-8AB431B5BE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{502227CA-38D5-4E23-9DC5-8AB431B5BE73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C73D37E9-BFD1-4F01-8302-AE4EBCDB321E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C73D37E9-BFD1-4F01-8302-AE4EBCDB321E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C73D37E9-BFD1-4F01-8302-AE4EBCDB321E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C73D37E9-BFD1-4F01-8302-AE4EBCDB321E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
