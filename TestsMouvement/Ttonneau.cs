@@ -25,14 +25,17 @@ namespace TestsMouvement
             TimeSpan dt = new TimeSpan();
             g.Run();
 
+            List<Plateforme> plateformes = new List<Plateforme>();
+            List<Echelle> echelles = new List<Echelle>();
+
             double y = 360;
             double x = 520;
 
+
             Plateforme p1 = new Plateforme(x, y, g);
-            List<Plateforme> plateformes = new List<Plateforme>();
             plateformes.Add(p1);
 
-            Baril baril = new Baril(plateformes, x, y, g);
+            Baril baril = new Baril(plateformes, echelles, x, y, g);
 
             baril.Animate(dt);
 
@@ -51,14 +54,17 @@ namespace TestsMouvement
             TimeSpan dt = new TimeSpan();
             g.Run();
 
+            List<Plateforme> plateformes = new List<Plateforme>();
+            List<Echelle> echelles = new List<Echelle>();
+
             double y = 360;
             double x = 320;
 
+
             Plateforme p1 = new Plateforme(x, y, g);
-            List<Plateforme> plateformes = new List<Plateforme>();
             plateformes.Add(p1);
 
-            Baril baril = new Baril(plateformes, x, y, g);
+            Baril baril = new Baril(plateformes, echelles, x, y, g);
 
             baril.Animate(dt);
 
@@ -77,14 +83,17 @@ namespace TestsMouvement
             TimeSpan dt = new TimeSpan();
             g.Run();
 
+            List<Plateforme> plateformes = new List<Plateforme>();
+            List<Echelle> echelles = new List<Echelle>();
+
             double y = 360;
             double x = 320;
 
+
             Plateforme p1 = new Plateforme(x, y, g);
-            List<Plateforme> plateformes = new List<Plateforme>();
             plateformes.Add(p1);
 
-            Baril baril = new Baril(plateformes, x, y-50, g);
+            Baril baril = new Baril(plateformes, echelles, x, y-50, g);
 
             baril.Animate(dt);
 

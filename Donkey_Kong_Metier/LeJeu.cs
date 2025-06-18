@@ -129,24 +129,15 @@ namespace Donkey_Kong_Metier
                 AddItem(pSommet);
             }
 
-            DonkeyKong donkeyKong = new DonkeyKong(baseX - 400, y - 40, this);
-            AddItem(donkeyKong);
-
             Princesse princesse = new Princesse(baseX - 100, y - 40, this);
             AddItem(princesse);
-
-            for (int i = 0; i < 3; i++)
-            {
-                Baril baril = new Baril(plateformes, baseX - 360 + (i * 40), y - 15, this);
-                AddItem(baril);
-            }
 
             TonneauHuile tonneauHuile = new TonneauHuile(baseX - 450, baseY - 30, this);
             AddItem(tonneauHuile);
             /*
             for (int i = 0; i < 2; i++)
             {
-                BouleFeu bouleFeu = new BouleFeu(baseX - 430 + (i * 30), baseY - 20, this);
+                BouleFeu bouleFeu = new BouleFeu(plateformes, echelles, baseX - 430 + (i * 30), baseY - 20, this);
                 AddItem(bouleFeu);
             }
             */
@@ -193,6 +184,11 @@ namespace Donkey_Kong_Metier
             echelles.Add(echelle5);
             AddItem(echelle5);
 
+            for (int i = 0; i < 3; i++)
+            {
+                Baril baril = new Baril(plateformes, echelles, baseX - 360 + (i * 40), y - 15, this);
+                AddItem(baril);
+            }
 
             // Créer le joueur avec les références aux plateformes et échelles
             GameItem[] list = this.ListItems();
@@ -203,6 +199,8 @@ namespace Donkey_Kong_Metier
                 AddItem(mario);
             }
 
+            DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 40, this);
+            AddItem(donkeyKong);
 
             PlayBackgroundMusic("bacmusic.wav");
             BackgroundVolume = Parametres.Volume;
