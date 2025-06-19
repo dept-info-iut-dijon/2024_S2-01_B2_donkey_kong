@@ -84,6 +84,9 @@ namespace Donkey_Kong_Metier
         /// <summary>
         /// Initiation des items du jeu
         /// </summary>
+        /// <summary>
+        /// Initiation des items du jeu
+        /// </summary>
         protected override void InitItems()
         {
             List<Plateforme> plateformes = new List<Plateforme>();
@@ -92,121 +95,148 @@ namespace Donkey_Kong_Metier
             double baseX = this.Screen.Width + 520;
 
             double y = baseY;
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
-                Plateforme pSol = new Plateforme(baseX - 470 + (i * 100), y, this);
+                Plateforme pSol = new Plateforme(baseX - 570 + (i * 100), y, this);
                 plateformes.Add(pSol);
                 AddItem(pSol);
             }
 
             y -= 80;
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 9; i++)
             {
-                Plateforme p1 = new Plateforme(baseX - 420 + (i * 80), y, this);
+                Plateforme p1 = new Plateforme(baseX - 570 + (i * 100), y, this);
                 plateformes.Add(p1);
                 AddItem(p1);
             }
 
             y -= 80;
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 9; i++)
             {
-                Plateforme p2 = new Plateforme(baseX - 380 + (i * 80), y, this);
+                Plateforme p2 = new Plateforme(baseX - 570 + (i * 100), y, this);
                 plateformes.Add(p2);
                 AddItem(p2);
             }
 
             y -= 80;
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 9; i++)
             {
-                Plateforme p3 = new Plateforme(baseX - 420 + (i * 70), y, this);
+                Plateforme p3 = new Plateforme(baseX - 570 + (i * 100), y, this);
                 plateformes.Add(p3);
                 AddItem(p3);
             }
 
             y -= 80;
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 9; i++)
             {
-                Plateforme p4 = new Plateforme(baseX - 350 + (i * 70), y, this);
+                Plateforme p4 = new Plateforme(baseX - 570 + (i * 100), y, this);
                 plateformes.Add(p4);
                 AddItem(p4);
             }
 
             y -= 80;
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 9; i++)
             {
-                Plateforme pSommet = new Plateforme(baseX - 420 + (i * 80), y, this);
+                Plateforme pSommet = new Plateforme(baseX - 570 + (i * 100), y, this);
                 plateformes.Add(pSommet);
                 AddItem(pSommet);
             }
 
-            Princesse princesse = new Princesse(baseX - 100, y - 40, this);
+            Princesse princesse = new Princesse(baseX - 50, y - 20, this);
             AddItem(princesse);
 
             TonneauHuile tonneauHuile = new TonneauHuile(baseX - 450, baseY - 30, this);
             AddItem(tonneauHuile);
-            /*
-            for (int i = 0; i < 2; i++)
-            {
-                BouleFeu bouleFeu = new BouleFeu(plateformes, echelles, baseX - 430 + (i * 30), baseY - 20, this);
-                AddItem(bouleFeu);
-            }
-            */
 
-            Marteau marteau1 = new Marteau(baseX - 200, baseY - 200 - 30, this);
+            
+            Marteau marteau1 = new Marteau(baseX - 200, baseY - 40, this);
             AddItem(marteau1);
 
-            Marteau marteau2 = new Marteau(baseX - 300, baseY - 400 - 30, this);
+            Marteau marteau2 = new Marteau(baseX - 300, baseY - 120, this); 
             AddItem(marteau2);
 
+            Marteau marteau3 = new Marteau(baseX - 150, baseY - 280, this); 
+            AddItem(marteau3);
 
+           
+            List<Echelle> echelles = new List<Echelle>(); 
+            List<Echelle> echellesCassees = new List<Echelle>();
 
+           
+            void CreerEchelle(double x, double yBas, double yHaut, bool estComplete = true)
+            {
+                
+                double distance = yBas - yHaut;
+                int nbSegments = (int)Math.Round(distance / 12); 
 
-            // Dans la méthode InitItems() de LeJeu.cs, après la création des plateformes :
+    
+                double startY = yBas - 10;
 
-            // Créer les listes pour stocker les éléments
-            List<Echelle> echelles = new List<Echelle>();
+                for (int j = 0; j < nbSegments; j++)
+                {
+                    
+                    if (!estComplete && (j >= 2 && j <= 4))
+                    {
+                        continue; 
+                    }
 
-            // ... Code existant pour créer les plateformes ...
+                    Echelle echelle = new Echelle(x, startY - (j * 12), this);
 
-            // Ajouter les échelles entre les niveaux
-            // Échelle du sol au premier niveau
-            Echelle echelle1 = new Echelle(baseX - 100, baseY - 80, this);
-            echelles.Add(echelle1);
-            AddItem(echelle1);
+                    if (estComplete)
+                    {
+                        echelles.Add(echelle); 
+                    }
+                    else
+                    {
+                        echellesCassees.Add(echelle); 
+                    }
 
-            // Échelle du premier au deuxième niveau
-            Echelle echelle2 = new Echelle(baseX - 300, baseY - 160, this);
-            echelles.Add(echelle2);
-            AddItem(echelle2);
+                    AddItem(echelle);
+                }
+            }
 
-            // Échelle du deuxième au troisième niveau
-            Echelle echelle3 = new Echelle(baseX - 200, baseY - 240, this);
-            echelles.Add(echelle3);
-            AddItem(echelle3);
+         
+            CreerEchelle(baseX - 350, baseY, baseY - 80, true);
+            CreerEchelle(baseX - 550, baseY, baseY - 80, false);
+            CreerEchelle(baseX - 150, baseY, baseY - 80, false); 
+            CreerEchelle(baseX + 50, baseY, baseY - 80, false);  
 
-            // Échelle du troisième au quatrième niveau
-            Echelle echelle4 = new Echelle(baseX - 350, baseY - 320, this);
-            echelles.Add(echelle4);
-            AddItem(echelle4);
+           
+            CreerEchelle(baseX - 200, baseY - 80, baseY - 160, true);  
+            CreerEchelle(baseX - 500, baseY - 80, baseY - 160, false); 
+            CreerEchelle(baseX + 100, baseY - 80, baseY - 160, false); 
 
-            // Échelle du quatrième au cinquième niveau
-            Echelle echelle5 = new Echelle(baseX - 150, baseY - 400, this);
-            echelles.Add(echelle5);
-            AddItem(echelle5);
+           
+            CreerEchelle(baseX - 400, baseY - 160, baseY - 240, true);
+            CreerEchelle(baseX - 550, baseY - 160, baseY - 240, false); 
+            CreerEchelle(baseX - 250, baseY - 160, baseY - 240, false); 
+            CreerEchelle(baseX - 100, baseY - 160, baseY - 240, false); 
+            CreerEchelle(baseX + 50, baseY - 160, baseY - 240, false);  
+
+    
+            CreerEchelle(baseX - 250, baseY - 240, baseY - 320, true);  
+            CreerEchelle(baseX - 450, baseY - 240, baseY - 320, false); 
+            CreerEchelle(baseX - 50, baseY - 240, baseY - 320, false); 
+
+           
+            CreerEchelle(baseX - 300, baseY - 320, baseY - 400, true);  
+            CreerEchelle(baseX - 500, baseY - 320, baseY - 400, false); 
+            CreerEchelle(baseX - 100, baseY - 320, baseY - 400, false); 
+            CreerEchelle(baseX + 100, baseY - 320, baseY - 400, false); 
+
             if (joueur == null)
             {
                 joueur = new Joueur(baseX - 450, baseY - 30, this, plateformes, echelles, 2);
                 AddItem(joueur);
             }
+
             for (int i = 0; i < 3; i++)
             {
                 Baril baril = new Baril(plateformes, echelles, baseX - 360 + (i * 40), y - 15, this);
                 AddItem(baril);
             }
 
-           
-
-            DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 40, this);
+            DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 30, this); 
             AddItem(donkeyKong);
 
             PlayBackgroundMusic("bacmusic.wav");

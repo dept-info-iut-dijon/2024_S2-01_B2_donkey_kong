@@ -209,7 +209,7 @@ namespace Donkey_Kong_Metier.Items
         /// <param name="other"></param>
         public override void CollideEffect(GameItem other)
         {
-            Console.WriteLine("Collision avec : " + other.TypeName);
+          
             if (other.TypeName == "tonneau_huile")
             {
                 // baril en boule de feu

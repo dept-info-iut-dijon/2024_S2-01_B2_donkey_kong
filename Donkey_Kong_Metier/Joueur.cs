@@ -385,11 +385,11 @@ namespace DonkeyKongMetier
         {
             if (!other.Collidable)
             {
-                Console.WriteLine($"Collision ignorée avec {other.TypeName} (déjà traité)");
+                
                 return;
             }
 
-            Console.WriteLine("Collision avec : " + other.TypeName);
+
             if (other.TypeName == "baril" || other.TypeName == "boule_feu" || other.TypeName == "DonkeyKong")
             {
                 if (aMarteau == false)
@@ -413,7 +413,7 @@ namespace DonkeyKongMetier
             {
                 
                     other.Collidable = false;
-                    Console.WriteLine("Marteau ramassé");
+
                     aMarteau = true;
                     tempsMarteau = 0;
                     AjouterPoints(100);
