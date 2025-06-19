@@ -206,7 +206,7 @@ namespace Donkey_Kong_Metier
 
            
 
-            DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 33, this);
+            DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 40, this);
             AddItem(donkeyKong);
 
             PlayBackgroundMusic("bacmusic.wav");
@@ -227,7 +227,6 @@ namespace Donkey_Kong_Metier
             {
                 // Bonus de victoire
                 joueur.AjouterPoints(1000);
-
                 // Vérifier si c'est un nouveau record
                 bool nouveauRecord = Parametres.VerifierNouveauRecord(joueur.ScoreActuel);
             }
@@ -242,6 +241,8 @@ namespace Donkey_Kong_Metier
             {
                 // Vérifier si c'est un nouveau record même en cas de défaite
                 bool nouveauRecord = Parametres.VerifierNouveauRecord(joueur.ScoreActuel);
+                if(joueur.NbVie>1)
+                    this.InitItems();
             }
         }
 

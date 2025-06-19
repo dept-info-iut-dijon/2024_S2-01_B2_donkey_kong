@@ -111,13 +111,7 @@ namespace DonkeyKongMetier
         }
         #endregion
 
-
-
         #region --Méthodes--
-
-
-
-
 
         /// <summary>
         /// Animation du joueur
@@ -341,7 +335,7 @@ namespace DonkeyKongMetier
                     {
                         vitesseVertical = VitesseSaut;
                         enSaut = true;
-                        TheGame.PlayBackgroundMusic("jump.wav");
+                        this.PlaySound("jump.wav");
                     }
                     break;
             }
@@ -421,6 +415,7 @@ namespace DonkeyKongMetier
                 {
                     other.Collidable = false;
                     AjouterPoints(5000);
+                    PlaySound("win1.wav");
                     game.Win();
                 }
                 }

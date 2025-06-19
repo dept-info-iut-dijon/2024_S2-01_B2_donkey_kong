@@ -260,7 +260,7 @@ namespace TestsMouvement
             List<Echelle> echelles = new List<Echelle>();
             Joueur joueur = new Joueur(100, 200, g, plateformes, echelles);
             int vieInitiale = joueur.NbVie;
-            Baril baril = new Baril(plateformes,100, 200, g);
+            Baril baril = new Baril(plateformes,echelles,100, 200, g);
             joueur.CollideEffect(baril);
 
             Assert.Equal(vieInitiale - 1, joueur.NbVie);        }
@@ -287,11 +287,11 @@ namespace TestsMouvement
             int scoreInitial = joueur.Score;
             int vieInitiale = joueur.NbVie;
 
-            Baril baril = new Baril(plateformes, 100, 200, g);
+            Baril baril = new Baril(plateformes, echelles,100, 200, g);
             joueur.CollideEffect(baril);
 
             
-            Assert.Equal(scoreInitial + 100, joueur.Score);
+            Assert.Equal(scoreInitial + 300, joueur.Score);
             Assert.Equal(vieInitiale, joueur.NbVie); 
         }
 
