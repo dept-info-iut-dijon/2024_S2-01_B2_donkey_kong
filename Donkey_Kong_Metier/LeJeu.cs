@@ -206,7 +206,7 @@ namespace Donkey_Kong_Metier
 
            
 
-            DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 40, this);
+            DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 33, this);
             AddItem(donkeyKong);
 
             PlayBackgroundMusic("bacmusic.wav");

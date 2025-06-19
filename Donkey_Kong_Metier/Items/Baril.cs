@@ -82,7 +82,7 @@ namespace Donkey_Kong_Metier.Items
             this.plateformes = p;
             sensGauche = true;
             enTrainDescendre = false;
-            timeToAnimate = new TimeSpan(0, 0, 0, 0, 200);
+            timeToAnimate = new TimeSpan(0, 0, 0, 0, 100);
             cpt = 0;
         }
 
@@ -101,8 +101,8 @@ namespace Donkey_Kong_Metier.Items
             if (timeToAnimate.TotalMilliseconds < 0)
             {
                 this.ChangeSprite("baril_face.png");
-                timeToAnimate = new TimeSpan(0,0,0,0, 400);
-                durationToAnimate = new TimeSpan(0, 0, 0,0, 200);
+                timeToAnimate = new TimeSpan(0,0,0,0, 200);
+                durationToAnimate = new TimeSpan(0, 0, 0,0, 100);
             }
             else if (durationToAnimate.TotalMilliseconds < 0)
             {
@@ -111,8 +111,12 @@ namespace Donkey_Kong_Metier.Items
 
 
             //partie mouvement
-            if (enTrainDescendre && cpt < 5)
+            if (((enTrainDescendre || !VerificationCollisionPlateformes(plateformes)) && cpt < 2))
             {
+                if (cpt == 0)
+                {
+                    sensGauche = !sensGauche;
+                }
                 MoveXY(0, +1.6);
                 cpt += 1;
             }
@@ -130,11 +134,11 @@ namespace Donkey_Kong_Metier.Items
                         case 2:
                             if (sensGauche)
                             {
-                                this.MoveXY(4, 0);
+                                this.MoveXY(2, 0);
                             }
                             else
                             {
-                                this.MoveXY(-4, 0);
+                                this.MoveXY(-2, 0);
                             }
                             enTrainDescendre = true;
                             break;
@@ -158,8 +162,7 @@ namespace Donkey_Kong_Metier.Items
                     else
                     {
                         this.ChangeSprite("baril_face.png");
-                        MoveXY(0, +1.6);
-                        sensGauche = !sensGauche;
+                        enTrainDescendre = true;
                     }
                 }
             }
@@ -174,6 +177,7 @@ namespace Donkey_Kong_Metier.Items
         /// <param name="other"></param>
         public override void CollideEffect(GameItem other)
         {
+            Console.WriteLine("Collision avec : " + other.TypeName);
             if (other.TypeName == "tonneau_huile")
             {
                 // baril en boule de feu
