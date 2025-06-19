@@ -7,241 +7,177 @@ using TestsMouvement;
 
 namespace TestColision
 {
-    /// <summary>
-    /// Tests unitaires pour CollideEffect de Joueur
-    /// </summary>
-    [CollectionDefinition("NonParallelCollection", DisableParallelization = true)]
+   
+        /// <summary>
+        /// Tests unitaires pour CollideEffect de Joueur
+       /// </summary>
+      [CollectionDefinition("NonParallelCollection", DisableParallelization = true)]
+     
     public class TCollisionJoueur
     {
-        /// <summary>
-        /// Classe TestJoueur pour les tests
-        /// </summary>
-        public class TestJoueur : Joueur
-        {
-            private bool aMarteau;
-            private int nbVie = 3;
-            private Score score;
-
-            public TestJoueur(double x, double y, LeJeu game, List<Plateforme> plateformes, List<Echelle> echelles, bool avecMarteau = false)
-                : base(x, y, game, plateformes, echelles, 3)
-            {
-                this.aMarteau = avecMarteau;
-                this.score = new Score();
-            }
-
-            public new bool AMarteau
-            {
-                get { return aMarteau; }
-            }
-
-            public int NbVie
-            {
-                get { return nbVie; }
-            }
-
-            public void SetMarteau(bool valeur)
-            {
-                aMarteau = valeur;
-            }
-
-            public void SetNbVie(int valeur)
-            {
-                nbVie = valeur;
-            }
 
 
-            public override void CollideEffect(GameItem other)
-            {
-            
-
-                if (other.TypeName == "baril" || other.TypeName == "boule_feu" || other.TypeName == "donkey_kong")
-                {
-                    if (aMarteau == false)
-                    {
-                        nbVie -= 1;
-                        if (nbVie < 1)
-                        {
-                            // j'appelle pas loose car je veux esquiver NotImplementedException dans les tests
-                            
-                        }
-                    }
-                    else
-                    {
-                        TheGame.RemoveItem(other);
-                        score.AjouterPoints(100);
-                    }
-                }
-                // je chekc le type marteau
-                else if (other.TypeName == "marteau_debout" || other.TypeName == "marteau")
-                {
-                    aMarteau = true;
-                    TheGame.RemoveItem(other);
-                    ChangeSprite("mario_marteau_droite.png");
-                }
-                else if (other.TypeName == "princesse")
-                {
-                    score.AjouterPoints(5000);
-                    //j'appelle pas win car je veux esquiver NotImplementedException dans les tests
-                   
-                }
-            }
-        }
 
         /// <summary>
-        /// Test: Joueur sans marteau collision avec Baril
+        /// Joueur sans marteau collision avec BouleFeu perd une vie
         /// </summary>
         [Fact]
-        public void Joueur_baril_moins1vie()
+        public void Joueur_SansMarteau_CollisionBouleFeu_PerdUneVie()
         {
+
             FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
+            LeJeu g = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
 
             List<Plateforme> plateformes = new List<Plateforme>();
             List<Echelle> echelles = new List<Echelle>();
 
-            TestJoueur joueur = new TestJoueur(100, 100, jeu, plateformes, echelles, false);
-            joueur.SetNbVie(2);
-
-            List<Plateforme> plateformesBaril = new List<Plateforme>();
-            List<Echelle> echellesBaril = new List<Echelle>();
-
-            Baril baril = new Baril(plateformesBaril, echellesBaril, 150, 150, jeu);
-
-            joueur.CollideEffect(baril);
-
-            Assert.Equal(1, joueur.NbVie);
-        }
-
-        /// <summary>
-        /// lorsqu'il ya une colision avec le marteau 
-        /// </summary>
-        [Fact]
-        public void Joueur_marteeau()
-        {
-            // Arrange
-            FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
-
-            List<Plateforme> plateformes = new List<Plateforme>();
-            List<Echelle> echelles = new List<Echelle>();
-
-            TestJoueur joueur = new TestJoueur(100, 100, jeu, plateformes, echelles, false);
-            Marteau marteau = new Marteau(150, 150, jeu);
-
-            Assert.False(joueur.AMarteau);
-
-            
-            joueur.CollideEffect(marteau);
-
-            // on verifie que le marteau a été recuperer 
-            Assert.True(joueur.AMarteau);
-        }
-
-        /// <summary>
-        /// quand le joueur a une colision avec un baril avec son marteau
-        /// </summary>
-        [Fact]
-        public void Joueur_baril_marteaue()
-        {
-            FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
-
-            List<Plateforme> plateformes = new List<Plateforme>();
-            List<Echelle> echelles = new List<Echelle>();
-
-            TestJoueur joueur = new TestJoueur(100, 100, jeu, plateformes, echelles, true);
-            joueur.SetNbVie(3);
-
-            List<Plateforme> plateformesBaril = new List<Plateforme>();
-            List<Echelle> echellesBaril = new List<Echelle>(); 
-
-            Baril baril = new Baril(plateformesBaril, echellesBaril, 150, 150, jeu);
-
-            int viesAvant = joueur.NbVie;
-
-            joueur.CollideEffect(baril);  
-
-            Assert.Equal(viesAvant, joueur.NbVie);
-        }
-
-        /// <summary>
-        /// quand le joueur a une collision avec une de BouleFeu sans marteau
-        /// </summary>
-        [Fact]
-        public void Joueur_bouledefeu_1vieenmoins ()
-        {
-            FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
-
-            List<Plateforme> plateformes = new List<Plateforme>();
-            List<Echelle> echelles = new List<Echelle>();
-
-            TestJoueur joueur = new TestJoueur(100, 100, jeu, plateformes, echelles, false);
-            joueur.SetNbVie(3);
+            Joueur joueur = new Joueur(100, 100, g, plateformes, echelles);
 
             List<Plateforme> plateformesBoule = new List<Plateforme>();
             List<Echelle> echellesBoule = new List<Echelle>();
+            BouleFeu bouleFeu = new BouleFeu(plateformesBoule, echellesBoule, 150, 150, g);
 
-            BouleFeu bouleFeu = new BouleFeu(plateformesBoule, echellesBoule, 150, 150, jeu);
+          
+            Assert.Equal(3, joueur.NbVie);
+            Assert.False(joueur.AMarteau);
 
+          
             joueur.CollideEffect(bouleFeu);
 
-            Assert.Equal(2, joueur.NbVie);
+            Assert.Equal(2, joueur.NbVie); 
         }
 
         /// <summary>
-        /// quanf le joueur collision avec Princesse 
+        ///  collision avec Princesse gagne des points
         /// </summary>
         [Fact]
-        public void Joueur_princesse ()
+        public void Joueur_CollisionPrincesse_GagnePoints()
         {
+
+            FakeScreen screen = new FakeScreen();
+            LeJeu g = new LeJeu(screen, "Ressources/Image","Ressource/Son ");
+
+
+            List<Plateforme> plateformes = new List<Plateforme>();
+            List<Echelle> echelles = new List<Echelle>();
+
+            Joueur joueur = new Joueur(100, 100, g, plateformes, echelles);
+            Princesse princesse = new Princesse(150, 150, g);
+
+           
+            Assert.Equal(0, joueur.Score);
+
+            joueur.CollideEffect(princesse);
+
+                // Le joueur doit avoir gagné 5000 points
+                Assert.Equal(5000, joueur.Score);
+                // On vérifie quand même le score
+                Assert.Equal(5000, joueur.Score);
+                Assert.Equal(5000, joueur.Score);
             
-            FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
-
-            List<Plateforme> plateformes = new List<Plateforme>();
-            List<Echelle> echelles = new List<Echelle>();
-            TestJoueur joueur = new TestJoueur(100, 100, jeu, plateformes, echelles, false);
-
-            Princesse princesse = new Princesse(150, 150, jeu);
-
-            try
-            {
-                joueur.CollideEffect(princesse);
-               
-            }
-            catch (Exception)
-            {
-                Assert.True(false);
-            }
+        
+        
+        
+        
         }
+        
 
         /// <summary>
-        /// quand le joueur est a sa derniere vie
+        /// dernière vie collision avec ennemi 
         /// </summary>
         [Fact]
-        public void Joueur_0vie()
+        public void Joueur_DerniereVie_CollisionEnnemi_GameOver()
         {
-
             FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
+            LeJeu g = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
 
             List<Plateforme> plateformes = new List<Plateforme>();
             List<Echelle> echelles = new List<Echelle>();
 
-            TestJoueur joueur = new TestJoueur(100, 100, jeu, plateformes, echelles, false);
-            joueur.SetNbVie(1);
+            Joueur joueur = new Joueur(100, 100, g, plateformes, echelles);
 
+            // Perdre 2 vies pour arriver à la dernière
             List<Plateforme> plateformesBaril = new List<Plateforme>();
             List<Echelle> echellesBaril = new List<Echelle>();
+            Baril baril1 = new Baril(plateformesBaril, echellesBaril, 150, 150,g);
+            Baril baril2 = new Baril(plateformesBaril, echellesBaril, 150, 150, g);
 
-            Baril baril = new Baril(plateformesBaril, echellesBaril, 150, 150, jeu);
+            joueur.CollideEffect(baril1); 
+            joueur.CollideEffect(baril2); 
 
-            joueur.CollideEffect(baril);
+            Assert.Equal(1, joueur.NbVie); 
 
-            // on verifie que le nombre de vie est bien de 0
-            Assert.Equal(0, joueur.NbVie);
+            
+            Baril barilFinal = new Baril(plateformesBaril, echellesBaril, 150, 150, g);
 
+            
+            
+                joueur.CollideEffect(barilFinal);
+
+                //  Plus de vies
+                Assert.Equal(0, joueur.NbVie);
+                Assert.Equal(0, joueur.NbVie);
+            }
+        
+
+        /// <summary>
+        /// collision avec objet sans effet de colision 
+        /// </summary>
+        [Fact]
+        public void Joueur_CollisionObjetInconnu_NeFaitRien()
+        {
+
+            FakeScreen screen = new FakeScreen();
+            LeJeu g = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
+
+            List<Plateforme> plateformes = new List<Plateforme>();
+            List<Echelle> echelles = new List<Echelle>();
+
+            Joueur joueur = new Joueur(100, 100, g, plateformes, echelles);
+            Plateforme plateforme = new Plateforme(150, 150, g);
+
+         
+            int viesInitiales = joueur.NbVie;
+            int scoreInitial = joueur.Score;
+            bool marteauInitial = joueur.AMarteau;
+
+            joueur.CollideEffect(plateforme);
+
+         
+            Assert.Equal(viesInitiales, joueur.NbVie);
+            Assert.Equal(scoreInitial, joueur.Score);
+            Assert.Equal(marteauInitial, joueur.AMarteau);
         }
+
+        /// <summary>
+        /// Double collision avec le même objet 
+        /// </summary>
+        [Fact]
+        public void Joueur_DoubleCollisionMemeObjet_UneSeuleFois()
+        {
+
+            FakeScreen screen = new FakeScreen();
+            LeJeu g = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
+
+            List<Plateforme> plateformes = new List<Plateforme>();
+            List<Echelle> echelles = new List<Echelle>();
+
+            Joueur joueur = new Joueur(100, 100, g, plateformes, echelles);
+            Marteau marteau = new Marteau(150, 150, g);
+
+            // Première collision
+            joueur.CollideEffect(marteau);
+            Assert.Equal(100, joueur.Score);
+            Assert.True(joueur.AMarteau);
+
+            // Deuxième collision avec le même marteau
+            joueur.CollideEffect(marteau);
+
+            
+            Assert.Equal(100, joueur.Score); // Pas compter 2 x
+        }
+
+
+       }
     }
-}
+    

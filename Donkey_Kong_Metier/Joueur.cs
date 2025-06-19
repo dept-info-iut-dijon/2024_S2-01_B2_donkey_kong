@@ -65,7 +65,17 @@ namespace DonkeyKongMetier
 
         public int Score
         {
-            get { return monScore?.ScoreActuel ?? 0; }
+            get
+            {
+                if (monScore != null)
+                {
+                    return monScore.ScoreActuel;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
         }
 
         public int NbVie
@@ -373,10 +383,14 @@ namespace DonkeyKongMetier
             /// <param name="other">Objet avec lequel il y a collision</param>
         public override void CollideEffect(GameItem other)
         {
-            if (other == null)
+            if (!other.Collidable)
+            {
+                Console.WriteLine($"Collision ignorée avec {other.TypeName} (déjà traité)");
                 return;
+            }
+
             Console.WriteLine("Collision avec : " + other.TypeName);
-            if (other.TypeName =="baril" || other.TypeName =="BouleFeu"|| other.TypeName == "DonkeyKong")
+            if (other.TypeName == "baril" || other.TypeName == "boule_feu" || other.TypeName == "DonkeyKong")
             {
                 if (aMarteau == false)
                 {
@@ -388,18 +402,16 @@ namespace DonkeyKongMetier
                 }
                 else
                 {
-                    if (other.Collidable)
-                    {
+                    
                         other.Collidable = false;
                         AjouterPoints(300);
                         game.RemoveItem(other);
                     }
-                    }
+                    
             }
             else if (other.TypeName =="marteau")
             {
-                if (other.Collidable)
-                {
+                
                     other.Collidable = false;
                     Console.WriteLine("Marteau ramassé");
                     aMarteau = true;
@@ -407,18 +419,18 @@ namespace DonkeyKongMetier
                     AjouterPoints(100);
                     game.RemoveItem(other);
                     ChangeSprite("mario_marteau_droite.png");
-                }
+                
                 }
             else if (other.TypeName =="princesse")
             {
-                if (other.Collidable) // Épour ne pas la sauver plusiseur fois
-                {
+              
+                
                     other.Collidable = false;
                     AjouterPoints(5000);
                     PlaySound("win1.wav");
                     game.Win();
                 }
-                }
+                
 
             
         }

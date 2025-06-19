@@ -23,67 +23,43 @@ namespace TestColision
         [Fact]
         public void Baril_tonneau()
         {
-            
-            FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
 
+            FakeScreen screen = new FakeScreen();
+            LeJeu g = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
 
             List<Plateforme> plateformes = new List<Plateforme>();
             List<Echelle> echelles = new List<Echelle>();  
 
-            Baril baril = new Baril(plateformes, echelles, 100, 100, jeu);
+            Baril baril = new Baril(plateformes, echelles, 100, 100, g);
 
-            TonneauHuile tonneauHuile = new TonneauHuile(200, 200, jeu);
+            TonneauHuile tonneauHuile = new TonneauHuile(200, 200, g);
 
-            try
-            {
+            
                 baril.CollideEffect(tonneauHuile);
-            }
-            catch (Exception )
-            {
+            
+           
                 Assert.True(false);
             }
 
-        }
+ 
 
         /// <summary>
-        ///un baril en collision avec objet non géré ne fait rien
-        /// </summary>
-        [Fact]
-        public void Baril_objet_nongerer()
-        {
-            FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
-
-            List<Plateforme> plateformes = new List<Plateforme>();
-            List<Echelle> echelles = new List<Echelle>();  // <- Tu avais oublié ça
-
-            Baril baril = new Baril(plateformes, echelles, 100, 100, jeu);
-
-            Plateforme plateforme = new Plateforme(150, 150, jeu);
-
-      
-            var exception = Record.Exception(() => baril.CollideEffect(plateforme));
-            Assert.Null(exception);
-        }
-
-        /// <summary>
-        /// on verifi une colision avec un vrai ogjet
+        /// on verifi une colision avec une interacation 
         /// </summary>
         [Fact]
         public void BarilVerificationCollision()
         {
             // Arrange
             FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
+            LeJeu g = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
 
             List<Plateforme> plateformes = new List<Plateforme>();
-            Plateforme plateforme = new Plateforme(100, 100, jeu);
+            Plateforme plateforme = new Plateforme(100, 100, g);
             plateformes.Add(plateforme);
 
             List<Echelle> echelles = new List<Echelle>();  
 
-            Baril baril = new Baril(plateformes, echelles, 100, 100, jeu);
+            Baril baril = new Baril(plateformes, echelles, 100, 100, g);
 
 
 

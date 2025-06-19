@@ -19,24 +19,20 @@ namespace TestColision
         {
 
             FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
+            LeJeu g = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
 
             List<Plateforme> plateformes = new List<Plateforme>();
             List<Echelle> echelles = new List<Echelle>();
 
-            BouleFeu bouleFeu = new BouleFeu(plateformes, echelles, 100, 100, jeu);
-            Echelle echelle = new Echelle(150, 150, jeu);
+            BouleFeu bouleFeu = new BouleFeu(plateformes, echelles, 100, 100, g);
+            Echelle echelle = new Echelle(150, 150, g);
 
             
-            try
-            {
+           
                 bouleFeu.CollideEffect(echelle);
                 Assert.True(true); 
-            }
-            catch (Exception)
-            {
-                Assert.True(false);
-            }
+           
+           
         }
 
         /// <summary>
@@ -47,25 +43,24 @@ namespace TestColision
         {
 
             FakeScreen screen = new FakeScreen();
-            LeJeu jeu = new LeJeu(screen, "", "");
+            LeJeu g = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
 
             List<Plateforme> plateformes = new List<Plateforme>();
             List<Echelle> echelles = new List<Echelle>();
 
-            BouleFeu bouleFeu = new BouleFeu(plateformes, echelles, 100, 100, jeu);
+            BouleFeu bouleFeu = new BouleFeu(plateformes, echelles, 100, 100, g);
 
          
-            Plateforme plateforme = new Plateforme(150, 150, jeu);
+            Plateforme plateforme = new Plateforme(150, 150, g);
 
-            try
-            {
+           
+            
                 bouleFeu.CollideEffect(plateforme);
-            }
-            catch (Exception)
-            {
+          
+            
                 Assert.True(false); 
             }
 
         }
     }
-    }
+    

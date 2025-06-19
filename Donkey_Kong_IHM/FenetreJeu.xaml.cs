@@ -88,7 +88,7 @@ namespace Donkey_Kong_IHM
                 // Afficher les vies
                 labelValeurVies.Content = jeu.Joueur.NbVie.ToString();
 
-                // MODIFIÉ : Utiliser le MeilleurScore depuis Parametres
+                // Utiliser le MeilleurScore depuis Parametres
                 labelValeurMeilleurScore.Content = jeu.MeilleurScore.ToString();
                 canvas.Focus();
 
@@ -99,23 +99,13 @@ namespace Donkey_Kong_IHM
         /// </summary>
         private void AfficherHighScore()
         {
-            if (jeu != null && jeu.Parametres != null)
-            {
+            if (jeu != null)
                 labelValeurMeilleurScore.Content = jeu.Parametres.MeilleurScore.ToString();
-            }
         }
 
-        /// <summary>
-        /// Nettoie les ressources lors de la fermeture
-        /// </summary>
-        protected override void OnClosed(EventArgs e)
-        {
-            timerScore?.Stop();
-            base.OnClosed(e);
-        }
+       
     }
-}
-    
+}    
     
     
     
