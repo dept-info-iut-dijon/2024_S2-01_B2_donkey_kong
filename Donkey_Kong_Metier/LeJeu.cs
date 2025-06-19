@@ -16,11 +16,13 @@ namespace Donkey_Kong_Metier
     public class LeJeu : Game
     {
         #region Attributs
+        private Joueur joueur;
 
         #endregion
 
+       
         #region Propriétés
-
+    
         /// <summary>
         /// Paramètres du jeu
         /// </summary>
@@ -52,7 +54,15 @@ namespace Donkey_Kong_Metier
                 this.BackgroundVolume = value;
             }
         }
+        public int MeilleurScore
+        {
+            get { return Parametres.MeilleurScore; }
+        }
 
+        public Joueur Joueur
+        {
+            get { return joueur; }
+        }
         #endregion
 
         #region Constructeur
@@ -68,7 +78,7 @@ namespace Donkey_Kong_Metier
         public LeJeu(IScreen screen, string spritesFolder, string soundsFolder, Langues langue = Langues.Français, int fps = 50) : base(screen, spritesFolder, soundsFolder, fps)
         {
             Parametres = Parametres.Charger();
-            ScoreJeu = new Score();
+        
         }
 
         /// <summary>
@@ -183,21 +193,18 @@ namespace Donkey_Kong_Metier
             Echelle echelle5 = new Echelle(baseX - 150, baseY - 400, this);
             echelles.Add(echelle5);
             AddItem(echelle5);
-
+            if (joueur == null)
+            {
+                joueur = new Joueur(baseX - 450, baseY - 30, this, plateformes, echelles, 2);
+                AddItem(joueur);
+            }
             for (int i = 0; i < 3; i++)
             {
                 Baril baril = new Baril(plateformes, echelles, baseX - 360 + (i * 40), y - 15, this);
                 AddItem(baril);
             }
 
-            // Créer le joueur avec les références aux plateformes et échelles
-            GameItem[] list = this.ListItems();
-            //eviter l'apparition d'un 2eme joueur en allant dans les parametres
-            if (!list.OfType<Joueur>().Any())
-            {
-                Joueur mario = new Joueur(baseX - 450, baseY - 30, this, plateformes, echelles, 2);
-                AddItem(mario);
-            }
+           
 
             DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 40, this);
             AddItem(donkeyKong);
@@ -216,7 +223,14 @@ namespace Donkey_Kong_Metier
         /// </summary>
         protected override void RunWhenWin()
         {
-            throw new NotImplementedException();
+            if (joueur != null)
+            {
+                // Bonus de victoire
+                joueur.AjouterPoints(1000);
+
+                // Vérifier si c'est un nouveau record
+                bool nouveauRecord = Parametres.VerifierNouveauRecord(joueur.ScoreActuel);
+            }
         }
 
         /// <summary>
@@ -224,7 +238,11 @@ namespace Donkey_Kong_Metier
         /// </summary>
         protected override void RunWhenLoose()
         {
-            throw new NotImplementedException();
+            if (joueur != null)
+            {
+                // Vérifier si c'est un nouveau record même en cas de défaite
+                bool nouveauRecord = Parametres.VerifierNouveauRecord(joueur.ScoreActuel);
+            }
         }
 
         #endregion

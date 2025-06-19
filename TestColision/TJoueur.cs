@@ -68,7 +68,7 @@ namespace TestColision
                     else
                     {
                         TheGame.RemoveItem(other);
-                        score.AjouterScore(100);
+                        score.AjouterPoints(100);
                     }
                 }
                 // je chekc le type marteau
@@ -80,7 +80,7 @@ namespace TestColision
                 }
                 else if (other.TypeName == "princesse")
                 {
-                    score.AjouterScore(5000);
+                    score.AjouterPoints(5000);
                     //j'appelle pas win car je veux esquiver NotImplementedException dans les tests
                    
                 }

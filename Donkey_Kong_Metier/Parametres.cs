@@ -51,6 +51,11 @@ namespace Donkey_Kong_Metier
         private string toucheSaut = "Espace";
 
         /// <summary>
+        /// meilleur score du jeu
+        /// </summary>
+        private int meilleurScore = 0;
+        
+        /// <summary>
         /// Fichier dans lequel les paramètres seront sauvegardés 
         /// et depuis lequel on pourra charger des paramètres
         /// </summary>
@@ -150,26 +155,60 @@ namespace Donkey_Kong_Metier
                 Sauvegarder();
             }
         }
-
+        /// <summary>
+        ///  Accès au meilleur score
+        /// </summary>
+        public int MeilleurScore
+        {
+            get { return meilleurScore; }
+            private set
+            {
+                meilleurScore = value;
+                Sauvegarder();
+            }
+        }
 
         #endregion
 
         #region Méthodes
+
+
         /// <summary>
-        /// Sauvegarde les paramètres dans un fichier texte
+        ///Vérifie si un score est un nouveau record
         /// </summary>
+        /// <param name="nouveauScore">Score à vérifier</param>
+        /// <returns>True si c'est un nouveau record</returns>
+        public bool VerifierNouveauRecord(int nouveauScore)
+        {
+            if (nouveauScore > meilleurScore)
+            {
+                MeilleurScore = nouveauScore;
+                return true;
+            }
+            return false;
+        }
+
+
+        /// <summary>
+        /// Sauvegarde les paramètres dans un fichier texte et score 
+        /// </summary>
+
+
+
         public void Sauvegarder()
         {
-            using (StreamWriter writer = new StreamWriter(fichierSauvegarde))
-            {
-                writer.WriteLine($"Langue={Langue}");
-                writer.WriteLine($"Volume={Volume.ToString().Replace(',', '.')}");
-                writer.WriteLine($"ToucheGauche={ToucheGauche}");
-                writer.WriteLine($"ToucheDroite={ToucheDroite}");
-                writer.WriteLine($"ToucheHaut={ToucheHaut}");
-                writer.WriteLine($"ToucheBas={ToucheBas}");
-                writer.WriteLine($"ToucheSaut={ToucheSaut}");
-            }
+              using (StreamWriter writer = new StreamWriter(fichierSauvegarde))
+                {
+                    writer.WriteLine($"Langue={Langue}");
+                    writer.WriteLine($"Volume={Volume.ToString().Replace(',', '.')}");
+                    writer.WriteLine($"ToucheGauche={ToucheGauche}");
+                    writer.WriteLine($"ToucheDroite={ToucheDroite}");
+                    writer.WriteLine($"ToucheHaut={ToucheHaut}");
+                    writer.WriteLine($"ToucheBas={ToucheBas}");
+                    writer.WriteLine($"ToucheSaut={ToucheSaut}");
+                    writer.WriteLine($"MeilleurScore={MeilleurScore}"); 
+                }
+             
         }
 
         public static Parametres Charger()
@@ -219,6 +258,12 @@ namespace Donkey_Kong_Metier
                             case "ToucheSaut":
                                 p.toucheSaut = valeur;
                                 break;
+                            case "MeilleurScore": 
+                                if (int.TryParse(valeur, out int score))
+                                    p.meilleurScore = score;
+                                break;
+
+
                         }
                     }
                 }

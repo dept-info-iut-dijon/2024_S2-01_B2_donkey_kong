@@ -4,46 +4,62 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Donkey_Kong_Metier
-{
+{/// <summary>
+ /// Classe avec le score d'un joueur d
+ /// Permet de gérer l'accumulation des points et leur affichage
+ /// </summary>
     public class Score
     {
-        #region --attributs--
-        //score obtenu par le joueur
-        private int scoreFinal;
+        #region Attributs
+        private int scoreActuel;
         #endregion
 
-        #region --Propriété--
-        public int ScoreFinal { get { return scoreFinal; } }
-        #endregion
-
-        #region --Constructeur
+        #region Propriétés
         /// <summary>
-        /// Constructeur pour initialiser le score du joueur
+        /// Score actuel du joueur
         /// </summary>
+        public int ScoreActuel
+        {
+            get { return scoreActuel; }
+            set { scoreActuel = value; }
+        }
+        #endregion
+
+        #region Constructeur
+       
         public Score()
         {
-            scoreFinal = 0;
+            scoreActuel = 0;
+        }
+
+        public Score(int scoreInitial)
+        {
+            scoreActuel = scoreInitial;
         }
         #endregion
 
-        #region --Méthodes--    
+        #region Méthodes
         /// <summary>
-        /// Méthode qui sert à jouter un score au joueur en fonction de ses actions
+        /// Ajoute des points au score
         /// </summary>
-        /// <param name="score"></param>
-        public void AjouterScore(int score)
+        public void AjouterPoints(int points)
         {
-            scoreFinal += score;
+            if (points > 0)
+            {
+                scoreActuel += points;
+            }
         }
 
-        /// <summary>
-        /// Représentation textuelle du score
-        /// </summary>
-        /// <returns>Chaîne formatée</returns>
+        public void ReinitialiserScore()
+        {
+            scoreActuel = 0;
+        }
+
         public override string ToString()
         {
-            return ScoreFinal + " points";
+            return scoreActuel.ToString();
         }
         #endregion
     }

@@ -39,7 +39,7 @@ namespace DonkeyKongMetier
         // Attributs du jeu
         private int nbVie = 3;
         //score du joueur
-        private Score score;
+        private Score monScore;
 
         private Game game;
         //determine si le joueur peut grimper
@@ -65,7 +65,7 @@ namespace DonkeyKongMetier
 
         public int Score
         {
-            get { return score.ScoreFinal ; }
+            get { return monScore?.ScoreActuel ?? 0; }
         }
 
         public int NbVie
@@ -78,6 +78,14 @@ namespace DonkeyKongMetier
         public double TempsMarteau
         { 
             get { return tempsMarteau; }
+        }
+        public Score MonScore
+        {
+            get { return monScore; }
+        }
+        public int ScoreActuel
+        {
+            get { return monScore.ScoreActuel; }
         }
         #endregion
 
@@ -99,17 +107,36 @@ namespace DonkeyKongMetier
             this.plateformes = plateformes;
             this.echelles = echelles;
             Collidable = true;
-            score = new Score();
+            monScore = new Score();
         }
         #endregion
 
-       
+
 
         #region --Méthodes--
+
+
+
+
+
         /// <summary>
         /// Animation du joueur
         /// </summary>
         /// <param name="dt">Temps écoulé depuis la dernière frame</param>
+        public void AjouterPoints(int points)
+        {
+            if (monScore == null)
+            {
+                Console.WriteLine("ERREUR : monScore est null, initialisation...");
+                monScore = new Score();
+            }
+
+            Console.WriteLine($"Ajout de {points} points. Score avant: {monScore.ScoreActuel}");
+            monScore.AjouterPoints(points);
+            Console.WriteLine($"Score après: {monScore.ScoreActuel}");
+        }
+
+
         public void Animate(TimeSpan dt)
         {
             // Vérification des collisions avec les plateformes et échelles
@@ -352,6 +379,8 @@ namespace DonkeyKongMetier
             /// <param name="other">Objet avec lequel il y a collision</param>
         public override void CollideEffect(GameItem other)
         {
+            if (other == null)
+                return;
             Console.WriteLine("Collision avec : " + other.TypeName);
             if (other.TypeName =="baril" || other.TypeName =="BouleFeu"|| other.TypeName == "DonkeyKong")
             {
@@ -365,23 +394,36 @@ namespace DonkeyKongMetier
                 }
                 else
                 {
-                    game.RemoveItem(other);
-                    score.AjouterScore(100);
-                }
+                    if (other.Collidable)
+                    {
+                        other.Collidable = false;
+                        AjouterPoints(300);
+                        game.RemoveItem(other);
+                    }
+                    }
             }
             else if (other.TypeName =="marteau")
             {
-                Console.WriteLine("Marteau ramassé");
-                aMarteau = true;
-                tempsMarteau = 0;
-                game.RemoveItem(other);
-                ChangeSprite("mario_marteau_droite.png");
-            }
+                if (other.Collidable)
+                {
+                    other.Collidable = false;
+                    Console.WriteLine("Marteau ramassé");
+                    aMarteau = true;
+                    tempsMarteau = 0;
+                    AjouterPoints(100);
+                    game.RemoveItem(other);
+                    ChangeSprite("mario_marteau_droite.png");
+                }
+                }
             else if (other.TypeName =="princesse")
             {
-                score.AjouterScore(5000);
-                game.Win();
-            }
+                if (other.Collidable) // Épour ne pas la sauver plusiseur fois
+                {
+                    other.Collidable = false;
+                    AjouterPoints(5000);
+                    game.Win();
+                }
+                }
 
             
         }

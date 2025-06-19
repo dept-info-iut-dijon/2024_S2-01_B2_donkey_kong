@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Donkey_Kong_IHM
 {
@@ -24,7 +25,7 @@ namespace Donkey_Kong_IHM
     public partial class FenetreJeu : Window
     {
         private LeJeu jeu;
-
+        private DispatcherTimer timerScore;
         /// <summary>
         /// Contient le code c# de la fenetre dans lequel va se passer le jeu
         /// </summary>
@@ -39,8 +40,12 @@ namespace Donkey_Kong_IHM
             canvas.Focusable = true;
             canvas.Focus();
 
-            jeu.Run();
+
             InitialiserLangue();
+            InitialiserTimerScore();
+            AfficherHighScore();
+
+            jeu.Run();
         }
 
         private void InitialiserLangue()
@@ -60,5 +65,55 @@ namespace Donkey_Kong_IHM
             jeu.Pause();
             parametre.Show();
         }
+        /// <summary>
+        /// Initialise le timer pour la mise à jour de l'affichage
+        /// </summary>
+        private void InitialiserTimerScore()
+        {
+            timerScore = new DispatcherTimer();
+            timerScore.Interval = TimeSpan.FromMilliseconds(100); // Mise à jour toutes les 100ms
+            timerScore.Tick += MettreAJourAffichage;
+            timerScore.Start();
+        }
+        /// <summary>
+        /// Met à jour l'affichage des scores et vies
+        /// </summary>
+        private void MettreAJourAffichage(object sender, EventArgs e)
+        {
+            if (jeu?.Joueur?.MonScore != null)
+            {
+                // Afficher le score actuel
+                labelValeurScore.Content = jeu.Joueur.MonScore.ScoreActuel.ToString();
+
+                // Afficher les vies
+                labelValeurVies.Content = jeu.Joueur.NbVie.ToString();
+
+                // MODIFIÉ : Utiliser le MeilleurScore depuis Parametres
+                labelValeurMeilleurScore.Content = jeu.MeilleurScore.ToString();
+            }
+        }
+        /// <summary>
+        /// Affiche le meilleur score
+        /// </summary>
+        private void AfficherHighScore()
+        {
+            if (jeu != null && jeu.Parametres != null)
+            {
+                labelValeurMeilleurScore.Content = jeu.Parametres.MeilleurScore.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Nettoie les ressources lors de la fermeture
+        /// </summary>
+        protected override void OnClosed(EventArgs e)
+        {
+            timerScore?.Stop();
+            base.OnClosed(e);
+        }
     }
 }
+    
+    
+    
+    
