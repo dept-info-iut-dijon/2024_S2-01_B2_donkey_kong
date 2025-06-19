@@ -28,12 +28,17 @@ namespace Donkey_Kong_Metier
         #endregion
 
         #region Constructeur
-       
+        /// <summary>
+        /// Obtient ou définit le score actuel du joueur
+        /// </summary>
+        /// <value>Le score actuel sous forme d'entier</value>
         public Score()
         {
             scoreActuel = 0;
         }
-
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe Score avec un score de 0
+        /// </summary>
         public Score(int scoreInitial)
         {
             scoreActuel = scoreInitial;
@@ -51,12 +56,16 @@ namespace Donkey_Kong_Metier
                 scoreActuel += points;
             }
         }
-
+        /// <summary>
+        /// Remet le score à zéro
+        /// </summary>
         public void ReinitialiserScore()
         {
             scoreActuel = 0;
         }
-
+        /// <summary>
+        /// Retourne une représentation textuelle du score
+        /// </summary>
         public override string ToString()
         {
             return scoreActuel.ToString();
