@@ -26,6 +26,11 @@ namespace Donkey_Kong_Metier.Items
         /// </summary>
         private List<Plateforme> plateformes;
 
+        /// <summary>
+        /// Attribut pour gérer le temps entre les déplacements
+        /// </summary>
+        private TimeSpan timeToAnimate;
+
         #endregion
 
         #region Constructeur
@@ -34,6 +39,7 @@ namespace Donkey_Kong_Metier.Items
             Collidable = true;
             this.echelles = e;
             this.plateformes = p;
+            timeToAnimate = new TimeSpan(0,0,0,0, 80);
         }
         #endregion
 
@@ -55,18 +61,18 @@ namespace Donkey_Kong_Metier.Items
         /// <param name="dt"></param>
         public void Animate(TimeSpan dt)
         {
+            timeToAnimate -= dt;
+            Random rand = new Random();
+            int randomNumber = rand.Next(3);
 
-            Random aleatoire = new Random();
-            int randomNumber = aleatoire.Next(2);
-
-            if (VerificationCollisionPlateformes(plateformes))
+            if (VerificationCollisionPlateformes())
             {
-                if (VerificationCollisionEscalier(echelles))
+                if (VerificationCollisionEscalier())
                 {
                     
                     switch (randomNumber)
                     {
-                        case 1:
+                        case 1 :
                             MoveXY(0, -2);
                             MoveXY(0, -2);
                             MoveXY(0, -2);
@@ -80,14 +86,21 @@ namespace Donkey_Kong_Metier.Items
                 }
                 else
                 {
-                    switch (randomNumber)
+                    if (timeToAnimate.Milliseconds < 0)
                     {
-                        case 1:
-                            MoveXY(1, 0);
-                            break;
-                        case 2:
-                            MoveXY(-4, 0);
-                            break;
+                        switch (randomNumber)
+                        {
+                            case 0:
+                            case 1:
+                                MoveXY(5, 0);
+                                ChangeSprite("feu_bas_gauche.png");
+                                break;
+                            case 2:
+                                MoveXY(-5, 0);
+                                ChangeSprite("feu_bas_droite.png");
+                                break;
+                        }
+                        timeToAnimate = new TimeSpan(0, 0, 0, 0, 80);
                     }
                 }
             }
@@ -117,7 +130,7 @@ namespace Donkey_Kong_Metier.Items
         /// </summary> 
         /// <param name="plateformes"></param>
         /// <returns></returns>
-        public bool VerificationCollisionPlateformes(List<Plateforme> plateformes)
+        public bool VerificationCollisionPlateformes()
         {
             bool res = false;
             foreach (Plateforme p in plateformes)
@@ -135,7 +148,7 @@ namespace Donkey_Kong_Metier.Items
         /// </summary> 
         /// <param name="echelles"></param>
         /// <returns></returns>
-        public bool VerificationCollisionEscalier(List<Echelle> echelles)
+        public bool VerificationCollisionEscalier()
         {
             bool res = false;
             foreach (Echelle e in echelles)
