@@ -8,7 +8,18 @@
         Title="FenetreLoose" Height="400" Width="600">
     <Grid Background="Black">
         <Image Source="/Ressources/Image/Loose/Donkey_Kong_defaite.png" Margin="323,156,-69,0"/>
-        <Label Content="Défaite" FontSize="40" Foreground="Beige" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image Source="/Ressources/Image/Loose/defaiteClashRoyal.png" Margin="116,-36,116,160"/>
+        <Label Content="Défaite" FontSize="40" Foreground="Beige" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,192,0,0"/>
         <Button Margin="202,283,202,46" Content="Fermer le jeu" FontSize="25" RenderTransformOrigin="0.514,0.745" Background="Beige" Click="FermerJeu"/>
+        <Image Source="/Ressources/Image/Loose/Donkey_Kong_defaite.png" Margin="-4,156,317,0" RenderTransformOrigin="1.476,0.573">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-560.224"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </Window>
