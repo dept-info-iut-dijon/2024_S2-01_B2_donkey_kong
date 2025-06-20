@@ -18,7 +18,7 @@ namespace DonkeyKongMetier
         #region --Attributs--
         // Constantes pour le mouvement
         private const double VitesseDeplacement = 3.0;
-        private const double VitesseSaut = -8.0; // Vitesse initiale du saut (négatif = vers le haut)
+        private const double VitesseSaut = -3.5; // Vitesse initiale du saut (négatif = vers le haut)
         private const double Gravite = 0.3; // Force de gravité
         private const double VitesseMaxChute = 10.0; // Vitesse maximale de chute
 
@@ -298,7 +298,7 @@ namespace DonkeyKongMetier
         {
             // Vérification si on est au sol
             auSol = false;
-            foreach (var plateforme in plateformes)
+            foreach (Plateforme plateforme in plateformes)
             {
                 // On considère qu'on est au sol si on est juste au-dessus d'une plateforme
                 if (Bottom >= plateforme.Top - 5 && Bottom <= plateforme.Top + 5 &&
@@ -319,10 +319,10 @@ namespace DonkeyKongMetier
             peutMonterEchelle = false;
             peutDescendreEchelle = false;
 
-            foreach (var echelle in echelles)
+            foreach (Echelle echelle in echelles)
             {
                 // Vérifier si le joueur est aligné avec l'échelle (horizontalement)
-                if (Left < echelle.Right - 10 && Right > echelle.Left + 10)
+                if ((Left <= (echelle.Right + 10)) && (Right > (echelle.Left - 10)))
                 {
                     // Vérifier si on peut monter
                     if (Bottom > echelle.Top && Top < echelle.Bottom)
