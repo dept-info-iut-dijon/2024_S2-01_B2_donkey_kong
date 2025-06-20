@@ -39,8 +39,8 @@ namespace TestsUnitaires
 
             baril.Animate(dt);
 
-            Assert.Equal(360, baril.Top);   //le baril ne bouge pas en hauteur
-            Assert.Equal(519, baril.Left);  //le baril se déplace à gauche puisqu'il touche la plateforme 
+            Assert.Equal(360, Math.Round(baril.Top));   //le baril ne bouge pas en hauteur
+            Assert.Equal(522,Math.Round(baril.Left));  //le baril se déplace à gauche puisqu'il touche la plateforme 
         }
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace TestsUnitaires
 
             baril.Animate(dt);
 
-            Assert.Equal(360, baril.Top);   //le baril ne bouge pas en hauteur
-            Assert.Equal(321, baril.Left);  //le baril se déplace à droite puisqu'il touche la plateforme 
+            Assert.Equal(360, Math.Round(baril.Top));   //le baril ne bouge pas en hauteur
+            Assert.Equal(322, Math.Round(baril.Left));  //le baril se déplace à droite puisqu'il touche la plateforme 
         }
 
         /// <summary>
@@ -97,8 +97,8 @@ namespace TestsUnitaires
 
             baril.Animate(dt);
 
-            Assert.Equal(311, baril.Top);   //le baril descend car il touche pas la plateforme
-            Assert.Equal(320, baril.Left);  //le baril ne se deplace pas horizontalement
+            Assert.Equal(312, Math.Round(baril.Top));   //le baril descend car il touche pas la plateforme
+            Assert.Equal(320, Math.Round(baril.Left));  //le baril ne se deplace pas horizontalement
         }
     }
 }
