@@ -13,7 +13,7 @@ namespace Donkey_Kong_Metier
     /// </summary>
     public class Parametres
     {
-        #region Attributs
+        #region--Attributs--
 
         /// <summary>
         /// Langues du jeu (Francais par défaut)
@@ -63,10 +63,10 @@ namespace Donkey_Kong_Metier
 
         #endregion
 
-        #region Propriétés
+        #region--Propriétés--
 
         /// <summary>
-        /// Accès à la langue du jeu
+        /// Propriété de la langue du jeu
         /// </summary>
         public Langues Langue 
         { 
@@ -79,7 +79,7 @@ namespace Donkey_Kong_Metier
         }
 
         /// <summary>
-        /// Accès au volume sonore du jeu
+        /// Propriété du volume sonore du jeu
         /// </summary>
         public double Volume
         {
@@ -92,7 +92,7 @@ namespace Donkey_Kong_Metier
         }
 
         /// <summary>
-        /// Accès à la touche gauche
+        /// Propriété de la touche gauche
         /// </summary>
         public string ToucheGauche
         {
@@ -105,7 +105,7 @@ namespace Donkey_Kong_Metier
         }
 
         /// <summary>
-        /// Accès à la touche droite
+        /// Propriété de la touche droite
         /// </summary>
         public string ToucheDroite
         {
@@ -118,7 +118,7 @@ namespace Donkey_Kong_Metier
         }
 
         /// <summary>
-        /// Accès à la touche haut
+        /// Propriété de la touche haut
         /// </summary>
         public string ToucheHaut
         {
@@ -131,7 +131,7 @@ namespace Donkey_Kong_Metier
         }
 
         /// <summary>
-        /// Accès à la touche bas
+        /// Propriété de la touche bas
         /// </summary>
         public string ToucheBas
         {
@@ -144,7 +144,7 @@ namespace Donkey_Kong_Metier
         }
 
         /// <summary>
-        /// Accès à la touche saut
+        /// Propriété de la touche saut
         /// </summary>
         public string ToucheSaut
         {
@@ -156,7 +156,7 @@ namespace Donkey_Kong_Metier
             }
         }
         /// <summary>
-        ///  Accès au meilleur score
+        ///  Propriété de meilleur score
         /// </summary>
         public int MeilleurScore
         {
@@ -170,11 +170,11 @@ namespace Donkey_Kong_Metier
 
         #endregion
 
-        #region Méthodes
+        #region--Méthodes--
 
 
         /// <summary>
-        ///Vérifie si un score est un nouveau record
+        /// Vérifie si un score est un nouveau record
         /// </summary>
         /// <param name="nouveauScore">Score à vérifier</param>
         /// <returns>True si c'est un nouveau record</returns>
@@ -192,9 +192,6 @@ namespace Donkey_Kong_Metier
         /// <summary>
         /// Sauvegarde les paramètres dans un fichier texte et score 
         /// </summary>
-
-
-
         public void Sauvegarder()
         {
               using (StreamWriter writer = new StreamWriter(fichierSauvegarde))
@@ -211,6 +208,10 @@ namespace Donkey_Kong_Metier
              
         }
 
+        /// <summary>
+        /// Charger le fichier de sauvegarde
+        /// </summary>
+        /// <returns>Les parametres du jeu</returns>
         public static Parametres Charger()
         {
             Parametres p = new Parametres();

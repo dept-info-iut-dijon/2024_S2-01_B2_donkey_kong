@@ -15,7 +15,7 @@ namespace DonkeyKongMetier
     /// </summary>
     public class Joueur : GameItem, IAnimable, IKeyboardInteract
     {
-        #region Attributs
+        #region --Attributs--
         // Constantes pour le mouvement
         private const double VitesseDeplacement = 3.0;
         private const double VitesseSaut = -8.0; // Vitesse initiale du saut (négatif = vers le haut)
@@ -57,12 +57,18 @@ namespace DonkeyKongMetier
 
         #endregion
 
-        #region Propriétés
+        #region --Propriétés--
+        /// <summary>
+        /// Propriété pour savoir si on a le marteau
+        /// </summary>
         public bool AMarteau
         {
             get { return aMarteau; }
         }
 
+        /// <summary>
+        /// Propriété pour le score
+        /// </summary>
         public int Score
         {
             get
@@ -78,28 +84,44 @@ namespace DonkeyKongMetier
             }
         }
 
+        /// <summary>
+        /// Propriété pour acceder au nombre de vie du joueur
+        /// </summary>
         public int NbVie
         {
             get { return nbVie; }
         }
 
+        /// <summary>
+        /// Propriété acceder au type de la classe (joueur)
+        /// </summary>
         public override string TypeName => "Joueur";
 
+        /// <summary>
+        /// Propriété pour acceder a la gestion du temps du marteau
+        /// </summary>
         public double TempsMarteau
         { 
             get { return tempsMarteau; }
         }
+        /// <summary>
+        /// Propriété pour acceder au score
+        /// </summary>
         public Score MonScore
         {
             get { return monScore; }
         }
+
+        /// <summary>
+        /// Propriété pour acceder au score de la partie en cours
+        /// </summary>
         public int ScoreActuel
         {
             get { return monScore.ScoreActuel; }
         }
         #endregion
 
-        #region Constructeur
+        #region--Constructeur--
         /// <summary>
         /// Constructeur du joueur
         /// </summary>
@@ -140,7 +162,10 @@ namespace DonkeyKongMetier
             Console.WriteLine($"Score après: {monScore.ScoreActuel}");
         }
 
-
+        /// <summary>
+        /// Méthode pour choisir le sprite selon les différentes action utilisateur
+        /// </summary>
+        /// <param name="dt"></param>
         public void Animate(TimeSpan dt)
         {
             // Vérification des collisions avec les plateformes et échelles
@@ -318,7 +343,7 @@ namespace DonkeyKongMetier
         }
         #endregion
 
-        #region Gestion du clavier
+        #region--Gestion du clavier--
         /// <summary>
         /// Gestion de l'appui sur une touche
         /// </summary>
@@ -376,11 +401,11 @@ namespace DonkeyKongMetier
         }
         #endregion
 
-        #region Collision
-            /// <summary>
-            /// Collision avec les autres objets
-            /// </summary>
-            /// <param name="other">Objet avec lequel il y a collision</param>
+        #region--Collision--
+        /// <summary>
+        /// Collision avec les autres objets
+        /// </summary>
+        /// <param name="other">Objet avec lequel il y a collision</param>
         public override void CollideEffect(GameItem other)
         {
             if (!other.Collidable)

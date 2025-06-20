@@ -12,13 +12,14 @@ namespace Donkey_Kong_Metier
  /// </summary>
     public class Score
     {
-        #region Attributs
+        #region--Attributs--
+        //Score actuel du joueur
         private int scoreActuel;
         #endregion
 
-        #region Propriétés
+        #region--Propriétés--
         /// <summary>
-        /// Score actuel du joueur
+        /// Propriété pour le score actuel du joueur
         /// </summary>
         public int ScoreActuel
         {
@@ -27,9 +28,9 @@ namespace Donkey_Kong_Metier
         }
         #endregion
 
-        #region Constructeur
+        #region--Constructeur--
         /// <summary>
-        /// Obtient ou définit le score actuel du joueur
+        /// Définit le score actuel du joueur a 0
         /// </summary>
         /// <value>Le score actuel sous forme d'entier</value>
         public Score()
@@ -37,7 +38,7 @@ namespace Donkey_Kong_Metier
             scoreActuel = 0;
         }
         /// <summary>
-        /// Initialise une nouvelle instance de la classe Score avec un score de 0
+        /// Initialise une nouvelle instance de la classe Score avec un score qu'on choisit
         /// </summary>
         public Score(int scoreInitial)
         {
@@ -45,7 +46,7 @@ namespace Donkey_Kong_Metier
         }
         #endregion
 
-        #region Méthodes
+        #region--Méthodes--
         /// <summary>
         /// Ajoute des points au score
         /// </summary>
@@ -63,6 +64,7 @@ namespace Donkey_Kong_Metier
         {
             scoreActuel = 0;
         }
+
         /// <summary>
         /// Retourne une représentation textuelle du score
         /// </summary>

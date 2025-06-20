@@ -15,13 +15,12 @@ namespace Donkey_Kong_Metier
     /// </summary>
     public class LeJeu : Game
     {
-        #region Attributs
+        #region--Attributs--
+        //Le joueur
         private Joueur joueur;
-
         #endregion
-
        
-        #region Propriétés
+        #region--Propriétés--
     
         /// <summary>
         /// Paramètres du jeu
@@ -34,7 +33,7 @@ namespace Donkey_Kong_Metier
         public Score ScoreJeu { get; set; }
 
         /// <summary>
-        /// Renvoie la langue du jeu
+        /// Propriété de la langue du jeu
         /// </summary>
         public Langues Langue
         {
@@ -54,36 +53,42 @@ namespace Donkey_Kong_Metier
                 this.BackgroundVolume = value;
             }
         }
+
+        /// <summary>
+        /// Propiété pour le meilleur score
+        /// </summary>
         public int MeilleurScore
         {
             get { return Parametres.MeilleurScore; }
         }
 
+        /// <summary>
+        /// Propriété pour le joueur
+        /// </summary>
         public Joueur Joueur
         {
             get { return joueur; }
         }
         #endregion
 
-        #region Constructeur
+        #region--Constructeur--
 
         /// <summary>
         /// Constructeur du jeu qui prend un écran, le fichier des images, fichier des sons, et la langue si autre que française et fps si modification
         /// </summary>
-        /// <param name="screen"></param>
-        /// <param name="spritesFolder"></param>
-        /// <param name="soundsFolder"></param>
-        /// <param name="langue"></param>
-        /// <param name="fps"></param>
+        /// <param name="screen">L'ecran du jeu</param>
+        /// <param name="spritesFolder">La ou sont les sprites</param>
+        /// <param name="soundsFolder">La ou sont les sons</param>
+        /// <param name="langue">langue du jeu</param>
+        /// <param name="fps">fps du jeu</param>
         public LeJeu(IScreen screen, string spritesFolder, string soundsFolder, Langues langue = Langues.Français, int fps = 50) : base(screen, spritesFolder, soundsFolder, fps)
         {
             Parametres = Parametres.Charger();
         
         }
+        #endregion
 
-        /// <summary>
-        /// Initiation des items du jeu
-        /// </summary>
+        #region--Méthodes--
         /// <summary>
         /// Initiation des items du jeu
         /// </summary>
@@ -230,11 +235,6 @@ namespace Donkey_Kong_Metier
             PlayBackgroundMusic("bacmusic.wav");
             BackgroundVolume = Parametres.Volume;
         }
-
-
-        #endregion
-
-        #region Méthodes
 
         /// <summary>
         /// Méthode exécutée quand le joueur gagne
