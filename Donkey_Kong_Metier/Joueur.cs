@@ -18,7 +18,7 @@ namespace Donkey_Kong_Metier
         #region --Attributs--
         // Constantes pour le mouvement
         private const double VitesseDeplacement = 3.0;
-        private const double VitesseSaut = -3.5; // Vitesse initiale du saut (négatif = vers le haut)
+        private const double VitesseSaut = -4.5; // Vitesse initiale du saut (négatif = vers le haut)
         private const double Gravite = 0.3; // Force de gravité
         private const double VitesseMaxChute = 10.0; // Vitesse maximale de chute
 
