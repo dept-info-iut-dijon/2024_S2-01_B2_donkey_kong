@@ -95,6 +95,8 @@ namespace Donkey_Kong_Metier
             double baseX = this.Screen.Width + 520;
 
             double y = baseY;
+
+
             for (int i = 0; i < 9; i++)
             {
                 Plateforme pSol = new Plateforme(baseX - 570 + (i * 100), y, this);
@@ -102,40 +104,44 @@ namespace Donkey_Kong_Metier
                 AddItem(pSol);
             }
 
+
             y -= 80;
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 8; i++)
             {
                 Plateforme p1 = new Plateforme(baseX - 570 + (i * 100), y, this);
                 plateformes.Add(p1);
                 AddItem(p1);
             }
 
+
             y -= 80;
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 8; i++)
             {
-                Plateforme p2 = new Plateforme(baseX - 570 + (i * 100), y, this);
+                Plateforme p2 = new Plateforme(baseX - 470 + (i * 100), y, this);
                 plateformes.Add(p2);
                 AddItem(p2);
             }
 
+
             y -= 80;
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 8; i++)
             {
                 Plateforme p3 = new Plateforme(baseX - 570 + (i * 100), y, this);
                 plateformes.Add(p3);
                 AddItem(p3);
             }
 
+
             y -= 80;
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 8; i++)
             {
-                Plateforme p4 = new Plateforme(baseX - 570 + (i * 100), y, this);
+                Plateforme p4 = new Plateforme(baseX - 470 + (i * 100), y, this);
                 plateformes.Add(p4);
                 AddItem(p4);
             }
 
             y -= 80;
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 8; i++)
             {
                 Plateforme pSommet = new Plateforme(baseX - 570 + (i * 100), y, this);
                 plateformes.Add(pSommet);
@@ -148,85 +154,82 @@ namespace Donkey_Kong_Metier
             TonneauHuile tonneauHuile = new TonneauHuile(baseX - 450, baseY - 30, this);
             AddItem(tonneauHuile);
 
-            
+
             Marteau marteau1 = new Marteau(baseX - 200, baseY - 40, this);
             AddItem(marteau1);
 
-            Marteau marteau2 = new Marteau(baseX - 300, baseY - 120, this); 
+            Marteau marteau2 = new Marteau(baseX - 300, baseY - 120, this);
             AddItem(marteau2);
 
-            Marteau marteau3 = new Marteau(baseX - 150, baseY - 280, this); 
+            Marteau marteau3 = new Marteau(baseX - 150, baseY - 280, this);
             AddItem(marteau3);
 
-           
-            List<Echelle> echelles = new List<Echelle>(); 
+
+            List<Echelle> echelles = new List<Echelle>();
             List<Echelle> echellesCassees = new List<Echelle>();
 
-           
+
             void CreerEchelle(double x, double yBas, double yHaut, bool estComplete = true)
             {
-                
-                double distance = yBas - yHaut;
-                int nbSegments = (int)Math.Round(distance / 12); 
 
-    
+                double distance = yBas - yHaut;
+                int nbSegments = (int)Math.Round(distance / 12);
+
+
                 double startY = yBas - 10;
 
                 for (int j = 0; j < nbSegments; j++)
                 {
-                    
+
                     if (!estComplete && (j >= 2 && j <= 4))
                     {
-                        continue; 
+                        continue;
                     }
 
                     Echelle echelle = new Echelle(x, startY - (j * 12), this);
 
                     if (estComplete)
                     {
-                        echelles.Add(echelle); 
+                        echelles.Add(echelle);
                     }
                     else
                     {
-                        echellesCassees.Add(echelle); 
+                        echellesCassees.Add(echelle);
                     }
 
                     AddItem(echelle);
                 }
             }
 
-         
+
+   
             CreerEchelle(baseX - 350, baseY, baseY - 80, true);
-            CreerEchelle(baseX - 550, baseY, baseY - 80, false);
-            CreerEchelle(baseX - 150, baseY, baseY - 80, false); 
-            CreerEchelle(baseX + 50, baseY, baseY - 80, false);  
+            CreerEchelle(baseX - 150, baseY, baseY - 80, false);
+            CreerEchelle(baseX + 50, baseY, baseY - 80, false);
 
-           
-            CreerEchelle(baseX - 200, baseY - 80, baseY - 160, true);  
-            CreerEchelle(baseX - 500, baseY - 80, baseY - 160, false); 
-            CreerEchelle(baseX + 100, baseY - 80, baseY - 160, false); 
+   
+            CreerEchelle(baseX - 200, baseY - 80, baseY - 160, true);
+            CreerEchelle(baseX - 70, baseY - 80, baseY - 160, false);
 
-           
+
             CreerEchelle(baseX - 400, baseY - 160, baseY - 240, true);
-            CreerEchelle(baseX - 550, baseY - 160, baseY - 240, false); 
-            CreerEchelle(baseX - 250, baseY - 160, baseY - 240, false); 
-            CreerEchelle(baseX - 100, baseY - 160, baseY - 240, false); 
-            CreerEchelle(baseX + 50, baseY - 160, baseY - 240, false);  
+            CreerEchelle(baseX - 250, baseY - 160, baseY - 240, false);
+            CreerEchelle(baseX - 100, baseY - 160, baseY - 240, false);
+            CreerEchelle(baseX + 50, baseY - 160, baseY - 240, false);
 
-    
-            CreerEchelle(baseX - 250, baseY - 240, baseY - 320, true);  
-            CreerEchelle(baseX - 450, baseY - 240, baseY - 320, false); 
-            CreerEchelle(baseX - 50, baseY - 240, baseY - 320, false); 
 
-           
-            CreerEchelle(baseX - 300, baseY - 320, baseY - 400, true);  
-            CreerEchelle(baseX - 500, baseY - 320, baseY - 400, false); 
-            CreerEchelle(baseX - 100, baseY - 320, baseY - 400, false); 
-            CreerEchelle(baseX + 100, baseY - 320, baseY - 400, false); 
+            CreerEchelle(baseX - 350, baseY - 240, baseY - 320, true);
+            CreerEchelle(baseX - 150, baseY - 240, baseY - 320, false);
+
+
+            CreerEchelle(baseX - 300, baseY - 320, baseY - 400, true);
+            CreerEchelle(baseX - 100, baseY - 320, baseY - 400, false);
+            CreerEchelle(baseX + 100, baseY - 320, baseY - 400, false);
 
             if (joueur == null)
             {
-                joueur = new Joueur(baseX - 450, baseY - 30, this, plateformes, echelles, 2);
+
+                joueur = new Joueur(baseX - 520, baseY - 30, this, plateformes, echelles, 2);
                 AddItem(joueur);
             }
 
@@ -236,7 +239,7 @@ namespace Donkey_Kong_Metier
                 AddItem(baril);
             }
 
-            DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 30, this); 
+            DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 30, this);
             AddItem(donkeyKong);
 
             PlayBackgroundMusic("bacmusic.wav");
