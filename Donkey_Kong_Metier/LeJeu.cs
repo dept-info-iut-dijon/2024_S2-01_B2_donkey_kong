@@ -96,14 +96,13 @@ namespace Donkey_Kong_Metier
 
             double y = baseY;
 
-
+            // Création des plateformes (inchangé)
             for (int i = 0; i < 9; i++)
             {
                 Plateforme pSol = new Plateforme(baseX - 570 + (i * 100), y, this);
                 plateformes.Add(pSol);
                 AddItem(pSol);
             }
-
 
             y -= 80;
             for (int i = 0; i < 8; i++)
@@ -113,7 +112,6 @@ namespace Donkey_Kong_Metier
                 AddItem(p1);
             }
 
-
             y -= 80;
             for (int i = 0; i < 8; i++)
             {
@@ -122,7 +120,6 @@ namespace Donkey_Kong_Metier
                 AddItem(p2);
             }
 
-
             y -= 80;
             for (int i = 0; i < 8; i++)
             {
@@ -130,7 +127,6 @@ namespace Donkey_Kong_Metier
                 plateformes.Add(p3);
                 AddItem(p3);
             }
-
 
             y -= 80;
             for (int i = 0; i < 8; i++)
@@ -151,9 +147,9 @@ namespace Donkey_Kong_Metier
             Princesse princesse = new Princesse(baseX - 50, y - 20, this);
             AddItem(princesse);
 
-            TonneauHuile tonneauHuile = new TonneauHuile(baseX - 450, baseY - 30, this);
-            AddItem(tonneauHuile);
 
+            TonneauHuile tonneauHuile = new TonneauHuile(baseX - 450, baseY - 22, this);
+            AddItem(tonneauHuile);
 
             Marteau marteau1 = new Marteau(baseX - 200, baseY - 40, this);
             AddItem(marteau1);
@@ -164,23 +160,18 @@ namespace Donkey_Kong_Metier
             Marteau marteau3 = new Marteau(baseX - 150, baseY - 280, this);
             AddItem(marteau3);
 
-
             List<Echelle> echelles = new List<Echelle>();
             List<Echelle> echellesCassees = new List<Echelle>();
 
-
             void CreerEchelle(double x, double yBas, double yHaut, bool estComplete = true)
             {
-
                 double distance = yBas - yHaut;
                 int nbSegments = (int)Math.Round(distance / 12);
-
 
                 double startY = yBas - 10;
 
                 for (int j = 0; j < nbSegments; j++)
                 {
-
                     if (!estComplete && (j >= 2 && j <= 4))
                     {
                         continue;
@@ -202,25 +193,20 @@ namespace Donkey_Kong_Metier
             }
 
 
-   
             CreerEchelle(baseX - 350, baseY, baseY - 80, true);
             CreerEchelle(baseX - 150, baseY, baseY - 80, false);
             CreerEchelle(baseX + 50, baseY, baseY - 80, false);
 
-   
             CreerEchelle(baseX - 200, baseY - 80, baseY - 160, true);
             CreerEchelle(baseX - 70, baseY - 80, baseY - 160, false);
-
 
             CreerEchelle(baseX - 400, baseY - 160, baseY - 240, true);
             CreerEchelle(baseX - 250, baseY - 160, baseY - 240, false);
             CreerEchelle(baseX - 100, baseY - 160, baseY - 240, false);
             CreerEchelle(baseX + 50, baseY - 160, baseY - 240, false);
 
-
             CreerEchelle(baseX - 350, baseY - 240, baseY - 320, true);
             CreerEchelle(baseX - 150, baseY - 240, baseY - 320, false);
-
 
             CreerEchelle(baseX - 300, baseY - 320, baseY - 400, true);
             CreerEchelle(baseX - 100, baseY - 320, baseY - 400, false);
@@ -228,8 +214,7 @@ namespace Donkey_Kong_Metier
 
             if (joueur == null)
             {
-
-                joueur = new Joueur(baseX - 520, baseY - 30, this, plateformes, echelles, 2);
+                joueur = new Joueur(baseX - 500, baseY - 30, this, plateformes, echelles, 2);
                 AddItem(joueur);
             }
 
