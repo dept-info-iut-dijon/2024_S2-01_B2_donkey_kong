@@ -127,7 +127,7 @@ namespace Donkey_Kong_IHM
 
                 // Utiliser le MeilleurScore depuis Parametres
                 labelValeurMeilleurScore.Content = jeu.MeilleurScore.ToString();
-                canvas.Focus();
+
 
             }
         }
