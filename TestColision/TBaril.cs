@@ -63,7 +63,7 @@ namespace TestColision
 
 
 
-            bool resultat = baril.VerificationCollisionPlateformes(plateformes);
+            bool resultat = baril.VerificationCollisionPlateformes();
 
           
             Assert.True(resultat);

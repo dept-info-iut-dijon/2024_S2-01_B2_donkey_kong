@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Donkey_Kong_Metier;
-using DonkeyKongMetier;
 using IUTGame;
 
 namespace Donkey_Kong_Metier.Items

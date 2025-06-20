@@ -1,6 +1,5 @@
 ﻿using Donkey_Kong_Metier.Items;
 using Donkey_Kong_Metier;
-using DonkeyKongMetier;
 using IUTGame;
 using TestsMouvement;
 

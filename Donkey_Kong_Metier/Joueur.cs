@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace DonkeyKongMetier
+namespace Donkey_Kong_Metier
 {
     /// <summary>
     /// Classe représentant le joueur
