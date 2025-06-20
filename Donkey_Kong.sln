@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donkey_Kong_IHM", "Donkey_K
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donkey_Kong_Metier", "Donkey_Kong_Metier\Donkey_Kong_Metier.csproj", "{305AC027-5000-4DF8-977D-53AD845E0B2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donkey_Kong_VM", "Donkey_Kong_VM\Donkey_Kong_VM.csproj", "{5212D533-8E95-4A23-A706-E3A6ABC2D1DD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsMouvement", "TestsMouvement\TestsMouvement.csproj", "{65EB32EF-B20B-43BD-80FB-F7F108D77B2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestParametres", "TestParametres\TestParametres.csproj", "{502227CA-38D5-4E23-9DC5-8AB431B5BE73}"
@@ -29,10 +27,6 @@ Global
 		{305AC027-5000-4DF8-977D-53AD845E0B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{305AC027-5000-4DF8-977D-53AD845E0B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{305AC027-5000-4DF8-977D-53AD845E0B2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5212D533-8E95-4A23-A706-E3A6ABC2D1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5212D533-8E95-4A23-A706-E3A6ABC2D1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5212D533-8E95-4A23-A706-E3A6ABC2D1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5212D533-8E95-4A23-A706-E3A6ABC2D1DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{65EB32EF-B20B-43BD-80FB-F7F108D77B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{65EB32EF-B20B-43BD-80FB-F7F108D77B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65EB32EF-B20B-43BD-80FB-F7F108D77B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
