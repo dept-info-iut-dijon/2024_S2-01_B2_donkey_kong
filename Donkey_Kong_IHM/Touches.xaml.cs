@@ -39,7 +39,6 @@ namespace Donkey_Kong_IHM
             InitializeComponent();
             parametres = Parametres.Charger();
             InitialiserLangue();
-            InitialiserComboBoxes();
         }
 
         private void InitialiserLangue()
@@ -55,108 +54,50 @@ namespace Donkey_Kong_IHM
         }
 
         /// <summary>
-        /// Initialise les ComboBoxes avec les touches disponibles
-        /// </summary>
-        private void InitialiserComboBoxes()
-        {
-            // Touches disponibles : A, Z, Q, S, D, Space, Enter
-            string[] touchesPossibles = new string[]
-            {
-                "A", "Z", "Q", "S", "D", "Space", "Enter"
-            };
-
-            RemplirComboBox(comboGauche, touchesPossibles, parametres.ToucheGauche);
-            RemplirComboBox(comboDroite, touchesPossibles, parametres.ToucheDroite);
-            RemplirComboBox(comboHaut, touchesPossibles, parametres.ToucheHaut);
-            RemplirComboBox(comboBas, touchesPossibles, parametres.ToucheBas);
-            RemplirComboBox(comboSaut, touchesPossibles, parametres.ToucheSaut);
-        }
-
-        /// <summary>
-        /// Remplit une ComboBox avec des éléments et sélectionne la valeur actuelle
-        /// </summary>
-        private void RemplirComboBox(ComboBox comboBox, string[] touches, string valeurActuelle)
-        {
-            comboBox.Items.Clear();
-
-            foreach (string t in touches)
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = t;
-                comboBox.Items.Add(item);
-
-                // Sélectionner l'item si c'est la valeur actuelle
-                if (t == valeurActuelle)
-                {
-                    comboBox.SelectedItem = item;
-                }
-            }
-
-            // Si aucune sélection, prendre le premier élément
-            if (comboBox.SelectedItem == null && comboBox.Items.Count > 0)
-            {
-                comboBox.SelectedIndex = 0;
-            }
-        }
-
-        /// <summary>
         /// Événement quand on change la touche "Aller à gauche"
         /// </summary>
-        private void Tgauche(object sender, SelectionChangedEventArgs e)
+        private void Tgauche(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem item = comboGauche.SelectedItem as ComboBoxItem;
-            if (item != null)
-            {
-                parametres.ToucheGauche = item.Content.ToString();
-            }
-        }
+            comboGauche.Content = "Veuillez appuyer sur une touche";
 
+            //Key key = Key.();
+            //ManageKey("moveLeft", key);
+        }
         /// <summary>
         /// Événement quand on change la touche "Aller à droite"
         /// </summary>
-        private void Tdroite(object sender, SelectionChangedEventArgs e)
+        private void Tdroite(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem item = comboDroite.SelectedItem as ComboBoxItem;
-            if (item != null)
-            {
-                parametres.ToucheDroite = item.Content.ToString();
-            }
+            
         }
 
         /// <summary>
         /// Événement quand on change la touche "Grimper à l'échelle"
         /// </summary>
-        private void Thaut(object sender, SelectionChangedEventArgs e)
+        private void Thaut(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem item = comboHaut.SelectedItem as ComboBoxItem;
-            if (item != null)
-            {
-                parametres.ToucheHaut = item.Content.ToString();
-            }
+            
         }
 
         /// <summary>
         /// Événement quand on change la touche "Descendre l'échelle"
         /// </summary>
-        private void Tbas(object sender, SelectionChangedEventArgs e)
+        private void Tbas(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem item = comboBas.SelectedItem as ComboBoxItem;
-            if (item != null)
-            {
-                parametres.ToucheBas = item.Content.ToString();
-            }
+            
         }
 
         /// <summary>
         /// Événement quand on change la touche "Sauter"
         /// </summary>
-        private void Tsaut(object sender, SelectionChangedEventArgs e)
+        private void Tsaut(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem item = comboSaut.SelectedItem as ComboBoxItem;
-            if (item != null)
-            {
-                parametres.ToucheSaut = item.Content.ToString();
-            }
+            
+        }
+
+        private void ManageKey(string mouv, ConsoleKeyInfo touche)
+        {
+            Content = mouv;
         }
     }
 }

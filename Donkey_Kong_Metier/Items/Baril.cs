@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Donkey_Kong_Metier;
-using DonkeyKongMetier;
+using Donkey_Kong_Metier;
 using IUTGame;
 
 namespace Donkey_Kong_Metier.Items
@@ -53,9 +53,10 @@ namespace Donkey_Kong_Metier.Items
         private bool enTrainDescendre;
 
         /// <summary>
-        /// Compteur pour le nombre de mouvement qu'il faut pour descendre l'échelle
+        /// Attribut pour mettre un delai et ensuite faire comme s'il y avait plus d'échelle
         /// </summary>
-        private int cpt;
+        private TimeSpan delaiBugEchelle ;
+
         #endregion
 
 
@@ -88,8 +89,8 @@ namespace Donkey_Kong_Metier.Items
             sensGauche = true;
             enTrainDescendre = false;
             timeToAnimate = new TimeSpan(0, 0, 0, 0, 100);
-            cpt = 0;
             delaiEchelle = new TimeSpan(0, 0, 0, 0, 0);
+            delaiBugEchelle = new TimeSpan(0, 0, 0, 0, 0);
         }
 
         #endregion
@@ -101,108 +102,129 @@ namespace Donkey_Kong_Metier.Items
         /// <param name="dt"></param>
         public void Animate(TimeSpan dt)
         {
-            Random generateur = new Random();
-            
-            //partie mouvement
-            if ((enTrainDescendre) && (cpt < 15))
-            {
-                if (cpt == 0)
-                {
-                    int randomSens = generateur.Next(0, 3);
-                    //2 chance sur 3 pour changer de sens
-                    switch (randomSens)
-                    {
-                        case 2:
-                        case 0:
-                            sensGauche = !sensGauche;
-                            break;
-                    }
-                }
-                MoveXY(0, 2.2);
-                cpt += 1;
-            }
-            else
-            {
-                if (delaiEchelle.TotalMilliseconds > 0)
-                {
-                    delaiEchelle -= dt;
-                }
-                else 
-                {
-                    cpt = 0;
-                    enTrainDescendre = false;
-                    if (VerificationCollisionEscalier())
-                    {
-                        //2 chance sur 3 de descendre les échelles
-                        int randomEchelle = generateur.Next(0, 3);
-                        switch (randomEchelle)
-                        {
-                            case 1:
-                            case 0:
-                                enTrainDescendre = true;
-                                this.ChangeSprite("baril.png");
-                                if (sensGauche)
-                                {
-                                    this.MoveXY(2, 0);
-                                }
-                                else
-                                {
-                                    this.MoveXY(-2, 0);
-                                }
-                                break;
-                            case 2:
-                                enTrainDescendre = false;
-                                delaiEchelle = new TimeSpan(0, 0, 0, 15);
-                                if (sensGauche)
-                                {
-                                    this.MoveXY(2, 0);
-                                }
-                                else
-                                {
-                                    this.MoveXY(-2, 0);
-                                }
-                                break;
-                        }
-                    }
-                }
-                if (VerificationCollisionPlateformes())
-                {
-                    //partie animation (sans mouvement)
-                    durationToAnimate -= dt;
-                    timeToAnimate -= dt;
-                    if (timeToAnimate.TotalMilliseconds < 0)
-                    {
-                        this.ChangeSprite("baril_face.png");
-                        timeToAnimate = new TimeSpan(0, 0, 0, 0, 200);
-                        durationToAnimate = new TimeSpan(0, 0, 0, 0, 100);
-                    }
-                    else if (durationToAnimate.TotalMilliseconds < 0)
-                    {
-                        this.ChangeSprite("baril_face1.png");
-                    }
+            Random generateur = new Random(Guid.NewGuid().GetHashCode()); 
 
-                    //partie mouvement
+            if ((this.Left > TheGame.Screen.Width-20) || (this.Left < -TheGame.Screen.Width+785))
+            {
+                int randomSens = generateur.Next(0, 3);
+                //2 chance sur 3 pour changer de sens et 1chance sur 3 de se détruire 
+                switch (randomSens)
+                {
+                    case 2:
+                    case 1:
+                    sensGauche = !sensGauche;
                     if (sensGauche)
                     {
-                        this.MoveXY(1.6, 0);
+                        this.MoveXY(2, 0);
                     }
                     else
                     {
-                        this.MoveXY(-1.6, 0);
+                        this.MoveXY(-2, 0);
                     }
+                    break;
+                case 0:
+                    TheGame.RemoveItem(this);
+                    break;
                 }
-                else
+            }
+            else
+            {
+                //partie mouvement
+                if (delaiBugEchelle.TotalMilliseconds > 0)
                 {
+                    delaiBugEchelle -= dt;
+                    if (enTrainDescendre)
+                    {
+                        enTrainDescendre = false;
+                        int randomSens = generateur.Next(0, 3);
+                        //2 chance sur 3 pour changer de sens
+                        switch (randomSens)
+                        {
+                            case 2:
+                            case 0:
+                                sensGauche = !sensGauche;
+                                break;
+                        }
+                    }
                     this.ChangeSprite("baril.png");
                     MoveXY(0, 2.2);
                 }
+                else
+                {
+                    if (delaiEchelle.TotalMilliseconds > 0)
+                    {
+                        delaiEchelle -= dt;
+                    }
+                    else
+                    {
+                        if (VerificationCollisionEscalier())
+                        {
+                            if (sensGauche)
+                            {
+                                this.MoveXY(2, 0);
+                            }
+                            else
+                            {
+                                this.MoveXY(-2, 0);
+                            }
+                            //2 chance sur 3 de descendre les échelles
+                            int randomEchelle = generateur.Next(0, 3);
+                            switch (randomEchelle)
+                            {
+                                case 1:
+                                case 0:
+                                    this.ChangeSprite("baril.png");
+                                    enTrainDescendre = true;
+                                    delaiBugEchelle = new TimeSpan(0,0,0,0,400);
+                                    delaiEchelle = new TimeSpan(0, 0, 0, 30);
 
+                                    break;
+                                case 2:
+                                    enTrainDescendre = false;
+                                    delaiEchelle = new TimeSpan(0, 0, 0, 15);
+                                    break;
+                            }
+                        }
+                    }
+                    if (VerificationCollisionPlateformes())
+                    {
+                        //partie animation (sans mouvement)
+                        durationToAnimate -= dt;
+                        timeToAnimate -= dt;
+                        if (timeToAnimate.TotalMilliseconds < 0)
+                        {
+                            this.ChangeSprite("baril_face.png");
+                            timeToAnimate = new TimeSpan(0, 0, 0, 0, 200);
+                            durationToAnimate = new TimeSpan(0, 0, 0, 0, 100);
+                        }
+                        else if (durationToAnimate.TotalMilliseconds < 0)
+                        {
+                            this.ChangeSprite("baril_face1.png");
+                        }
+
+                        //partie mouvement
+                        if (sensGauche)
+                        {
+                            this.MoveXY(1.6, 0);
+                        }
+                        else
+                        {
+                            this.MoveXY(-1.6, 0);
+                        }
+                    }
+                    else
+                    {
+                        this.ChangeSprite("baril.png");
+                        MoveXY(0, 2.2);
+                    }
+
+                }
+
+                // Le baril descend et roule
+                // implémenter logique de mouvement 
             }
-            
-            // Le baril descend et roule
-            // implémenter logique de mouvement 
-        }
 
+        }
         /// <summary>
         /// Méthode implémentant les conséquences lorsqu'un barril touche autre chose
         /// </summary>

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DonkeyKongMetier;
+using System.Runtime.CompilerServices;
 
 namespace Donkey_Kong_Metier
 {
@@ -18,10 +18,34 @@ namespace Donkey_Kong_Metier
         #region--Attributs--
         //Le joueur
         private Joueur joueur;
+
+        /// <summary>
+        /// Indique si on a gagné
+        /// </summary>
+        private bool win;
+
+        /// <summary>
+        /// Indique si on a perdu
+        /// </summary>
+        private bool loose;
+
+        /// <summary>
+        /// Attribut pour détruire tout les barils quand Mario a perdu une vie
+        /// </summary>
+        private List<Baril> barils;
         #endregion
-       
+
         #region--Propriétés--
-    
+
+        /// <summary>
+        /// Renvoie si on a gagné
+        /// </summary>
+        public bool Win => win;
+
+        /// <summary>
+        /// Renvoie si on a perdu
+        /// </summary>
+        public bool Loose => loose;
         /// <summary>
         /// Paramètres du jeu
         /// </summary>
@@ -84,6 +108,9 @@ namespace Donkey_Kong_Metier
         public LeJeu(IScreen screen, string spritesFolder, string soundsFolder, Langues langue = Langues.Français, int fps = 50) : base(screen, spritesFolder, soundsFolder, fps)
         {
             Parametres = Parametres.Charger();
+            win = false;
+            loose = false;
+            barils = new List<Baril>();
         
         }
         #endregion
@@ -171,9 +198,9 @@ namespace Donkey_Kong_Metier
             void CreerEchelle(double x, double yBas, double yHaut, bool estComplete = true)
             {
                 double distance = yBas - yHaut;
-                int nbSegments = (int)Math.Round(distance / 12);
+                int nbSegments = (int)Math.Round(distance / 12) -1;
 
-                double startY = yBas - 10;
+                double startY = yBas - 22;
 
                 for (int j = 0; j < nbSegments; j++)
                 {
@@ -227,6 +254,7 @@ namespace Donkey_Kong_Metier
             {
                 Baril baril = new Baril(plateformes, echelles, baseX - 360 + (i * 40), y - 15, this);
                 AddItem(baril);
+                barils.Add(baril);
             }
 
             DonkeyKong donkeyKong = new DonkeyKong(plateformes, echelles, baseX - 400, y - 30, this);
@@ -247,6 +275,8 @@ namespace Donkey_Kong_Metier
                 joueur.AjouterPoints(1000);
                 // Vérifier si c'est un nouveau record
                 bool nouveauRecord = Parametres.VerifierNouveauRecord(joueur.ScoreActuel);
+                this.win = true;
+                
             }
         }
 
@@ -261,7 +291,28 @@ namespace Donkey_Kong_Metier
                 bool nouveauRecord = Parametres.VerifierNouveauRecord(joueur.ScoreActuel);
                 if(joueur.NbVie>1)
                     this.InitItems();
+                this.loose = true;
             }
+        }
+
+        /// <summary>
+        /// Méthode pour gérer le cas où mario perd une vie
+        /// </summary>
+        public void PerdreVie()
+        {
+            foreach (Baril b in barils)
+            {
+                this.RemoveItem(b);
+            }
+        }
+
+        /// <summary>
+        /// ¨Permet d'ajouter des baril dans la liste
+        /// </summary>
+        /// <param name="b"></param>
+        public void AjouterBaril(Baril b)
+        {
+            barils.Add(b);
         }
 
         #endregion

@@ -1,6 +1,5 @@
 ﻿using Donkey_Kong_Metier;
 using Donkey_Kong_Metier.Items;
-using DonkeyKongMetier;
 using IUTGame;
 using System;
 using System.Collections.Generic;
@@ -9,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xunit;
-namespace TestsMouvement
+
+namespace TestsUnitaires
 {
     /// <summary>
     /// Test des méthodes du joueur

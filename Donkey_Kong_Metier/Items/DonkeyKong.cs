@@ -34,8 +34,13 @@ namespace Donkey_Kong_Metier.Items
         /// </summary>
         private List<Plateforme> plateformes;
 
+        /// <summary>
+        /// Contient le jeu
+        /// </summary>
+        private LeJeu game;
         #endregion
 
+        #region Constructeur
         /// <summary>
         /// Constructeur de DOnkeyKong
         /// </summary>
@@ -44,14 +49,34 @@ namespace Donkey_Kong_Metier.Items
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="game"></param>
-        public DonkeyKong(List<Plateforme> p, List<Echelle> e, double x, double y, Game game) : base(x, y, game, "singe_debout.png", 1)
+        public DonkeyKong(List<Plateforme> p, List<Echelle> e, double x, double y, LeJeu game) : base(x, y, game, "singe_debout.png", 1)
         {
+            this.game = game;
             Collidable = true;
-            timeToCreate = new TimeSpan(0, 0, 2);
+            timeToCreate = new TimeSpan(0, 0, 0, 1);
             timeToUpdateLancer = new TimeSpan(0, 0, 0, 1, 800);
             plateformes = p;
             echelles = e;
         }
+
+        #endregion
+
+        #region -- Propriétés -- 
+
+        /// <summary>
+        /// Prorpiétés renvoyant le type name donkey_kong
+        /// </summary>
+        public override string TypeName
+        {
+            get
+            {
+                return "donkey_kong";
+            }
+        }
+
+        #endregion
+
+        #region -- Méthodes --
 
         /// <summary>
         /// Animation de Donkey Kong
@@ -71,31 +96,15 @@ namespace Donkey_Kong_Metier.Items
             {
                 this.ChangeSprite("singe_debout.png");
                 Random r = new Random();
-                Baril baril = new Baril(plateformes, echelles,GameWidth-620 , GameHeight-480, TheGame);
+                Baril baril = new Baril(plateformes, echelles, GameWidth - 620, GameHeight - 480, TheGame);
+                game.AjouterBaril(baril);
                 TheGame.AddItem(baril);
-                double ms = r.NextDouble() * 5000 + 1000;
+                double ms = r.NextDouble() * 1500 + 1000;
                 timeToCreate = new TimeSpan(0, 0, 0, 0, (int)ms);
-                TimeSpan t = new TimeSpan(0, 0, 0, 0, 200); 
+                TimeSpan t = new TimeSpan(0, 0, 0, 0, 200);
                 timeToUpdateLancer = timeToCreate.Subtract(t);
             }
         }
-
-        #region -- Propriétés -- 
-
-        /// <summary>
-        /// Prorpiétés renvoyant le type name donkey_kong
-        /// </summary>
-        public override string TypeName
-        {
-            get
-            {
-                return "donkey_kong";
-            }
-        }
-
-        #endregion
-
-        #region -- Méthodes --
 
         /// <summary>
         /// L'effet des collision avec les game item 

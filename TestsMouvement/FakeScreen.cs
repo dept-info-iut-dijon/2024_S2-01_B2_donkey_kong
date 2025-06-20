@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestsMouvement
+namespace TestsUnitaires
 {
     /// <summary>
     /// Classe FakeScreen afin de faire les tests unitaires

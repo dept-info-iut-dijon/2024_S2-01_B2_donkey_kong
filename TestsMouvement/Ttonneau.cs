@@ -5,7 +5,7 @@ using IUTGame.WPF;
 using System.Windows.Controls;
 using Xunit;
 
-namespace TestsMouvement
+namespace TestsUnitaires
 {
 
     /// <summary>

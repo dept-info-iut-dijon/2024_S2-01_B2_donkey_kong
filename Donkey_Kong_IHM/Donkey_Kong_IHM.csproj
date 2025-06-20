@@ -17,6 +17,7 @@
     <None Remove="Ressources\Image\acceuil\Logo2.png" />
     <None Remove="Ressources\Image\acceuil\Made_in.png" />
     <None Remove="Ressources\Image\baril.png" />
+    <None Remove="Ressources\Image\Loose\Donkey_Kong_defaite.png" />
     <None Remove="Ressources\Image\parametre\Barril_parametre.png" />
     <None Remove="Ressources\Image\parametre\carte1.png" />
     <None Remove="Ressources\Image\parametre\carte2.png" />
@@ -29,7 +30,11 @@
     <None Remove="Ressources\Image\Sprites\baril_2.png" />
     <None Remove="Ressources\Image\Sprites\baril_face.png" />
     <None Remove="Ressources\Image\Sprites\baril_face1.png" />
+    <None Remove="Ressources\Image\Sprites\ehcelle %281%29.png" />
+    <None Remove="Ressources\Image\Sprites\ehcelle%281%29.png" />
     <None Remove="Ressources\Image\Sprites\ehcelle.png" />
+    <None Remove="Ressources\Image\Sprites\ehcelle1.png" />
+    <None Remove="Ressources\Image\Sprites\ehcelle2.png" />
     <None Remove="Ressources\Image\Sprites\feu_bas_droite.png" />
     <None Remove="Ressources\Image\Sprites\feu_bas_gauche.png" />
     <None Remove="Ressources\Image\Sprites\feu_droite.png" />
@@ -92,6 +97,11 @@
     <None Remove="Ressources\Image\touches\DKC-FINAL-IMAGE-scaled-removebg-preview.png" />
     <None Remove="Ressources\Image\touches\Donkey-Kong.png" />
     <None Remove="Ressources\Image\touches\troisBanane.png" />
+    <None Remove="Ressources\Image\Win\confetti.jpg" />
+    <None Remove="Ressources\Image\Win\confetti.png" />
+    <None Remove="Ressources\Image\Win\Donkey_Kong_victoire.png" />
+    <None Remove="Ressources\Image\Win\VictoireClashRoyal.png" />
+    <None Remove="Ressources\Image\Win\VictoireClashRoyal2.png" />
     <None Remove="Ressources\Son\bacmusic.wav" />
     <None Remove="Ressources\Son\death.wav" />
     <None Remove="Ressources\Son\hammer.wav" />
@@ -127,6 +137,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ressources\Image\acceuil\Made_in.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\Loose\Donkey_Kong_defaite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ressources\Image\parametre\Barril_parametre.png">
@@ -169,6 +182,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ressources\Image\Sprites\ehcelle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\Sprites\ehcelle2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ressources\Image\Sprites\feu_bas_droite.png">
@@ -343,6 +359,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ressources\Image\Sprites\tremplin_utiliser.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\Win\confetti.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\Win\Donkey_Kong_victoire.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Image\Win\VictoireClashRoyal2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ressources\Son\bacmusic.wav">

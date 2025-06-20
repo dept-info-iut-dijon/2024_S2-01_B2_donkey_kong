@@ -12,11 +12,15 @@ namespace Donkey_Kong_Metier.Items
     /// </summary>
     public class Echelle : GameItem
     {
-        public Echelle(double x, double y, Game game) : base(x, y, game, "ehcelle.png", 0)
+        #region Constructeur
+        public Echelle(double x, double y, Game game) : base(x, y, game, "ehcelle2.png", 0)
         {
             Collidable = false; // Les échelles ne bloquent pas le mouvement
         }
 
+        #endregion
+
+        #region Propriété
         public override string TypeName
         {
             get
@@ -25,10 +29,16 @@ namespace Donkey_Kong_Metier.Items
             }
         }
 
+        #endregion
+
+        #region Méthodes
+
         public override void CollideEffect(GameItem other)
         {
             // Les échelles n'ont pas d'effet de collision direct
             // C'est le joueur qui gère sa capacité à grimper quand il touche une échelle
         }
+
+        #endregion
     }
 }

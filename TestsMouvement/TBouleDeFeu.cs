@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace TestsMouvement
+namespace TestsUnitaires
 {
     /// <summary>
     /// Classe pour faire les tests unitaires des déplacements de la boule de feu
@@ -27,7 +27,6 @@ namespace TestsMouvement
             LeJeu g = new LeJeu(screen, "Ressources/Image/Sprites", "Ressources/Son");
             TimeSpan dt = new TimeSpan();
             g.Run();
-            g.StopBackgroundMusic();
 
             List<Plateforme> plateformes = new List<Plateforme>();
             List<Echelle> echelles = new List<Echelle>();

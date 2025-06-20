@@ -42,8 +42,9 @@ namespace Donkey_Kong_IHM
 
 
             InitialiserLangue();
-            InitialiserTimerScore();
+            InitialiserTimerScoreEtVerificationWinOrLoose();
             AfficherHighScore();
+
 
             jeu.Run();
         }
@@ -68,12 +69,48 @@ namespace Donkey_Kong_IHM
         /// <summary>
         /// Initialise le timer pour la mise à jour de l'affichage
         /// </summary>
-        private void InitialiserTimerScore()
+        private void InitialiserTimerScoreEtVerificationWinOrLoose()
         {
             timerScore = new DispatcherTimer();
             timerScore.Interval = TimeSpan.FromMilliseconds(100); // Mise à jour toutes les 100ms
             timerScore.Tick += MettreAJourAffichage;
+            timerScore.Tick += MettreAJourWin;
+            timerScore.Tick += MettreAJourLoose;
             timerScore.Start();
+        }
+
+
+        /// <summary>
+        /// Teste si on a gagné et si oui lance la win
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void MettreAJourWin(object sender, EventArgs e)
+        {
+            if (jeu.Win)
+            {
+                FenetreWin fenetreWin = new FenetreWin();
+                fenetreWin.Show();
+                this.Close();
+                timerScore.Stop();
+            }
+            
+        }
+
+        /// <summary>
+        /// Teste si on a pardu et si oui lance la fenetre perdu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void MettreAJourLoose(object sender, EventArgs e)
+        {
+            if (jeu.Loose)
+            {
+                FenetreLoose fenetreperdu = new FenetreLoose();
+                fenetreperdu.Show();
+                this.Close();
+                timerScore.Stop();
+            }
         }
         /// <summary>
         /// Met à jour l'affichage des scores et vies

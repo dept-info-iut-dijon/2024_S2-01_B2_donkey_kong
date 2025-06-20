@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace DonkeyKongMetier
+namespace Donkey_Kong_Metier
 {
     /// <summary>
     /// Classe représentant le joueur
@@ -41,7 +41,7 @@ namespace DonkeyKongMetier
         //score du joueur
         private Score monScore;
 
-        private Game game;
+        private LeJeu game;
         //determine si le joueur peut grimper
         private bool peutGrimper = false;
         //determine si le joeuur a un marteau
@@ -132,7 +132,7 @@ namespace DonkeyKongMetier
         /// <param name="plateformes">Liste des plateformes du niveau</param>
         /// <param name="echelles">Liste des échelles du niveau</param>
         /// <param name="zindex">Priorité d'affichage du sprite</param>
-        public Joueur(double x, double y, Game game, List<Plateforme> plateformes, List<Echelle> echelles, int zindex = 1)
+        public Joueur(double x, double y, LeJeu game, List<Plateforme> plateformes, List<Echelle> echelles, int zindex = 1)
             : base(x, y, game, "mario_debout_droite.png", zindex)
         {
             this.game = game;
@@ -424,6 +424,11 @@ namespace DonkeyKongMetier
                     {
                         game.Loose();
                     }
+                    else 
+                    {
+                        game.PerdreVie();
+                        PutXY(GameWidth - 670, GameHeight - 70);
+                    }
                 }
                 else
                 {
@@ -448,8 +453,6 @@ namespace DonkeyKongMetier
                 }
             else if (other.TypeName =="princesse")
             {
-              
-                
                     other.Collidable = false;
                     AjouterPoints(5000);
                     PlaySound("win1.wav");
